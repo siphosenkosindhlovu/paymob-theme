@@ -1,0 +1,67 @@
+{
+	"name": "theme_blank",
+	"version": "1.0.0",
+	"description": "Starter theme development setup",
+	"author": "Siphosenkosi Ndhlovu",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"WordPress",
+		"Theme"
+	],
+	"homepage": "https://github.com/Automattic/_s#readme",
+	"repository": "git+https://github.com/Automattic/_s.git",
+	"bugs": {
+		"url": "https://github.com/Automattic/_s/issues"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.10.3",
+		"@babel/preset-env": "^7.10.3",
+		"@babel/register": "^7.10.3",
+		"@wordpress/prettier-config": "^0.2.0",
+		"@wordpress/scripts": "^9.0.0",
+		"autoprefixer": "^9.8.2",
+		"babel-loader": "^8.1.0",
+		"browser-sync": "^2.26.7",
+		"del": "^5.1.0",
+		"dir-archiver": "^1.1.1",
+		"gulp": "^4.0.2",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-if": "^3.0.0",
+		"gulp-imagemin": "^7.1.0",
+		"gulp-postcss": "^8.0.0",
+		"gulp-replace": "^1.0.0",
+		"gulp-sass": "^4.1.0",
+		"gulp-sourcemaps": "^2.6.5",
+		"gulp-wp-pot": "^2.4.3",
+		"gulp-zip": "^5.0.1",
+		"node-sass": "^4.14.0",
+		"rtlcss": "^2.5.0",
+		"vinyl-named": "^1.1.0",
+		"webpack-stream": "^5.2.1"
+	},
+	"prettier": "@wordpress/prettier-config",
+	"rtlcssConfig": {
+		"options": {
+			"autoRename": false,
+			"autoRenameStrict": false,
+			"blacklist": {},
+			"clean": true,
+			"greedy": false,
+			"processUrls": false,
+			"stringMap": []
+		},
+		"plugins": [],
+		"map": false
+	},
+	"scripts": {
+		"start": "gulp",
+		"build": "gulp build --prod",
+		"watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+		"compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+		"compile:rtl": "rtlcss style.css style-rtl.css",
+		"lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
+		"lint:js": "wp-scripts lint-js 'js/*.js'",
+		"bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map"
+	},
+	"main": "index.js"
+}
