@@ -118,6 +118,16 @@ export const compress = () => {
 		'!gulpfile.babel.js',
 		'!package.json',
 		'!package-lock.json',
+		'!composer.json',
+		'!composer.lock',
+		'!phpcs.xml.dist',
+		'!yarn.lock',
+		'!.vscode',
+		'!.babelrc',
+		'!.eslintrc',
+		'!.prettierrc',
+		'!.stylelintrc.json',
+		'!.gitignore',
 	] )
 		.pipe(
 			gulpif(
