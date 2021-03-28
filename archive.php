@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package _theme
+ * @packagepaymob_
  */
 
 get_header();
