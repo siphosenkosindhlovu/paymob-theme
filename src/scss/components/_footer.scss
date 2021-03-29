@@ -1,0 +1,26 @@
+.footer {
+  &-widgets {
+    display: flex;
+  }
+  &-widget {
+    @extend .me-7;
+    @extend .mb-5;
+    &-header {
+      color: white;
+      @extend .fs-sm;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+    &-menu {
+      flex-direction: column;
+      a {
+        @extend .nav-link;
+        @extend .fs-sm;
+        color: white;
+        padding: 0;
+        margin-bottom: 1.25rem;
+      }
+    }
+  }
+}

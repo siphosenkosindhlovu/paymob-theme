@@ -1,0 +1,25 @@
+.article {
+  &-title {
+    @extend .fw-bold;
+    @extend .ff-base;
+    a {
+      text-decoration: inherit;
+      color: inherit;
+    }
+  }
+  &-author-thumb {
+    @extend .rounded-circle;
+    &-sm {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+    &-lg {
+      width: 4.375rem;
+      height: 4.375rem;
+    }
+    &-md {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}

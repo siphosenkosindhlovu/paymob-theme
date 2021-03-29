@@ -1,0 +1,212 @@
+@import "../../node_modules/bootstrap/scss/functions"; // Required
+@import "../../node_modules/bootstrap/scss/variables"; // Required
+@import "../../node_modules/bootstrap/scss/mixins"; // Required
+//colours
+$blue-light-1: #abc5ff;
+$blue-light-2: #5786ed;
+$blue: #2950af;
+$blue-dark: #11358b;
+$navy: #08243b;
+$orange: #ff5833;
+$light: #f8f8fa;
+$gray: #606060;
+$body-color: $gray;
+
+$primary: $blue;
+
+$custom-colors: (
+  "blue-light-1": $blue-light-1,
+  "blue-light-2": $blue-light-2,
+  "blue-dark": $blue-dark,
+  "accent": $orange,
+  "primary": $blue,
+  "navy": $navy,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$min-contrast-ratio:  3;
+
+$spacers: (
+  0: 0,
+  "0_5": $spacer * 0.25,
+  1: $spacer * 0.5,
+  "1_5": $spacer * 0.75,
+  2: $spacer * 0.875,
+  3: $spacer,
+  4: $spacer * 1.25,
+  5: $spacer * 1.5,
+  6: $spacer * 2,
+  7: $spacer * 2.25,
+  8: $spacer * 2.5,
+  9: $spacer * 2.75,
+  10: $spacer * 3,
+  13: $spacer * 3.75,
+  14: $spacer * 4,
+  17: $spacer * 4.75,
+  18: $spacer * 5,
+  22: $spacer * 6,
+  26: $spacer * 7,
+  29: $spacer * 7.75,
+  30: $spacer * 8,
+);
+
+//typography
+$font-family-sans-serif: "GT Walsheim Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+  "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  "Noto Color Emoji";
+$font-family-heading: "Gilroy-Extrabold", sans-serif;
+$font-size-base: 1rem;
+
+$h1-font-size: 4rem;
+$h2-font-size: 3em;
+$h3-font-size: 2rem;
+$h4-font-size: 1.5rem;
+$h5-font-size: 1.3125rem;
+$h6-font-size: $font-size-base;
+
+$font-sizes: (
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  tiny: 0.5rem,
+  xxs: 0.6875rem,
+  xs: 0.75rem,
+  sm: 0.875rem,
+  md: 1.125rem,
+  2md: 1.5rem,
+  lg: 2.2625rem,
+  xl: 3.5rem,
+);
+
+$headings-font-family: 'Gilroy-Extrabold', sans-serif;
+$headings-font-weight: normal;
+$headings-color: $blue;
+$headings-margin-bottom: 1.75rem;
+
+$line-height-base: 1.6875;
+
+$nav-link-font-size: map-get(
+  $map: $font-sizes,
+  $key: sm,
+);
+$nav-link-padding-y: 1.28125rem;
+$nav-link-padding-x: 1.25rem;
+$nav-link-color: $body-color;
+$nav-link-hover-color: $orange;
+
+$dropdown-link-hover-bg: rgba(96, 96, 96, 0.05);
+$enable-shadows: true;
+
+$border-radius-sm: 0.3125rem;
+$border-radius: 1.25rem;
+$border-radius-lg: 1.875rem;
+
+$btn-border-radius: 999px;
+$btn-padding-y: 0.675rem;
+$btn-padding-x: 1.5rem;
+
+$accordion-border-color: transparent;
+$accordion-button-padding-x: 0;
+$accordion-button-color: $blue;
+$accordion-button-bg: transparent;
+$accordion-button-active-bg: transparent;
+$accordion-button-active-color: $orange;
+$accordion-icon-width:  0.75rem;
+$accordion-button-icon:         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><line x1="0" y1="6" x2="12" y2="6" stroke="#{$accordion-button-color}" stroke-width="3" stroke-linecap="round"></line><line x1="6" y1="0" x2="6" y2="12" stroke="#{$accordion-button-color}" stroke-linecap="round" stroke-width="3"></line></svg>');
+$accordion-button-active-icon:  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><line x1="0" y1="6" x2="12" y2="6" stroke="#{$accordion-button-active-color}" stroke-width="3" stroke-linecap="round"></line></svg>');
+
+$card-border-radius: 1.25rem;
+$card-border-color: transparent;
+$card-border-width: 0;
+$card-spacer-y: 1.5rem;
+$card-spacer-x: 1.875rem;
+
+$grid-breakpoints: map-merge(
+  $grid-breakpoints,
+  (
+    xl: 1280px
+  )
+);
+
+$container-max-widths: map-merge(
+  $container-max-widths,
+  (
+    xl: 1248px
+  )
+);
+
+@import "../../node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "width":
+      map-merge(
+        map-get($utilities, "width"),
+        (
+          responsive: true,
+          values:
+            map-merge(
+              map-get(map-get($utilities, "width"), "values"),
+              (
+                77ch: 77ch,
+              )
+            ),
+        )
+      ),
+    "position":
+      map-merge(
+        map-get($utilities, "position"),
+        (
+          responsive: true,
+          values: map-get(map-get($utilities, "position"), "values"),
+        )
+      ),
+      "z-index": (
+        property: "z-index",
+        values : (
+          negative: -1,
+          auto: auto,
+        )
+      )
+  )
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+/* @import "../../node_modules/bootstrap/scss/reboot";  */ // Required
+/* @import "../../node_modules/bootstrap/scss/type";
+@import "../../node_modules/bootstrap/scss/images";
+//@import "../../node_modules/bootstrap/scss/code";
+@import "../../node_modules/bootstrap/scss/grid";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/transitions";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/button-group";
+//@import "../../node_modules/bootstrap/scss/input-group"; // Requires forms
+@import "../../node_modules/bootstrap/scss/custom-forms";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar"; // Requires nav
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/breadcrumb";
+@import "../../node_modules/bootstrap/scss/pagination";
+@import "../../node_modules/bootstrap/scss/badge";
+@import "../../node_modules/bootstrap/scss/jumbotron";
+@import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/progress";
+@import "../../node_modules/bootstrap/scss/media";
+@import "../../node_modules/bootstrap/scss/list-group";
+@import "../../node_modules/bootstrap/scss/close";
+@import "../../node_modules/bootstrap/scss/toasts";
+@import "../../node_modules/bootstrap/scss/modal"; // Requires transitions
+@import "../../node_modules/bootstrap/scss/tooltip";
+@import "../../node_modules/bootstrap/scss/popover";
+@import "../../node_modules/bootstrap/scss/carousel";
+@import "../../node_modules/bootstrap/scss/spinners";
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/print"; */

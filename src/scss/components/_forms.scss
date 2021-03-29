@@ -1,0 +1,13 @@
+.form-search {
+	input {
+		font-size: $nav-link-font-size;
+		color: white;
+		background-color: transparent;
+		border-radius: 50rem;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		&::placeholder {
+			color: white;
+		}
+	}
+}

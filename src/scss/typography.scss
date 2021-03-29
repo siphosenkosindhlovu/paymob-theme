@@ -1,0 +1,60 @@
+/*!
+ * Web Fonts from Fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2020 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      Radomir Tinkov
+ * License URL: https://www.fontspring.com/licenses/radomir-tinkov/webfont
+ *
+ *
+ */
+
+@font-face {
+  font-family: 'Gilroy-Extrabold';
+  src: url('fonts/gilroy-extrabold-webfont.woff2') format('woff2'),
+    url('fonts/gilroy-extrabold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GT Walsheim Pro';
+  src: local('fonts/GT Walsheim Pro Bold'), local('fonts/GT-Walsheim-Pro-Bold'),
+    url('fonts/GTWalsheimPro-Bold.woff2') format('woff2'),
+    url('fonts/GTWalsheimPro-Bold.woff') format('woff'),
+    url('fonts/GTWalsheimPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GT Walsheim Pro';
+  src: local('fonts/GT Walsheim Pro Regular'), local('fonts/GT-Walsheim-Pro-Regular'),
+    url('fonts/GTWalsheimPro-Regular.woff2') format('woff2'),
+    url('fonts/GTWalsheimPro-Regular.woff') format('woff'),
+    url('fonts/GTWalsheimPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+dt {
+  font-family: $font-family-heading;
+  font-size: $h5-font-size;
+}
+
+.ff-base {
+  font-family: $font-family-base;
+}

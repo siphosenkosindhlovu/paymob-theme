@@ -1,0 +1,20 @@
+.list-description {
+  @extend .list-unstyled;
+  li{
+    display: flex;
+    margin-bottom: map-get($map: $spacers, $key: 5);
+    @include media-breakpoint-up(lg){
+      margin-bottom: map-get($map: $spacers, $key: 14);
+    }
+    &::before {
+      content: " ";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: $orange;
+      margin-top: 7.5px;
+      margin-right: 1rem;
+      border-radius: $border-radius-sm;
+    }
+  }
+}

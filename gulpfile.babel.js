@@ -58,7 +58,7 @@ export const reload = ( done ) => {
 };
 
 export const styles = () => {
-	return src( 'src/scss/bundle.scss' )
+	return src( 'src/scss/style.scss' )
 		.pipe( gulpif( ! PRODUCTION, sourcemaps.init() ) )
 		.pipe( sass().on( 'error', sass.logError ) )
 		.pipe( gulpif( PRODUCTION, postcss( [ autoprefixer ] ) ) )
@@ -99,7 +99,7 @@ export const pot = () => {
 	return src( '**/*.php' )
 		.pipe(
 			wpPot( {
-				domain: '_theme',
+				domain: 'paymob',
 				package: info.name,
 			} )
 		)

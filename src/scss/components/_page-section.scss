@@ -1,0 +1,7 @@
+.page-section {
+  @extend .container-fluid;
+  @extend .py-5;
+  @include media-breakpoint-up(lg){
+    @extend .py-lg-14;
+  }
+}

@@ -1,0 +1,23 @@
+.accordion-faqs {
+  counter-reset: faqs;
+  .accordion-item {
+    .accordion-header{
+      &::before {
+        counter-increment: faqs;
+        content: "0" counter(faqs);
+        position: absolute;
+        display: inline-block;
+        font-size: 32px;
+        /* height: 100%; */
+        color: $orange;
+        transform: translateY(7.5px);
+      }
+    }
+    .accordion-button, .accordion-body {
+      padding-left: 3.5rem;
+    }
+    .accordion-body {
+      padding-top: 0;
+    }
+  }
+}
