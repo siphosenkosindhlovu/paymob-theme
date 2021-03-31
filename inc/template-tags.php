@@ -163,3 +163,20 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+if ( !function_exists('paymob_nav_menu_links')){
+	/**
+	 * Renders a simple list of anchor tags without wrapping markup
+	 *
+	 * @param [array] $wp_nav_menu_args
+	 * @return void
+	 */
+	function paymob_nav_menu_links($wp_nav_menu_args){
+		echo strip_tags(
+			wp_nav_menu(
+				$wp_nav_menu_args
+			),
+			'<a>'
+		);
+	}
+}

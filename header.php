@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -12,48 +13,117 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
+<head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="https://gmpg.org/xfn/11">
+
+  <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'paymob' ); ?></a>
+  <?php wp_body_open(); ?>
+  <div id="page" class="site">
+    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'paymob'); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$paymob_description = get_bloginfo( 'description', 'display' );
-			if ( $paymob_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $paymob_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+    <header id="masthead" class="shadow">
+      <div class="bg-blue-dark">
+        <div class="container">
+          <!-- top-nav-menu goes here -->
+          <nav class="nav nav-top">
+            <?php
+            paymob_nav_menu_links(
+              array(
+                'theme_location' => 'top-menu',
+                'menu' => 'Top Menu',
+                'container' => false,
+                'echo' => false,
+                'add_link_class' => 'nav-link'
+              )
+            )
+            ?>
+          </nav>
+        </div>
+      </div>
+      <div class="navbar navbar-expand-md bg-primary">
+        <div class="container d-flex justify-content-between`">
+          <div class="navbar-brand">
+            <?php the_custom_logo(); ?>
+          </div>
+          <nav class="nav nav-top align-items-center">
+            <?php
+            paymob_nav_menu_links(
+              array(
+                'theme_location' => 'mid-menu',
+                'menu' => 'Mid Menu',
+                'container' => false,
+                'echo' => false,
+                'add_link_class' => 'nav-link'
+              )
+            )
+            ?>
+            <?php
+            get_search_form();
+            ?>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'paymob' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+          </nav>
+          <!-- mid-nav-menu and search bar here -->
+        </div>
+      </div>
+      <div class="bg-white">
+        <div class="container">
+          <?php
+          wp_nav_menu(array(
+            'theme_location' => 'sub-menu',
+            'menu' => 'Sub Menu',
+            'container' => '%3s',
+            'container_id' => 'sub-nav',
+            'menu_class' => 'nav',
+            'add_link_class' => 'nav-link',
+            'walker' => new WP_Bootstrap_Navwalker(),
+          ))
+          ?>
+          <!-- <ul class="nav">
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.ejs" class="nav-link">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Industry Sectors
+              </a>
+              <ul class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item nav-link" href="#">Point of Sale</a></li>
+                <li><a class="dropdown-item nav-link" href="#">Small Business</a></li>
+                <li><a class="dropdown-item nav-link" href="#">Retail</a></li>
+                <li><a class="dropdown-item nav-link" href="#">Taxis and Deliveries </a></li>
+                <li><a class="dropdown-item nav-link" href="#">Restaurants and Takeaway</a></li>
+                <li><a class="dropdown-item nav-link" href="#">Hair and Beauty Salons</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Solutions
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Point of Sale</a></li>
+                <li><a class="dropdown-item" href="#">Small Business</a></li>
+                <li><a class="dropdown-item" href="#">Retail</a></li>
+                <li><a class="dropdown-item" href="#">Taxis and Deliveries </a></li>
+                <li><a class="dropdown-item" href="#">Restaurants and Takeaway</a></li>
+                <li><a class="dropdown-item" href="#">Hair and Beauty Salons</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">News</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link">Contact</a>
+            </li>
+          </ul> -->
+        </div>
+      </div>
+    </header><!-- #masthead -->
