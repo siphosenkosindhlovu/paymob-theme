@@ -24,3 +24,16 @@
     }
   }
 }
+
+.widget_nav_menu {
+  .menu {
+    @extend .nav;
+    @extend .footer-widget-menu;
+    li {
+      @extend .nav-item;
+    }
+    a {
+      @extend .nav-link
+    }
+  }
+}
