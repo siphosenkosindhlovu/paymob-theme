@@ -25,8 +25,8 @@
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
   <div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'paymob'); ?></a>
-
+    <a class="skip-link sr-only" href="#primary"><?php esc_html_e('Skip to content', 'paymob'); ?></a>
+  
     <header id="masthead" class="shadow">
       <div class="bg-blue-dark">
         <div class="container">
@@ -77,7 +77,7 @@
           wp_nav_menu(array(
             'theme_location' => 'sub-menu',
             'menu' => 'Sub Menu',
-            'container' => '%3s',
+            'container' => NULL,
             'container_id' => 'sub-nav',
             'menu_class' => 'nav',
             'add_link_class' => 'nav-link',

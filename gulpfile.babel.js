@@ -47,7 +47,7 @@ const server = browserSync.create();
 
 export const serve = ( done ) => {
 	server.init( {
-		proxy: 'one.wordpress.test',
+		proxy: 'paymobtech.local',
 	} );
 	done();
 };

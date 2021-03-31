@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -11,24 +12,27 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'paymob' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'paymob' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'paymob' ), 'paymob', '<a href="https://automattic.com/">Automattic</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer class="bg-primary py-8 py-lg-11">
+	<div class="container">
+		<div class="d-flex flex-wrap flex-lg-nowrap">
+			<div class="mb-6">
+				<div class="mb-5 mb-lg-17">
+					<img src="<?php echo get_theme_mod('paymob_company-logo') ?>" alt="" class="img-fluid">
+				</div>
+				<div class="fs-tiny text-white lh-lg w-77ch">
+					<?php echo get_theme_mod('paymob_company-desc') ?>
+				</div>
+			</div>
+			<div class="footer-widgets ms-auto flex-wrap flex-lg-nowrap">
+				<?php get_sidebar( 'footer' ); ?>
+			</div>
+		</div>
+	</div>
+</footer>
+
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>

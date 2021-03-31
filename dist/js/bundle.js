@@ -8165,7 +8165,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\HP\vagrant-local\www\wordpress-one\public_html\wp-content\themes\paymob\src\js\bundle.js */"./src/js/bundle.js");
+module.exports = __webpack_require__(/*! /Users/sipho/Local Sites/paymobtech/app/public/wp-content/themes/paymob/src/js/bundle.js */"./src/js/bundle.js");
 
 
 /***/ })
