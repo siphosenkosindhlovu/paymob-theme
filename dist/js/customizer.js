@@ -144,11 +144,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\Users\HP\Local Sites\paymobtech\app\public\wp-content\themes\paymob\src\js\customizer.js */"./src/js/customizer.js");
-=======
-module.exports = __webpack_require__(/*! C:\Users\HP\vagrant-local\www\wordpress-one\public_html\wp-content\themes\paymob\src\js\customizer.js */"./src/js/customizer.js");
->>>>>>> 1c91379382e840918960576f86a41967e69d3718
 
 
 /***/ })
