@@ -4,4 +4,7 @@ package-lock.json
 composer.lock
 style.css.map
 .DS_Store
-dist/
+/dist
+dist/js/bundle.js
+dist/js/customizer.js
+dist/js/navigation.js
