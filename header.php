@@ -63,9 +63,9 @@
               )
             )
             ?>
-            <?php
+            <!-- <?php
             get_search_form();
-            ?>
+            ?> -->
 
           </nav>
           <!-- mid-nav-menu and search bar here -->
@@ -77,10 +77,11 @@
           wp_nav_menu(array(
             'theme_location' => 'sub-menu',
             'menu' => 'Sub Menu',
-            'container' => NULL,
+            'container' => 'div',
             'container_id' => 'sub-nav',
             'menu_class' => 'nav',
             'add_link_class' => 'nav-link',
+            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
             'walker' => new WP_Bootstrap_Navwalker(),
           ))
           ?>

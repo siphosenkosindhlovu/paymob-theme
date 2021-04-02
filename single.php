@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all single posts
  *
@@ -10,30 +11,63 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main container">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+	<?php
+	while (have_posts()) :
+		the_post();
+	?>
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<header class="page-banner page-section text-center">
+				<div class="w-lg-75 mx-auto mb-10 mb-lg-14">
+					<h1 class="article-title">
+						<?php the_title(); ?>
+					</h1>
+					<div class="d-flex justify-content-center align-items-center">
+						<div class="d-flex align-items-center me-4">
+							<?php
+							$author_ID = get_the_author_meta('ID');
+							if (get_avatar_url($author_ID)) :
+							?>
+								<img src="<?php echo get_avatar_url($author_ID); ?>" class="article-author-thumb-sm rounded-circle me-2">
+							<?php
+							endif;
+							?>
+							<?php the_author(); ?>
+						</div>
 
-			get_template_part( 'template-parts/content', get_post_type() );
+						<div class="bg-accent rounded-circle" style="width: 6px; height: 6px;"></div>
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'paymob' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'paymob' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+						<div class="ms-4">
+							<div class="text-accent">
+								<?= the_date('F j, Y'); ?>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<?php the_post_thumbnail('full', array('class' => 'img-fluid')); ?>
+				</div>
+			</header>
+			<div class="entry-content mx-auto w-lg-75">
+				<?php
+				the_content();
+				?>
+			</div><!-- .entry-content -->
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+		</article><!-- #post-<?php the_ID(); ?> -->
+	<?php
+		// get_template_part('template-parts/content', get_post_type());
 
-		endwhile; // End of the loop.
-		?>
+		// // If comments are open or we have at least one comment, load up the comment template.
+		// if (comments_open() || get_comments_number()) :
+		// 	comments_template();
+		// endif;
 
-	</main><!-- #main -->
+	endwhile; // End of the loop.
+	?>
+
+</main><!-- #main -->
 
 <?php
 get_sidebar();

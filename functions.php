@@ -112,7 +112,213 @@ if (!function_exists('paymob_setup')) :
 		require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 	}
 endif;
+
+
 add_action('after_setup_theme', 'paymob_setup');
+
+function payment_steps_register_post_type()
+{
+	// $args = [
+	// 	'label'  => esc_html__( 'Payment Steps', 'text-domain' ),
+	// 	'labels' => [
+	// 		'menu_name'          => esc_html__( 'Payment Steps', 'paymob' ),
+	// 		'name_admin_bar'     => esc_html__( 'Payment Step', 'paymob' ),
+	// 		'add_new'            => esc_html__( 'Add Payment Step', 'paymob' ),
+	// 		'add_new_item'       => esc_html__( 'Add new Payment Step', 'paymob' ),
+	// 		'new_item'           => esc_html__( 'New Payment Step', 'paymob' ),
+	// 		'edit_item'          => esc_html__( 'Edit Payment Step', 'paymob' ),
+	// 		'view_item'          => esc_html__( 'View Payment Step', 'paymob' ),
+	// 		'update_item'        => esc_html__( 'View Payment Step', 'paymob' ),
+	// 		'all_items'          => esc_html__( 'All Payment Steps', 'paymob' ),
+	// 		'search_items'       => esc_html__( 'Search Payment Steps', 'paymob' ),
+	// 		'parent_item_colon'  => esc_html__( 'Parent Payment Step', 'paymob' ),
+	// 		'not_found'          => esc_html__( 'No Payment Steps found', 'paymob' ),
+	// 		'not_found_in_trash' => esc_html__( 'No Payment Steps found in Trash', 'paymob' ),
+	// 		'name'               => esc_html__( 'Payment Steps', 'paymob' ),
+	// 		'singular_name'      => esc_html__( 'Payment Step', 'paymob' ),
+	// 	],
+	// 	'public'              => false,
+	// 	'exclude_from_search' => true,
+	// 	'publicly_queryable'  => false,
+	// 	'show_ui'             => true,
+	// 	'show_in_nav_menus'   => false,
+	// 	'show_in_admin_bar'   => true,
+	// 	'show_in_rest'        => true,
+	// 	'capability_type'     => 'custom',
+	// 	'hierarchical'        => false,
+	// 	'has_archive'         => true,
+	// 	'query_var'           => false,
+	// 	'can_export'          => false,
+	// 	'rewrite_no_front'    => false,
+	// 	'supports' => [
+	// 		'title',
+	// 		'editor',
+	// 		'thumbnail',
+	// 	],
+
+	// 	'rewrite' => true
+	// ];
+
+	// register_post_type( 'payment-step', $args );
+
+	$labels = array(
+		'name'               => _x('Payment Steps', 'post type general name'),
+		'singular_name'      => _x('Payment Step', 'post type singular name'),
+		'add_new'            => _x('Add New', 'book'),
+		'add_new_item'       => __('Add New Step'),
+		'edit_item'          => __('Edit Step'),
+		'new_item'           => __('New Step'),
+		'all_items'          => __('All Steps'),
+		'view_item'          => __('View Step'),
+		'search_items'       => __('Search Steps'),
+		'not_found'          => __('No Steps found'),
+		'not_found_in_trash' => __('No Steps found in the Trash'),
+		'menu_name'          => 'Steps'
+	);
+	$args = array(
+		'labels'        => $labels,
+		'description'   => 'Holds our products and product specific data',
+		'public'        => true,
+		'menu_position' => 5,
+		'supports'      => array('title', 'editor', 'thumbnail'),
+		'has_archive'   => false,
+		'publicly_queryable'  => false,
+		'show_in_menu' => 'edit.php?post_type=page'	
+	);
+	register_post_type('steps', $args);
+
+	register_post_type('payment_points', array(
+		'labels' => array(
+			'name'               => _x('Payment Points', 'post type general name'),
+			'singular_name'      => _x('Payment Point', 'post type singular name'),
+			'add_new'            => _x('Add New', 'book'),
+			'add_new_item'       => __('Add New Points'),
+			'edit_item'          => __('Edit Points'),
+			'new_item'           => __('New Points'),
+			'all_items'          => __('All Points'),
+			'view_item'          => __('View Points'),
+			'search_items'       => __('Search Points'),
+			'not_found'          => __('No Steps found'),
+			'not_found_in_trash' => __('No Steps found in the Trash'),
+			'menu_name'          => 'Payment Points'
+		),
+		'public' => true,
+		'has_archive'   => false,
+		'publicly_queryable'  => false,	
+		'exclude_from_search' => true,
+		'supports'      => array('title', 'editor', 'thumbnail'),
+		'show_in_menu' => 'edit.php?post_type=page'	
+	));
+
+	register_post_type('faqs', array(
+		'labels' => array(
+			'name'               => _x('FAQs', 'post type general name'),
+			'singular_name'      => _x('FAQ', 'post type singular name'),
+			'add_new'            => _x('Add New', 'book'),
+			'add_new_item'       => __('Add New FAQ'),
+			'edit_item'          => __('Edit FAQ'),
+			'new_item'           => __('New FAQ'),
+			'all_items'          => __('All FAQs'),
+			'view_item'          => __('View FAQ'),
+			'search_items'       => __('Search FAQs'),
+			'not_found'          => __('No FAQs found'),
+			'not_found_in_trash' => __('No FAQs found in the Trash'),
+			'menu_name'          => 'FAQs'
+		),
+		'public' => true,
+		'supports'      => array('title', 'editor'),
+		'has_archive'   => false,
+		'publicly_queryable'  => false,	
+		'exclude_from_search' => true,
+		'show_in_menu' => 'edit.php?post_type=page'	
+	));
+
+	register_post_type('industry_sectors', array(
+		'labels' => array(
+			'name'               => _x('Industry Sectors', 'post type general name'),
+			'singular_name'      => _x('Industry Sector', 'post type singular name'),
+			'add_new'            => _x('Add New', 'book'),
+			'add_new_item'       => __('Add New Industry Sector'),
+			'edit_item'          => __('Edit Industry Sector'),
+			'new_item'           => __('New Industry Sector'),
+			'all_items'          => __('All Industry Sectors'),
+			'view_item'          => __('View Industry Sector'),
+			'search_items'       => __('Search Industry Sectors'),
+			'not_found'          => __('No Industry Sectors found'),
+			'not_found_in_trash' => __('No Industry Sectors found in the Trash'),
+			'menu_name'          => 'Industry Sectors'
+		),
+		'public' => true,
+		'supports'      => array('title', 'editor', 'thumbnail'),
+		'has_archive'   => false,
+		'publicly_queryable'  => true,	
+		'show_in_menu' => 'edit.php?post_type=page',
+		'show_in_rest' => true
+	));
+	// register_post_type('case_studies', array(
+	// 	'labels' => array(
+	// 		'name'               => _x('Paymob Case Studies', 'post type general name'),
+	// 		'singular_name'      => _x('Case Study', 'post type singular name'),
+	// 		'add_new'            => _x('Add New', 'book'),
+	// 		'add_new_item'       => __('Add Case Study'),
+	// 		'edit_item'          => __('Edit Case Study'),
+	// 		'new_item'           => __('New Case Study'),
+	// 		'all_items'          => __('All Case Studies'),
+	// 		'view_item'          => __('View Case Study'),
+	// 		'search_items'       => __('Search Case Studies'),
+	// 		'not_found'          => __('No Case Studies found'),
+	// 		'not_found_in_trash' => __('No Case Studies found in the Trash'),
+	// 		'menu_name'          => 'Case Studies'
+	// 	),
+	// 	'public' => true,
+	// 	'supports'      => array('title', 'editor'),
+	// 	'has_archive'   => true,
+	// 	'publicly_queryable'  => true,
+	// 	'show_in_menu' => 'edit.php?post_type=page',
+	// 	'show_in_nav_menus' => true
+	// ));
+
+}
+
+add_action('init', 'payment_steps_register_post_type');
+
+function paymob_register_block_patterns() {
+
+	if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
+
+		register_block_pattern(
+			'paymob/text-aside-image-right',
+			array(
+				'title'       => __( 'Image with text', 'textdomain' ),
+				'description' => _x( 'A two column layout of image next to text.', 'Block pattern description', 'textdomain' ),
+				'content'     => "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"className\":\"text-accent fs-md\"} -->\n<p class=\"text-accent fs-md\"></p>\n<!-- /wp:paragraph -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n<!-- wp:image -->\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\n<!-- /wp:image -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->",
+				'categories'  => array( 'hero' ),
+			)
+		);
+		register_block_pattern(
+			'paymob/text-aside-image-left-navy',
+			array(
+				'title'       => __( 'Image with text Left', 'textdomain' ),
+				'description' => _x( 'A two column layout of image next to text.', 'Block pattern description', 'textdomain' ),
+				'content'     => "<!-- wp:wp-bootstrap-blocks/container {\"isFluid\":true,\"marginAfter\":\"mb-0\",\"className\":\"bg-navy page-section\"} -->\n<!-- wp:wp-bootstrap-blocks/container -->\n<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n<!-- wp:heading {\"className\":\"text-accent\"} -->\n<h2 class=\"text-accent\"></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"className\":\"text-white\"} -->\n<p class=\"text-white\">\n<!-- /wp:paragraph -->\n\n<!-- wp:wp-bootstrap-blocks/button {\"text\":\"Get started now\",\"className\":\"btn-accent\"} /-->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->\n<!-- /wp:wp-bootstrap-blocks/container -->\n<!-- /wp:wp-bootstrap-blocks/container -->",
+				'categories'  => array( 'hero' ),
+			)
+		);
+		register_block_pattern(
+			'paymob/media',
+			array(
+				'title'       => __( 'Media', 'textdomain' ),
+				'description' => _x( 'A two column layout of image next to text.', 'Block pattern description', 'textdomain' ),
+				'content'     => "<!-- wp:wp-bootstrap-blocks/container {\"isFluid\":true,\"marginAfter\":\"mb-0\",\"className\":\"bg-navy page-section\"} -->\n<!-- wp:wp-bootstrap-blocks/container -->\n<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n<!-- wp:heading {\"className\":\"text-accent\"} -->\n<h2 class=\"text-accent\"></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"className\":\"text-white\"} -->\n<p class=\"text-white\">\n<!-- /wp:paragraph -->\n\n<!-- wp:wp-bootstrap-blocks/button {\"text\":\"Get started now\",\"className\":\"btn-accent\"} /-->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->\n<!-- /wp:wp-bootstrap-blocks/container -->\n<!-- /wp:wp-bootstrap-blocks/container -->",
+				'categories'  => array( 'hero' ),
+			)
+		);
+
+	}
+
+}
+add_action( 'init', 'paymob_register_block_patterns' );
+
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -217,7 +423,7 @@ if (class_exists('WooCommerce')) {
 /**
  * Add classnames to link items
  */
-add_filter('nav_menu_link_attributes', 'paymob_navlink_add_classnames', 10, 3);
+add_filter('nav_menu_link_attributes', 'paymob_navlink_add_classnames', 10, 3);	
 
 function paymob_navlink_add_classnames($atts, $item, $args)
 {
@@ -226,3 +432,53 @@ function paymob_navlink_add_classnames($atts, $item, $args)
 	}
 	return $atts;
 }
+
+
+/**
+ * Font Awesome CDN Setup Webfont
+ * 
+ * This will load Font Awesome from the Font Awesome Free or Pro CDN.
+ */
+if (! function_exists('fa_custom_setup_cdn_webfont') ) {
+  function fa_custom_setup_cdn_webfont($cdn_url = '', $integrity = null) {
+    $matches = [];
+    $match_result = preg_match('|/([^/]+?)\.css$|', $cdn_url, $matches);
+    $resource_handle_uniqueness = ($match_result === 1) ? $matches[1] : md5($cdn_url);
+    $resource_handle = "font-awesome-cdn-webfont-$resource_handle_uniqueness";
+
+    foreach ( [ 'wp_enqueue_scripts', 'admin_enqueue_scripts', 'login_enqueue_scripts' ] as $action ) {
+      add_action(
+        $action,
+        function () use ( $cdn_url, $resource_handle ) {
+          wp_enqueue_style( $resource_handle, $cdn_url, [], null );
+        }
+      );
+    }
+
+    if($integrity) {
+      add_filter(
+        'style_loader_tag',
+        function( $html, $handle ) use ( $resource_handle, $integrity ) {
+          if ( in_array( $handle, [ $resource_handle ], true ) ) {
+            return preg_replace(
+              '/\/>$/',
+              'integrity="' . $integrity .
+              '" crossorigin="anonymous" />',
+              $html,
+              1
+            );
+          } else {
+            return $html;
+          }
+        },
+        10,
+        2
+      );
+    }
+  }
+}
+
+fa_custom_setup_cdn_webfont(
+  'https://use.fontawesome.com/releases/v5.15.3/css/all.css',
+  'sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk'
+);

@@ -23,45 +23,69 @@ function paymob_customize_register($wp_customize)
 	// 	'priority' => 40,
 	// ));
 	// $wp_customize->add_setting('paymob_footer_logo', array());
-	
 
-	$wp_customize->add_section( 'paymob_footer_section' , array(
-        'title'      => __( 'Footer', 'mytheme' ),
-        'priority'   => 30,
-    ));
-    $wp_customize->add_setting( 'paymob_company-name', array());
+
+	$wp_customize->add_section('paymob_footer_section', array(
+		'title'      => __('Footer', 'mytheme'),
+		'priority'   => 30,
+	));
+	$wp_customize->add_setting('paymob_demo', array());
 	$wp_customize->add_control(new WP_Customize_Image_Control(
 		$wp_customize,
-		'paymob_company_control',
+		'paymob_transaction_flow_control',
 		array(
-			'label' => __( 'Footer Logo', 'paymob' ),
-			'section' => 'title_tagline',
-			'settings' => 'paymob_company-name',
-			'priority' => 1
+			'label' => __('Transaction Flow Image', 'paymob'),
+			'section' => 'static_front_page',
+			'settings' => 'paymob_transaction_flow',
+			'priority' => 20
+		)
+	));
+	
+	$wp_customize->add_setting('paymob_faqs', array());
+	$wp_customize->add_control(new WP_Customize_Image_Control(
+		$wp_customize,
+		'paymob_faqs_image_control',
+		array(
+			'label' => __('FAQs Decorative Image', 'paymob'),
+			'section' => 'faqs',
+			'settings' => 'paymob_faqs',
+			'priority' => 20
+		)
+	));
+	$wp_customize->add_setting('paymob_demo', array());
+	$wp_customize->add_control(new WP_Customize_Media_Control(
+		$wp_customize,
+		'paymob_demo_upload',
+		array(
+			'label' => __('Paymob Demo', 'paymob'),
+			'section' => 'static_front_page',
+			'settings' => 'paymob_demo',
+			'priority' => 30,
+			'mime_type' => 'video'
 		)
 	));
 
-	$wp_customize->add_section( 'paymob_footer_section' , array(
-        'title'      => __( 'Footer', 'paymob' ),
-        'priority'   => 30,
-    ));
-    $wp_customize->add_setting( 'paymob_company-logo', array());
+	$wp_customize->add_section('paymob_footer_section', array(
+		'title'      => __('Footer', 'paymob'),
+		'priority'   => 30,
+	));
+	$wp_customize->add_setting('paymob_company-logo', array());
 	$wp_customize->add_control(new WP_Customize_Image_Control(
 		$wp_customize,
 		'paymob_company-logo_control',
 		array(
-			'label' => __( 'Footer Logo', 'paymob' ),
+			'label' => __('Footer Logo', 'paymob'),
 			'section' => 'title_tagline',
 			'settings' => 'paymob_company-logo',
 			'priority' => 1
 		)
 	));
-    $wp_customize->add_setting( 'paymob_company-desc', array());
+	$wp_customize->add_setting('paymob_company-desc', array());
 	$wp_customize->add_control(new WP_Customize_Control(
 		$wp_customize,
 		'paymob_company-desc_control',
 		array(
-			'label' => __( 'Footer Description', 'paymob' ),
+			'label' => __('Footer Description', 'paymob'),
 			'section' => 'title_tagline',
 			'settings' => 'paymob_company-desc',
 			'priority' => 1

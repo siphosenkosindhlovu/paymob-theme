@@ -1,2 +1,2 @@
 //eslint
-import { Dropdown, Accordion } from 'bootstrap';
+import { Dropdown, Accordion, Modal } from 'bootstrap';

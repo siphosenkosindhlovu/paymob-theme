@@ -4,7 +4,7 @@
     display: flex;
     margin-bottom: map-get($map: $spacers, $key: 5);
     @include media-breakpoint-up(lg){
-      margin-bottom: map-get($map: $spacers, $key: 14);
+      //margin-bottom: map-get($map: $spacers, $key: 14);
     }
     &::before {
       content: " ";

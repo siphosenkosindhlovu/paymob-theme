@@ -10,3 +10,56 @@
 @import "./components/lists";
 @import "./components/article";
 @import "./components/cards";
+
+.payment-steps {
+  counter-reset: step;
+  .step {
+    &:first-child{
+      @include media-breakpoint-up(lg){
+        @extend .offset-lg-2
+      }
+    }
+  }
+  .step-number{
+    counter-increment: step;
+    &::before{
+      content: counter(step);
+      display: inline;
+    }
+  }
+}
+
+.modal-header{
+  padding: {
+    left: 3.75rem;
+    right: 3.75rem;
+  }
+  &-blue-light-1 {
+    @extend .bg-blue-light-1;
+  }
+  &-blue-light-2 {
+    @extend .bg-blue-light-2;
+  }
+  &-primary {
+    @extend .bg-primary;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: transparent;
+}
+
+.case_studies {
+  &:nth-child(even){
+    @extend .bg-light
+  }
+  .entry-content {
+    @include media-breakpoint-up(lg){
+      column-count: 2;
+    }
+  }
+}

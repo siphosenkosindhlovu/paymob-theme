@@ -9,55 +9,40 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="container">
+<header class="page-banner">
+		<div class="d-flex flex-column-reverse flex-lg-row-reverse justify-content-between">
+			<div class="col-lg-6 d-flex justify-content-start justify-content-lg-end z-index-negative">
+				<?php paymob_post_thumbnail(); ?>
+			</div>
+			<div class="container-lg-1 m-0 p-0"></div>
+			<div class="container container-lg-5 my-5 my-lg-14 me-lg-0 d-flex align-items-center">
+				<div>
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				paymob_posted_on();
-				paymob_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+					<?php the_title('<h1>', '</h1>'); ?>
+					<?php
+					if (get_field('page_subtitle')) :
+					?>
+						<p class="text-accent fs-md fw-bold">
+							<?= the_field('page_subtitle'); ?>
+						</p>
+					<?php
+					endif;
+					?>
+					<?php
+					if (get_field('leading_paragraph')) :
+						the_field('leading_paragraph');
+					endif;
+					?>
 
-	<?php paymob_post_thumbnail(); ?>
-
+				</div>
+			</div>
+		</div>
+	</header>
 	<div class="entry-content">
 		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'paymob' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'paymob' ),
-				'after'  => '</div>',
-			)
-		);
+		the_content();
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php paymob_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

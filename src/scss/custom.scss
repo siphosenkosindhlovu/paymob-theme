@@ -59,7 +59,7 @@ $font-family-heading: "Gilroy-Extrabold", sans-serif;
 $font-size-base: 1rem;
 
 $h1-font-size: 4rem;
-$h2-font-size: 3em;
+$h2-font-size: 3rem;
 $h3-font-size: 2rem;
 $h4-font-size: 1.5rem;
 $h5-font-size: 1.3125rem;
@@ -139,6 +139,12 @@ $container-max-widths: map-merge(
   )
 );
 
+$modal-content-border-color:  transparent;
+$modal-content-border-radius:   $border-radius-lg;
+$modal-backdrop-opacity: 1;
+$modal-inner-padding: 3.75rem;
+$modal-header-padding-x: 3.75rem;
+$modal-header-padding-y: 3.75rem;
 @import "../../node_modules/bootstrap/scss/utilities";
 
 $utilities: map-merge(
