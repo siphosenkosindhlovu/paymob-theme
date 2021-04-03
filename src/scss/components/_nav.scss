@@ -16,22 +16,27 @@
 .nav-link {
   line-height: 1;
 }
-li:first-child  {
+.nav-item:first-child  {
   .nav-link {
     padding-left: 0;
   }
 }
 
-.nav-dropdown {
-  padding: 0;
-  border-radius: 0;
-  border: 0;
-  margin-top: -2px !important;
-  box-shadow: $box-shadow;
-  .nav-item {
-    padding: {
-      top: 1.15rem;
-      bottom: 1.15rem;
+.menu-item-has-children{
+  .dropdown-menu {
+    padding: 0;
+    border-radius: 0;
+    border: 0;
+    margin-top: -2px !important;
+    box-shadow: $box-shadow;
+    .nav-item {
+      // padding: {
+      //   top: 1.15rem;
+      //   bottom: 1.15rem;
+      // }
+    }
+    .dropdown-item {
+      @extend .nav-link
     }
   }
 }

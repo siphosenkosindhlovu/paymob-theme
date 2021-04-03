@@ -144,7 +144,9 @@ if (!class_exists('WP_Bootstrap_Navwalker')) {
 
 			// Add some additional default classes to the item.
 			$classes[] = 'menu-item-' . $item->ID;
-			$classes[] = 'nav-item';
+			if (isset($args->depth) && $args->depth > 0) :
+				$classes[] = 'nav-item';
+			endif;
 
 			// Allow filtering the classes.
 			$classes = apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth);
@@ -174,6 +176,11 @@ if (!class_exists('WP_Bootstrap_Navwalker')) {
 
 			// Set title from item to the $atts array - if title is empty then
 			// default to item title.
+			// update atts of this item based on any custom linkmod classes.
+			$atts = self::update_atts_for_linkmod_type($atts, $linkmod_classes);
+			// Allow filtering of the $atts array before using it.
+			$atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args, $depth);
+
 			if (empty($item->attr_title)) {
 				$atts['title'] = !empty($item->title) ? strip_tags($item->title) : '';
 			} else {
@@ -183,13 +190,13 @@ if (!class_exists('WP_Bootstrap_Navwalker')) {
 			$atts['target'] = !empty($item->target) ? $item->target : '';
 			$atts['rel']    = !empty($item->xfn) ? $item->xfn : '';
 			// If item has_children add atts to <a>.
-			if (isset($args->has_children) && $args->has_children && 0 === $depth && $args->depth > 0) {
+			if (isset($args->has_children) && $args->has_children && $depth === 0) {
 				$atts['href']          = '#';
 				$atts['data-toggle']   = 'dropdown';
 				$atts['data-bs-toggle']   = 'dropdown';
 				$atts['aria-haspopup'] = 'true';
 				$atts['aria-expanded'] = 'false';
-				$atts['class']         = 'dropdown-toggle nav-link';
+				$atts['class']         = 'nav-link dropdown-toggle';
 				$atts['id']            = 'menu-item-dropdown-' . $item->ID;
 			} else {
 				$atts['href'] = !empty($item->url) ? $item->url : '#';
@@ -203,19 +210,14 @@ if (!class_exists('WP_Bootstrap_Navwalker')) {
 
 			$atts['aria-current'] = $item->current ? 'page' : '';
 
-			// update atts of this item based on any custom linkmod classes.
-			$atts = self::update_atts_for_linkmod_type($atts, $linkmod_classes);
-			// Allow filtering of the $atts array before using it.
-			$atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args, $depth);
-
 			// Build a string of html containing all the atts for the item.
 
-			if ($depth === 0 && $args->walker->has_children ) {
-				$atts = array_merge($atts, array('data-bs-toggle' => 'modal'));
-			}
+			// if ($depth === 0 && $args->walker->has_children ) {
+			// 	$atts = array_merge($atts, array('data-bs-toggle' => 'modal'));
+			// }
 
 			$attributes = '';
-			
+
 			foreach ($atts as $attr => $value) {
 				if (!empty($value)) {
 					$value       = ('href' === $attr) ? esc_url($value) : esc_attr($value);
