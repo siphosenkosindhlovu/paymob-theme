@@ -14,22 +14,22 @@
 .payment-steps {
   counter-reset: step;
   .step {
-    &:first-child{
-      @include media-breakpoint-up(lg){
-        @extend .offset-lg-2
+    &:first-child {
+      @include media-breakpoint-up(lg) {
+        @extend .offset-lg-2;
       }
     }
   }
-  .step-number{
+  .step-number {
     counter-increment: step;
-    &::before{
+    &::before {
       content: counter(step);
       display: inline;
     }
   }
 }
 
-.modal-header{
+.modal-header {
   padding: {
     left: 3.75rem;
     right: 3.75rem;
@@ -65,12 +65,36 @@
 
 .case_studies {
   @extend .page-section;
-  &:nth-child(even){
-    @extend .bg-light
+  &:nth-child(even) {
+    @extend .bg-light;
   }
   .entry-content {
-    @include media-breakpoint-up(lg){
+    @include media-breakpoint-up(lg) {
       column-count: 2;
+    }
+  }
+}
+
+.embed {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  & iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.page-banner{
+  .post-thumbnail {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    img {
+      @extend .img-fluid;
     }
   }
 }

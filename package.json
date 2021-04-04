@@ -1,7 +1,7 @@
 {
-	"name": "theme_blank",
+	"name": "paymob",
 	"version": "1.0.0",
-	"description": "Starter theme development setup",
+	"description": "Paymob site theme",
 	"author": "Siphosenkosi Ndhlovu",
 	"license": "GPL-2.0-or-later",
 	"keywords": [

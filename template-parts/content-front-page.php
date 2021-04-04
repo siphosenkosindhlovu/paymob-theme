@@ -67,7 +67,7 @@ wp_reset_query();
         while ($steps->have_posts()) :
           $steps->the_post();
       ?>
-          <div class="col-lg-3 step">
+          <div class="col-lg-3 step text-center text-lg-left">
             <h3 class="h4"><span class="badge bg-accent step-number">&nbsp;</span></h3>
             <figure>
               <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="img-fluid mb-6 mb-lg-8">
@@ -171,8 +171,13 @@ wp_reset_query();
     <p class="fs-2md text-white text-center">
       Demo video by Paymob
     </p>
-    <div class="embed mb-3">
-      <iframe width="677" height="381" src="https://www.youtube.com/embed/3d5dIpVZwxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="container">
+      <div class="w-md-75 mx-auto">
+
+        <div class="embed mb-3">
+          <iframe width="677" height="381" src="https://www.youtube.com/embed/3d5dIpVZwxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
     <div class="text-center">
       <a href="#" class="btn btn-accent">Request Demo</a>
@@ -214,7 +219,7 @@ wp_reset_query();
 
       </div>
       <div class="col-lg-6">
-        <img src="<?php echo wp_get_attachment_url(get_theme_mod('paymob_demo')) ?>" alt="" class="img-fluid">
+      <img src='<?php echo get_template_directory_uri() . "/dist/images/questioner.png" ?>' class="img-fluid">
       </div>
     </div>
   </section>
