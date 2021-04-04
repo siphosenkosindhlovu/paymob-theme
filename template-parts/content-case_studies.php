@@ -12,19 +12,12 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <header class="page-banner">
-    <div class="d-flex flex-column flex-lg-row-reverse justify-content-between">
-      <div class="col-lg-6 d-flex justify-content-end z-index-negative">
-        <?php echo get_template_directory_uri() . "/dist/case-study.png"; ?>
-      </div>
-      <div class="container-lg-1 m-0 p-0"></div>
-      <div class="container container-lg-5 my-5 my-lg-14 me-lg-0 d-flex align-items-center">
+      <div class="container d-flex align-items-center">
         <div>
           <h2><?php echo __('Case Study', 'paymob'); ?></h2>
           <?php the_title('<h3 class="h3 text-accent">', '</h3>'); ?>
-
         </div>
       </div>
-    </div>
   </header>
 
   <div class="entry-content container">

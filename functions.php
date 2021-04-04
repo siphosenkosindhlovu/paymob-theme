@@ -48,7 +48,7 @@ if (!function_exists('paymob_setup')) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support('post-thumbnails');
-
+		add_image_size('post-thumb-small', 380, 246, true);
 		register_nav_menus(
 			array(
 				'top-menu' => esc_html__('Top Menu', 'paymob'),
@@ -183,7 +183,7 @@ function payment_steps_register_post_type()
 		'supports'      => array('title', 'editor', 'thumbnail'),
 		'has_archive'   => false,
 		'publicly_queryable'  => false,
-		'show_in_menu' => 'edit.php?post_type=page'	
+		'show_in_menu' => 'edit.php?post_type=page'
 	);
 	register_post_type('steps', $args);
 
@@ -204,10 +204,10 @@ function payment_steps_register_post_type()
 		),
 		'public' => true,
 		'has_archive'   => false,
-		'publicly_queryable'  => false,	
+		'publicly_queryable'  => false,
 		'exclude_from_search' => true,
 		'supports'      => array('title', 'editor', 'thumbnail'),
-		'show_in_menu' => 'edit.php?post_type=page'	
+		'show_in_menu' => 'edit.php?post_type=page'
 	));
 
 	register_post_type('faqs', array(
@@ -228,9 +228,9 @@ function payment_steps_register_post_type()
 		'public' => true,
 		'supports'      => array('title', 'editor'),
 		'has_archive'   => false,
-		'publicly_queryable'  => false,	
+		'publicly_queryable'  => false,
 		'exclude_from_search' => true,
-		'show_in_menu' => 'edit.php?post_type=page'	
+		'show_in_menu' => 'edit.php?post_type=page'
 	));
 
 	register_post_type('industry_sectors', array(
@@ -251,7 +251,7 @@ function payment_steps_register_post_type()
 		'public' => true,
 		'supports'      => array('title', 'editor', 'thumbnail'),
 		'has_archive'   => false,
-		'publicly_queryable'  => true,	
+		'publicly_queryable'  => true,
 		'show_in_menu' => 'edit.php?post_type=page',
 		'show_in_rest' => true
 	));
@@ -282,42 +282,41 @@ function payment_steps_register_post_type()
 
 add_action('init', 'payment_steps_register_post_type');
 
-function paymob_register_block_patterns() {
+function paymob_register_block_patterns()
+{
 
-	if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
+	if (class_exists('WP_Block_Patterns_Registry')) {
 
 		register_block_pattern(
 			'paymob/text-aside-image-right',
 			array(
-				'title'       => __( 'Image with text', 'textdomain' ),
-				'description' => _x( 'A two column layout of image next to text.', 'Block pattern description', 'textdomain' ),
+				'title'       => __('Image with text', 'textdomain'),
+				'description' => _x('A two column layout of image next to text.', 'Block pattern description', 'textdomain'),
 				'content'     => "<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n<!-- wp:heading -->\n<h2></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"className\":\"text-accent fs-md\"} -->\n<p class=\"text-accent fs-md\"></p>\n<!-- /wp:paragraph -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n<!-- wp:image -->\n<figure class=\"wp-block-image\"><img alt=\"\"/></figure>\n<!-- /wp:image -->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->",
-				'categories'  => array( 'hero' ),
+				'categories'  => array('hero'),
 			)
 		);
 		register_block_pattern(
 			'paymob/text-aside-image-left-navy',
 			array(
-				'title'       => __( 'Image with text Left', 'textdomain' ),
-				'description' => _x( 'A two column layout of image next to text.', 'Block pattern description', 'textdomain' ),
+				'title'       => __('Image with text Left', 'textdomain'),
+				'description' => _x('A two column layout of image next to text.', 'Block pattern description', 'textdomain'),
 				'content'     => "<!-- wp:wp-bootstrap-blocks/container {\"isFluid\":true,\"marginAfter\":\"mb-0\",\"className\":\"bg-navy page-section\"} -->\n<!-- wp:wp-bootstrap-blocks/container -->\n<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n<!-- wp:heading {\"className\":\"text-accent\"} -->\n<h2 class=\"text-accent\"></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"className\":\"text-white\"} -->\n<p class=\"text-white\">\n<!-- /wp:paragraph -->\n\n<!-- wp:wp-bootstrap-blocks/button {\"text\":\"Get started now\",\"className\":\"btn-accent\"} /-->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->\n<!-- /wp:wp-bootstrap-blocks/container -->\n<!-- /wp:wp-bootstrap-blocks/container -->",
-				'categories'  => array( 'hero' ),
+				'categories'  => array('hero'),
 			)
 		);
 		register_block_pattern(
 			'paymob/media',
 			array(
-				'title'       => __( 'Media', 'textdomain' ),
-				'description' => _x( 'A two column layout of image next to text.', 'Block pattern description', 'textdomain' ),
+				'title'       => __('Media', 'textdomain'),
+				'description' => _x('A two column layout of image next to text.', 'Block pattern description', 'textdomain'),
 				'content'     => "<!-- wp:wp-bootstrap-blocks/container {\"isFluid\":true,\"marginAfter\":\"mb-0\",\"className\":\"bg-navy page-section\"} -->\n<!-- wp:wp-bootstrap-blocks/container -->\n<!-- wp:wp-bootstrap-blocks/row -->\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n\n<!-- /wp:wp-bootstrap-blocks/column -->\n\n<!-- wp:wp-bootstrap-blocks/column {\"sizeMd\":6} -->\n<!-- wp:heading {\"className\":\"text-accent\"} -->\n<h2 class=\"text-accent\"></h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph {\"className\":\"text-white\"} -->\n<p class=\"text-white\">\n<!-- /wp:paragraph -->\n\n<!-- wp:wp-bootstrap-blocks/button {\"text\":\"Get started now\",\"className\":\"btn-accent\"} /-->\n<!-- /wp:wp-bootstrap-blocks/column -->\n<!-- /wp:wp-bootstrap-blocks/row -->\n<!-- /wp:wp-bootstrap-blocks/container -->\n<!-- /wp:wp-bootstrap-blocks/container -->",
-				'categories'  => array( 'hero' ),
+				'categories'  => array('hero'),
 			)
 		);
-
 	}
-
 }
-add_action( 'init', 'paymob_register_block_patterns' );
+add_action('init', 'paymob_register_block_patterns');
 
 
 /**
@@ -423,7 +422,7 @@ if (class_exists('WooCommerce')) {
 /**
  * Add classnames to link items
  */
-add_filter('nav_menu_link_attributes', 'paymob_navlink_add_classnames', 10, 3);	
+add_filter('nav_menu_link_attributes', 'paymob_navlink_add_classnames', 10, 3);
 
 function paymob_navlink_add_classnames($atts, $item, $args)
 {
@@ -439,46 +438,78 @@ function paymob_navlink_add_classnames($atts, $item, $args)
  * 
  * This will load Font Awesome from the Font Awesome Free or Pro CDN.
  */
-if (! function_exists('fa_custom_setup_cdn_webfont') ) {
-  function fa_custom_setup_cdn_webfont($cdn_url = '', $integrity = null) {
-    $matches = [];
-    $match_result = preg_match('|/([^/]+?)\.css$|', $cdn_url, $matches);
-    $resource_handle_uniqueness = ($match_result === 1) ? $matches[1] : md5($cdn_url);
-    $resource_handle = "font-awesome-cdn-webfont-$resource_handle_uniqueness";
+if (!function_exists('fa_custom_setup_cdn_webfont')) {
+	function fa_custom_setup_cdn_webfont($cdn_url = '', $integrity = null)
+	{
+		$matches = [];
+		$match_result = preg_match('|/([^/]+?)\.css$|', $cdn_url, $matches);
+		$resource_handle_uniqueness = ($match_result === 1) ? $matches[1] : md5($cdn_url);
+		$resource_handle = "font-awesome-cdn-webfont-$resource_handle_uniqueness";
 
-    foreach ( [ 'wp_enqueue_scripts', 'admin_enqueue_scripts', 'login_enqueue_scripts' ] as $action ) {
-      add_action(
-        $action,
-        function () use ( $cdn_url, $resource_handle ) {
-          wp_enqueue_style( $resource_handle, $cdn_url, [], null );
-        }
-      );
-    }
+		foreach (['wp_enqueue_scripts', 'admin_enqueue_scripts', 'login_enqueue_scripts'] as $action) {
+			add_action(
+				$action,
+				function () use ($cdn_url, $resource_handle) {
+					wp_enqueue_style($resource_handle, $cdn_url, [], null);
+				}
+			);
+		}
 
-    if($integrity) {
-      add_filter(
-        'style_loader_tag',
-        function( $html, $handle ) use ( $resource_handle, $integrity ) {
-          if ( in_array( $handle, [ $resource_handle ], true ) ) {
-            return preg_replace(
-              '/\/>$/',
-              'integrity="' . $integrity .
-              '" crossorigin="anonymous" />',
-              $html,
-              1
-            );
-          } else {
-            return $html;
-          }
-        },
-        10,
-        2
-      );
-    }
-  }
+		if ($integrity) {
+			add_filter(
+				'style_loader_tag',
+				function ($html, $handle) use ($resource_handle, $integrity) {
+					if (in_array($handle, [$resource_handle], true)) {
+						return preg_replace(
+							'/\/>$/',
+							'integrity="' . $integrity .
+								'" crossorigin="anonymous" />',
+							$html,
+							1
+						);
+					} else {
+						return $html;
+					}
+				},
+				10,
+				2
+			);
+		}
+	}
 }
 
 // fa_custom_setup_cdn_webfont(
-//   'https://use.fontawesome.com/releases/v5.15.3/css/all.css',
-//   'sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk'
+// 	'https://use.fontawesome.com/releases/v5.15.3/css/all.css',
+// 	'sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk'
 // );
+
+add_action('acf/init', 'paymob_acf_blocks_init');
+function paymob_acf_blocks_init()
+{
+
+	// Check function exists.
+	if (function_exists('acf_register_block_type')) {
+
+		// Register a testimonial block.
+		acf_register_block_type(array(
+			'name'              => 'page_section',
+			'title'             => __('Page Section'),
+			'description'       => __('A custom page section block.'),
+			'render_template'   => 'template-parts/blocks/page_section/page_section.php',
+			'category'          => 'layout',
+			'supports'					=> array(
+				'jsx' => true
+			)
+		));
+		acf_register_block_type(array(
+			'name'              => 'media',
+			'title'             => __('Media Component'),
+			'description'       => __('A flexbox media element with text and an image'),
+			'render_template'   => 'template-parts/blocks/media/media.php',
+			'category'          => 'layout',
+			'supports'					=> array(
+				'jsx' => true
+			)
+		));
+	}
+}

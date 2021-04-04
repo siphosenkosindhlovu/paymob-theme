@@ -131,12 +131,12 @@ wp_reset_query();
             $payment_points->the_post();
         ?>
             <div class="col">
-              <button class="btn rounded-3 <?php the_field('header_color_class'); ?> ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#post-<?= the_ID() ?>">
+              <button class="btn rounded-3 <?php the_field('header_color_class'); ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?= the_ID() ?>">
                 <div class="d-flex align-items-center justify-content-center">
                   <figure>
                     <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="mb-4" height="160">
                     <figcaption class="text-white fs-5 fw-bold">
-                      <?php echo str_replace('for', '', get_the_title()); ?>
+                      <?php echo str_replace('For', '', get_the_title()); ?>
                     </figcaption>
                   </figure>
                 </div>
@@ -172,7 +172,7 @@ wp_reset_query();
       Demo video by Paymob
     </p>
     <div class="embed mb-3">
-      <video src="<?php echo wp_get_attachment_url(get_theme_mod('paymob_demo')) ?>"></video>
+      <iframe width="677" height="381" src="https://www.youtube.com/embed/3d5dIpVZwxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="text-center">
       <a href="#" class="btn btn-accent">Request Demo</a>
@@ -231,18 +231,18 @@ wp_reset_query();
         $payment_points->the_post();
     ?>
         <!-- Modal -->
-        <div class="modal fade" id="post-<?=the_ID()?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal fade" id="post-<?= the_ID() ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
-              <div class="modal-header <?=the_field('header_color_class');?>">
-                <h1 class="modal-title"><?=the_title();?></h1>
-                <img src="<?=get_the_post_thumbnail_url();?>" alt="" height="160">
-                <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close">
+              <div class="modal-header text-center text-md-left d-flex flex-column flex-md-row justify-content-between <?= the_field('header_color_class'); ?>">
+                <h1 class="modal-title"><?= the_title(); ?></h1>
+                <img src="<?= get_the_post_thumbnail_url(); ?>" alt="" height="160">
+                <button type="button" class="close modal-close" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
-                <?= the_content();?>
+              <div class="modal-body points">
+                <?= the_content(); ?>
               </div>
             </div>
           </div>

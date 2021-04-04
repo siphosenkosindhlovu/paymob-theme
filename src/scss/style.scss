@@ -39,9 +39,19 @@
   }
   &-blue-light-2 {
     @extend .bg-blue-light-2;
+    color: white;
   }
-  &-primary {
+  &-blue {
     @extend .bg-primary;
+    color: white;
+  }
+}
+.points {
+  h3 {
+    color: $orange;
+  }
+  ul {
+    @extend .list-description;
   }
 }
 
@@ -54,6 +64,7 @@
 }
 
 .case_studies {
+  @extend .page-section;
   &:nth-child(even){
     @extend .bg-light
   }
