@@ -1,4 +1,7 @@
 .article {
+  &.card{
+    overflow: hidden;
+  }
   &-title {
     @extend .fw-bold;
     @extend .ff-base;
