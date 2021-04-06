@@ -27,7 +27,7 @@ get_header();
         <div>
 
           <?php the_title('<h1 class="text-center">', '</h1>'); ?>
-
+ 
         </div>
       </div>
     </header>
