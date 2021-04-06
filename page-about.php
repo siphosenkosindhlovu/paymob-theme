@@ -39,7 +39,7 @@ get_header();
         'category' => 5,
         'orderby' => 'ID',
         'order' => 'ASC',
-        'numberposts' => 3
+        'posts_per_page' => 3,
       );
       $steps = new WP_Query($args);
       if ($steps->have_posts()) :
