@@ -31,15 +31,16 @@
       <div class="bg-blue-dark">
         <div class="container">
           <!-- top-nav-menu goes here -->
-          <nav class="nav nav-top">
+          <nav class="nav nav-top nav-minor">
             <?php
-            paymob_nav_menu_links(
+            wp_nav_menu(
               array(
                 'theme_location' => 'top-menu',
                 'menu' => 'Top Menu',
                 'container' => false,
-                'echo' => false,
-                'add_link_class' => 'nav-link'
+                'echo' => true,
+                'add_link_class' => 'nav-link',
+                "menu_class" => 'nav'
               )
             )
             ?>
@@ -51,21 +52,22 @@
           <div class="navbar-brand">
             <?php the_custom_logo(); ?>
           </div>
-          <nav class="nav nav-top align-items-center">
+          <nav class="nav nav-minor align-items-center">
             <?php
-            paymob_nav_menu_links(
+            wp_nav_menu(
               array(
                 'theme_location' => 'mid-menu',
                 'menu' => 'Mid Menu',
                 'container' => false,
-                'echo' => false,
-                'add_link_class' => 'nav-link'
+                'echo' => true,
+                'add_link_class' => 'nav-link',
+                "menu_class" => 'nav'
               )
             )
             ?>
             <!-- <?php
-            get_search_form();
-            ?> -->
+                  get_search_form();
+                  ?> -->
 
           </nav>
           <!-- mid-nav-menu and search bar here -->

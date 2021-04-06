@@ -1,8 +1,11 @@
 .nav {
-  &-top {
+  &-minor {
+    .current-menu-item {
+      background-color: $blue;
+    }
     .nav-link {
       color: white;
-      padding: 0.8125rem 0.75rem;
+      padding: 0.8125rem 0.75rem !important;
       font-size: map-get($font-sizes, xs );
       &:hover {
         color: rgba(255, 255, 255, 0.795);
@@ -12,13 +15,26 @@
       }
     }
   }
+  &-top {
+    .current-menu-item{
+      a {
+        border-right-color: transparent;
+      }
+    }
+    .nav-link {
+      border-right: 1px solid rgba(255, 255, 255, 0.1) ;
+    }
+  }
 }
+
 .nav-link {
   line-height: 1;
 }
-.nav-item:first-child  {
-  .nav-link {
-    padding-left: 0;
+#menu-sub-navigation{
+  & > .nav-item:first-child  {
+    .nav-link {
+      padding-left: 0;
+    }
   }
 }
 

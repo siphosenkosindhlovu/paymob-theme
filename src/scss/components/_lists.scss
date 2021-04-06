@@ -1,8 +1,10 @@
 .list-description {
-  @extend .list-unstyled;
-  li{
-    display: flex;
+  padding-left: 0;
+  list-style: none;
+  & > li{
     margin-bottom: map-get($map: $spacers, $key: 5);
+    position: relative;
+    padding-inline-start: $container-padding-x + 1.75rem;
     @include media-breakpoint-up(lg){
       //margin-bottom: map-get($map: $spacers, $key: 14);
     }
@@ -15,6 +17,8 @@
       margin-top: 7.5px;
       margin-right: 1rem;
       border-radius: $border-radius-sm;
+      position: absolute;
+      left: $container-padding-x;
     }
   }
 }

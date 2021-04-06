@@ -157,10 +157,14 @@ export const dev = series(
 	watchForChanges
 );
 
-export const build = series(
+export const pack = series(
 	clean,
 	parallel( styles, images, copy, scripts ),
 	compress
+);
+export const build = series(
+	clean,
+	parallel( styles, images, copy, scripts ),
 );
 
 export default dev;

@@ -1,7 +1,53 @@
 .page-section {
   @extend .container-fluid;
   @extend .py-5;
-  @include media-breakpoint-up(lg){
+  @include media-breakpoint-up(lg) {
     @extend .py-lg-14;
+  }
+}
+
+$color-schemes: (
+  (
+    bg: $blue-light-1,
+    text: $white,
+    list-marker: $blue,
+  ),
+  (
+    bg: $navy,
+    text: white,
+    heading: $orange,
+  ),
+  (
+    bg: $orange,
+    text: white,
+  )
+);
+
+.key-features {
+  @for $i from 1 to 5 {
+    $random: random(2);
+    @if ($i % 2 != 0) {
+      &:nth-child(#{$i}) {
+        background-color: map-get(nth($color-schemes, $random), bg);
+        color: map-get(nth($color-schemes, $random), text);
+        @if (map-has-key($map: nth($color-schemes, $random), $key: heading)) {
+          h2 {
+            color: map-get($map: nth($color-schemes, $random), $key: heading);
+          }
+        }
+        @if (map-has-key($map: nth($color-schemes, $random), $key: list-marker)) {
+          li:before {
+            background: map-get($map: nth($color-schemes, $random), $key: list-marker);
+          }
+        }
+      }
+    }
+  }
+  &:nth-child(odd) {
+    .row {
+      @include media-breakpoint-up(md) {
+        flex-direction: row-reverse;
+      }
+    }
   }
 }

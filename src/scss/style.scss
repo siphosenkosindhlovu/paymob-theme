@@ -39,11 +39,15 @@
   }
   &-blue-light-2 {
     @extend .bg-blue-light-2;
-    color: white;
+    h1 {
+      color: white;
+    } 
   }
   &-blue {
     @extend .bg-primary;
-    color: white;
+    h1 {
+      color: white;
+    }
   }
 }
 .points {

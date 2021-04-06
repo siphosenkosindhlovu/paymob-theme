@@ -54,7 +54,7 @@ get_header();
   <section class="container page-section">
     <div class="row">
       <div class="col-md-8">
-        <h2><?php echo __('PaymobSolutions'); ?> </h2>
+        <h2><?php echo __('Paymob Solutions'); ?> </h2>
         <p class="text-accent fs-md fw-bold"> <?php echo __('On-land Payment Infrastructure Solutions') ?></p>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
@@ -69,7 +69,7 @@ get_header();
               $payment_points->the_post();
           ?>
               <div class="col">
-                <button class="btn rounded-3 <?php the_field('header_color_class'); ?> ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#post-<?= the_ID() ?>">
+                <button class="btn rounded-0 mb-4 <?php the_field('header_color_class'); ?> ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#post-<?= the_ID() ?>">
                   <div class="d-flex align-items-center justify-content-center flex-column p-14">
 
                     <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="mb-4 img-fluid">
@@ -227,7 +227,7 @@ get_header();
           <p>Standalone All-in-One Paymob Smart POS</p>
         </li>
         <li>
-          <p>The most advantage solution supporting SmartPos, mPos, SmartBox in one gateway</p>
+          The most advantage solution supporting SmartPos, mPos, SmartBox in one gateway
         </li>
         <li>
           <p>Open payment and fiscalization</p>

@@ -123,7 +123,10 @@ wp_reset_query();
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
         <?php
         $args = array(
-          'post_type' => 'payment_points'
+          'post_type' => 'payment_points',
+          'orderby' => 'date',
+          'order' => 'ASC',
+          'suppress_filters' => true
         );
         $payment_points = new WP_Query($args);
         if ($payment_points->have_posts()) :
@@ -131,7 +134,7 @@ wp_reset_query();
             $payment_points->the_post();
         ?>
             <div class="col">
-              <button class="btn rounded-3 <?php the_field('header_color_class'); ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?= the_ID() ?>">
+              <button class="btn rounded-3 <?php the_field('header_color_class'); ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?= the_ID() ?>" style="border: 4px dashed rgba(255, 255, 255, 0.5);">
                 <div class="d-flex align-items-center justify-content-center">
                   <figure>
                     <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="mb-4" height="160">
@@ -193,7 +196,10 @@ wp_reset_query();
         <div class="accordion accordion-flush accordion-faqs" id="accordionFlushExample">
           <?php
           $args = array(
-            'post_type' => 'faqs'
+            'post_type' => 'faqs',
+            'orderby' => 'date',
+            'order' => 'ASC',
+            'suppress_filters' => 'true'
           );
           $payment_points = new WP_Query($args);
           if ($payment_points->have_posts()) :
@@ -202,11 +208,11 @@ wp_reset_query();
           ?>
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-<?php the_ID();?>" aria-expanded="false" aria-controls="flush-collapseOne">
                     <?php the_title(); ?>
                   </button>
                 </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div id="faq-<?php the_ID();?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                   <div class="accordion-body"><?php the_content(); ?></div>
                 </div>
               </div>
@@ -228,7 +234,7 @@ wp_reset_query();
     <!-- Button trigger modal -->
     <?php
     $args = array(
-      'post_type' => 'payment_points'
+      'post_type' => 'payment_points',
     );
     $payment_points = new WP_Query($args);
     if ($payment_points->have_posts()) :

@@ -144,7 +144,7 @@ if (!class_exists('WP_Bootstrap_Navwalker')) {
 
 			// Add some additional default classes to the item.
 			$classes[] = 'menu-item-' . $item->ID;
-			if (isset($args->depth) && $args->depth > 0) :
+			if (isset($args->depth) && $args->depth === 0) :
 				$classes[] = 'nav-item';
 			endif;
 
