@@ -123,9 +123,9 @@ get_header();
                         endif;
                         ?>
                         <div class="fs-sm ms-4">
-                          <div class="fw-bold"><?= the_author(); ?></div>
+                          <div class="fw-bold"><?php the_author(); ?></div>
                           <div class="text-accent">
-                            <?= the_date('F j, Y'); ?>
+                            <?php the_date('F j, Y'); ?>
                           </div>
                         </div>
                       </div>
