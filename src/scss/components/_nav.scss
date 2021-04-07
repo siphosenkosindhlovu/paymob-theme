@@ -44,7 +44,10 @@
     border-radius: 0;
     border: 0;
     margin-top: -2px !important;
-    box-shadow: $box-shadow;
+    box-shadow: none;
+    @include media-breakpoint-up(lg){
+      box-shadow: $box-shadow;
+    }
     .nav-item {
       // padding: {
       //   top: 1.15rem;

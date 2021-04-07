@@ -61,24 +61,23 @@ get_header();
 
           <?php
           $args = array(
-            'post_type' => 'payment_points'
+            'post_type' => 'solutions'
           );
-          $payment_points = new WP_Query($args);
-          if ($payment_points->have_posts()) :
-            while ($payment_points->have_posts()) :
-              $payment_points->the_post();
+          $solutions = new WP_Query($args);
+          if ($solutions->have_posts()) :
+            while ($solutions->have_posts()) :
+              $solutions->the_post();
           ?>
               <div class="col">
-                <button class="btn rounded-0 mb-4 <?php the_field('header_color_class'); ?> ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#post-<?= the_ID() ?>">
-                  <div class="d-flex align-items-center justify-content-center flex-column p-14">
-
-                    <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="mb-4 img-fluid">
-                    <div class="text-white fs-5 fw-bold text-nowrap">
+                <a href="<?php the_permalink(); ?>" class="d-block rounded-0 mb-4 <?php the_field('header_color_class'); ?> ratio ratio-16x9" data-bs-toggle="modal" data-bs-target="#post-<?= the_ID() ?>">
+                  <div class="p-5" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.4)), url(<?php echo get_the_post_thumbnail_url() ?>); background-size: cover; background-position: 84% 50%; background-repeat: no-repeat;">
+                    <!-- <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="mb-4 img-fluid"> -->
+                    <div class="text-white fw-bold">
                       <?php echo str_replace('for', '', get_the_title()); ?>
                     </div>
                     </figure>
                   </div>
-                </button>
+                </a>
               </div>
           <?php
             endwhile;
@@ -148,29 +147,26 @@ get_header();
     </div>
 
   </section>
-  <section class="page-section bg-navy text-white pb-0 pb-lg-0">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7 col-lg-6 pe-md-14 d-flex flex-column pb-5 pb-lg-14">
-          <h2 class="text-white">
-            Paymob Gateway
-          </h2>
-          <p class="text-white fs-md">
-            Multi-channel payment gateway for banks includes both the best in class hardware and bespoke software.
-          </p>
-          <div class="mt-auto">
-            <a class="btn btn-outline-light" href="http://" target="_blank" rel="noopener noreferrer">More Information</a>
-          </div>
-        </div>
-        <div class="col-md-5 col-lg-6 row p-0">
-
-          <img src='<?php echo get_template_directory_uri() . "/dist/images/Paymob-Gateway.svg" ?>' style="object-fit: cover">
+  <section class="page-section bg-navy text-white pb-0 pb-lg-0 container-fluid">
+    <div class="row">
+      <div class="container-md-7 container-lg-6 me-md-0 d-flex flex-column pb-5 pb-md-14 page-section">
+        <h2 class="text-white">
+          Paymob Gateway
+        </h2>
+        <p class="text-white fs-md">
+          Multi-channel payment gateway for banks includes both the best in class hardware and bespoke software.
+        </p>
+        <div class="mt-auto">
+          <a class="btn btn-outline-light" href="http://" target="_blank" rel="noopener noreferrer">More Information</a>
         </div>
       </div>
+      <div class="col-md-5 col-lg-6 row p-0">
 
+        <img src='<?php echo get_template_directory_uri() . "/dist/images/Paymob-Gateway.svg" ?>' style="object-fit: cover">
+      </div>
     </div>
   </section>
-  <section class="bg-primary  text-light pb-0 pb-lg-0">
+  <section class="bg-primary  text-light pb-0 pb-lg-0 container-fluid">
     <div class="row">
       <div class="container-md-7 container-lg-6 me-md-0 d-flex flex-column pb-5 pb-md-14 page-section">
         <h2 class="text-white">
@@ -186,7 +182,7 @@ get_header();
     </div>
   </section>
 
-  <section class=" pb-0 pb-lg-0">
+  <section class=" pb-0 pb-lg-0 container-fluid">
     <div class="row">
       <div class="container-md-7 container-lg-6 me-md-0 d-flex flex-column pb-5 pb-md-14 pe-md-14 page-section">
         <h2 class="">
@@ -203,9 +199,9 @@ get_header();
       </div>
     </div>
   </section>
-  <section class="bg-accent text-white pb-0 pb-lg-0">
+  <section class="bg-accent text-white pb-0 pb-lg-0 container-fluid">
     <div class="row">
-      <div class="container-md-7 container-lg-6 me-md-0 d-flex flex-column pb-5 pb-md-14 pe-md-14 page-section">
+      <div class="container container-md-7 container-lg-6 me-md-0 d-flex flex-column pb-5 pb-md-14 pe-md-14 page-section">
         <h2 class="text-white">
           Why choose Paymob?
         </h2>
