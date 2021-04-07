@@ -46,19 +46,19 @@ get_header();
         while ($steps->have_posts()) :
           $steps->the_post();
       ?>
-          <div>
-            <article class="card mb-4">
-              <?php if (get_the_post_thumbnail_url()) : ?>
+          <div class="mb-4">
+            <article class="card h-100">
+              <?php if (get_the_post_thumbnail_url(null, 'full')) : ?>
                 <img src="<?php get_the_post_thumbnail_url(); ?>" alt="" class="card-img-top">
               <?php endif; ?>
-              <?php the_post_thumbnail(array( 380, 246), array('class' => 'card-img-top'));?>
-              <div class="card-body">
+              <?php the_post_thumbnail(array(380, 246), array('class' => 'card-img-top ratio-16x9')); ?>
+              <div class="card-body d-flex flex-column">
                 <h3 class="article-title fs-4">
                   <a href="<?php echo get_permalink(); ?>" class="stretched-link">
                     <?= the_title(); ?>
                   </a>
                 </h3>
-                <div class="card-text">
+                <div class="card-text mt-auto">
                   <div class="d-flex align-items-center">
                     <?php
                     $author_ID = get_the_author_meta('ID');
@@ -69,9 +69,9 @@ get_header();
                     endif;
                     ?>
                     <div class="fs-sm ms-4">
-                      <div class="fw-bold"><?= the_author(); ?></div>
+                      <div class="fw-bold"><?php the_author(); ?></div>
                       <div class="text-accent">
-                        <?= the_date('F j, Y'); ?>
+                        <?php the_date('F j, Y'); ?>
                       </div>
                     </div>
                   </div>

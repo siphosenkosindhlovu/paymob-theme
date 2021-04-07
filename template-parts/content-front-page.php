@@ -197,8 +197,6 @@ wp_reset_query();
           <?php
           $args = array(
             'post_type' => 'faqs',
-            'orderby' => 'date',
-            'order' => 'ASC',
             'suppress_filters' => 'true'
           );
           $payment_points = new WP_Query($args);
