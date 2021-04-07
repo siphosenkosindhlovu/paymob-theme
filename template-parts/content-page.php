@@ -118,7 +118,7 @@
 				if (get_row_layout() == "text_block"):
 					$content = get_sub_field("rich_text");
 					?>
-						<div class="page-section bg-blue-light-1">
+						<div class="page-section bg-light two-cols">
 							<div class="container">
 								<?php echo $content; ?>
 							</div>
