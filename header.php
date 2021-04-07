@@ -75,9 +75,11 @@
       </div>
       <div class="bg-white navbar-expand-lg">
         <div class="container">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sub-nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">
-              <i class="fa fa-bars" aria-hidden="true"></i>
+          <button class="navbar-toggler w-100" type="button" data-bs-toggle="collapse" data-bs-target="#sub-nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon ms-auto me-0">
+              <span></span>
+              <span></span>
+              <span></span>
             </span>
           </button>
           <?php
@@ -87,7 +89,7 @@
             'container' => 'div',
             'container_id' => 'sub-nav',
             'container_class' => 'collapse navbar-collapse',
-            'menu_class' => 'nav',
+            'menu_class' => 'navbar-nav',
             'add_link_class' => 'nav-link',
             'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
             'walker' => new WP_Bootstrap_Navwalker(),
