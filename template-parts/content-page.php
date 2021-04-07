@@ -128,8 +128,8 @@
 				if (get_row_layout() == "image_block"):
 					$content = get_sub_field("image");
 					?>
-						<div class="page-section bg-blue-light-1">
-							<div class="container">
+						<div class="page-section bg-light">
+							<div class="container points">
 								<?php echo $content; ?>
 							</div>
 						</div>
