@@ -102,3 +102,12 @@
     }
   }
 }
+
+form {
+  label {
+    display: block;
+  }
+  button {
+    @extend .btn;
+  }
+}

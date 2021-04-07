@@ -97,7 +97,7 @@ get_header();
             'category' => 5,
             'orderby' => 'ID',
             'order' => 'ASC',
-            'numberposts' => 2
+            'posts_per_page' => 3,
           );
           $news = new WP_Query($args);
           if ($news->have_posts()) :

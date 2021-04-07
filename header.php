@@ -93,46 +93,6 @@
             'walker' => new WP_Bootstrap_Navwalker(),
           ))
           ?>
-          <!-- <ul class="nav">
-            <li class="nav-item">
-              <a href="/" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="about.ejs" class="nav-link">About</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Industry Sectors
-              </a>
-              <ul class="dropdown-menu nav-dropdown" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item nav-link" href="#">Point of Sale</a></li>
-                <li><a class="dropdown-item nav-link" href="#">Small Business</a></li>
-                <li><a class="dropdown-item nav-link" href="#">Retail</a></li>
-                <li><a class="dropdown-item nav-link" href="#">Taxis and Deliveries </a></li>
-                <li><a class="dropdown-item nav-link" href="#">Restaurants and Takeaway</a></li>
-                <li><a class="dropdown-item nav-link" href="#">Hair and Beauty Salons</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Solutions
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Point of Sale</a></li>
-                <li><a class="dropdown-item" href="#">Small Business</a></li>
-                <li><a class="dropdown-item" href="#">Retail</a></li>
-                <li><a class="dropdown-item" href="#">Taxis and Deliveries </a></li>
-                <li><a class="dropdown-item" href="#">Restaurants and Takeaway</a></li>
-                <li><a class="dropdown-item" href="#">Hair and Beauty Salons</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="" class="nav-link">News</a>
-            </li>
-            <li class="nav-item">
-              <a href="" class="nav-link">Contact</a>
-            </li>
-          </ul> -->
         </div>
       </div>
     </header><!-- #masthead -->

@@ -1,6 +1,13 @@
 .footer {
   &-widgets {
     display: flex;
+    & > .sidebar {
+      display: flex;
+      flex-wrap: wrap;
+      @include media-breakpoint-up(lg){
+        flex-wrap: nowrap
+      }
+    }
   }
   &-widget {
     @extend .me-7;
