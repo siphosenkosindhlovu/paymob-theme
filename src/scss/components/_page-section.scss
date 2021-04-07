@@ -8,18 +8,22 @@
 
 $color-schemes: (
   (
+    name: blue-light-1,
     bg: $blue-light-1,
     text: $white,
     list-marker: $blue,
   ),
   (
+    name: navy,
     bg: $navy,
     text: white,
     heading: $orange,
   ),
   (
+    name: orange,
     bg: $orange,
     text: white,
+    heading: white,
   )
 );
 
@@ -51,9 +55,25 @@ $color-schemes: (
     }
   }
 }
+@for $i from 1 to length($color-schemes) {
+  .key-feature-#{map-get(nth($color-schemes, $i), name)} {
+    background-color: map-get(nth($color-schemes, $i), bg);
+    color: map-get(nth($color-schemes, $i), text);
+    @if (map-has-key($map: nth($color-schemes, $i), $key: heading)) {
+      h2 {
+        color: map-get($map: nth($color-schemes, $i), $key: heading);
+      }
+    }
+    @if (map-has-key($map: nth($color-schemes, $i), $key: list-marker)) {
+      li:before {
+        background: map-get($map: nth($color-schemes, $i), $key: list-marker);
+      }
+    }
+  }
+}
 
 .two-cols {
-  @include media-breakpoint-up(lg){
+  @include media-breakpoint-up(lg) {
     column-count: 2;
   }
 }
