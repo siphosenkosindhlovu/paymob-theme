@@ -25,7 +25,7 @@ $color-schemes: (
 
 .key-features {
   @for $i from 1 to 5 {
-    $random: random(2);
+    $random: random(3);
     @if ($i % 2 != 0) {
       &:nth-child(#{$i}) {
         background-color: map-get(nth($color-schemes, $random), bg);
