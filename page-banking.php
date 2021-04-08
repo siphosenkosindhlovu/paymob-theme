@@ -61,7 +61,7 @@ get_header();
 
           <?php
           $args = array(
-            'post_type' => 'payment_points'
+            'post_type' => 'solutions'
           );
           $payment_points = new WP_Query($args);
           if ($payment_points->have_posts()) :
@@ -110,7 +110,7 @@ get_header();
                   <div class="">
                     <h3 class="article-title fs-4">
                       <a href="<?php echo get_permalink(); ?>" class="stretched-link">
-                        <?= the_title(); ?>
+                        <?php the_title(); ?>
                       </a>
                     </h3>
                     <div class="">
@@ -124,9 +124,9 @@ get_header();
                         endif;
                         ?>
                         <div class="fs-sm ms-4">
-                          <div class="fw-bold"><?= the_author(); ?></div>
+                          <div class="fw-bold"><?php the_author(); ?></div>
                           <div class="text-accent">
-                            <?= the_date('F j, Y'); ?>
+                            <?php the_date('F j, Y'); ?>
                           </div>
                         </div>
                       </div>
