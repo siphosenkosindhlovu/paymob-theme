@@ -133,10 +133,10 @@ wp_reset_query();
             $payment_points->the_post();
         ?>
             <div class="col">
-              <button class="btn card rounded-3 <?php the_field('header_color_class'); ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>" style="border: 4px dashed rgba(255, 255, 255, 0.5);">
+              <button class="btn card rounded-3 p-0 <?php the_field('header_color_class'); ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>" style="border: 4px dashed rgba(255, 255, 255, 0.5);">
                 
                   <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="card-img rounded-3" height="160">
-                  <div class="card-img-overlay">
+                  <div class="card-img-overlay d-flex justify-content-center">
                     <div class="text-white fs-5 fw-bold mt-auto">
                       <?php echo str_replace('For', '', get_the_title()); ?>
                     </div>
