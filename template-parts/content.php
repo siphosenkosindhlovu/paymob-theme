@@ -24,7 +24,7 @@
 					if (get_field('page_subtitle')) :
 					?>
 						<p class="text-accent fs-md fw-bold">
-							<?= the_field('page_subtitle'); ?>
+							<?php the_field('page_subtitle'); ?>
 						</p>
 					<?php
 					endif;

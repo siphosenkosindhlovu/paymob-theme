@@ -55,7 +55,7 @@ get_header();
               <div class="card-body d-flex flex-column">
                 <h3 class="article-title fs-4">
                   <a href="<?php echo get_permalink(); ?>" class="stretched-link">
-                    <?= the_title(); ?>
+                    <?php the_title(); ?>
                   </a>
                 </h3>
                 <div class="card-text mt-auto">

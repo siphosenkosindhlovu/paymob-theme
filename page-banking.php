@@ -32,7 +32,7 @@ get_header();
             if (get_field('page_subtitle')) :
             ?>
               <p class="text-accent fs-md fw-bold">
-                <?= the_field('page_subtitle'); ?>
+                <?php the_field('page_subtitle'); ?>
               </p>
             <?php
             endif;
@@ -69,7 +69,7 @@ get_header();
               $solutions->the_post();
           ?>
               <div class="col">
-                <a href="<?php the_permalink(); ?>" class="d-block rounded-0 mb-4 <?php the_field('header_color_class'); ?> ratio ratio-16x9" data-bs-toggle="modal" data-bs-target="#post-<?= the_ID() ?>">
+                <a href="<?php the_permalink(); ?>" class="d-block rounded-0 mb-4 <?php the_field('header_color_class'); ?> ratio ratio-16x9" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>">
                   <div class="p-5" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.4)), url(<?php echo get_the_post_thumbnail_url() ?>); background-size: cover; background-position: 84% 50%; background-repeat: no-repeat;">
                     <!-- <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="mb-4 img-fluid"> -->
                     <div class="text-white fw-bold">

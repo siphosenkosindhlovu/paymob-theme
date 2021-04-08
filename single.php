@@ -40,7 +40,7 @@ get_header();
 
 						<div class="ms-4">
 							<div class="text-accent">
-								<?= the_date('F j, Y'); ?>
+								<?php the_date('F j, Y'); ?>
 							</div>
 						</div>
 					</div>

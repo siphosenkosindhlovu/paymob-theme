@@ -32,7 +32,7 @@ get_header();
             if (get_field('page_subtitle')) :
             ?>
               <p class="text-accent fs-md fw-bold">
-                <?= the_field('page_subtitle'); ?>
+                <?php the_field('page_subtitle'); ?>
               </p>
             <?php
             endif;
@@ -69,7 +69,7 @@ get_header();
               $payment_points->the_post();
           ?>
               <div class="col">
-                <button class="btn rounded-3 <?php the_field('header_color_class'); ?> ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#post-<?= the_ID() ?>">
+                <button class="btn rounded-3 <?php the_field('header_color_class'); ?> ratio ratio-1x1" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>">
                   <div class="d-flex align-items-center justify-content-center flex-column p-14">
 
                     <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="mb-4 img-fluid">
@@ -110,7 +110,7 @@ get_header();
                   <div class="">
                     <h3 class="article-title fs-4">
                       <a href="<?php echo get_permalink(); ?>" class="stretched-link">
-                        <?= the_title(); ?>
+                        <?php the_title(); ?>
                       </a>
                     </h3>
                     <div class="">
@@ -124,9 +124,9 @@ get_header();
                         endif;
                         ?>
                         <div class="fs-sm ms-4">
-                          <div class="fw-bold"><?= the_author(); ?></div>
+                          <div class="fw-bold"><?php the_author(); ?></div>
                           <div class="text-accent">
-                            <?= the_date('F j, Y'); ?>
+                            <?php the_date('F j, Y'); ?>
                           </div>
                         </div>
                       </div>
