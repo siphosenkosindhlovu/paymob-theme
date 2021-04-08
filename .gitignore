@@ -5,5 +5,4 @@ package-lock.json
 composer.lock
 style.css.map
 .DS_Store
-/dist/
-dist/css/style.css
+dist/
