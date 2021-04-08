@@ -126,7 +126,6 @@ wp_reset_query();
           'post_type' => 'payment_points',
           'orderby' => 'date',
           'order' => 'ASC',
-          'suppress_filters' => true
         );
         $payment_points = new WP_Query($args);
         if ($payment_points->have_posts()) :
