@@ -111,3 +111,8 @@ form {
     @extend .btn;
   }
 }
+
+.wp-block-image img {
+    max-width: 100%;
+    height: auto;
+}
