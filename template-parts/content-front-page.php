@@ -134,15 +134,14 @@ wp_reset_query();
             $payment_points->the_post();
         ?>
             <div class="col">
-              <button class="btn rounded-3 <?php the_field('header_color_class'); ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>" style="border: 4px dashed rgba(255, 255, 255, 0.5);">
-                <div class="d-flex align-items-center justify-content-center">
-                  <figure>
-                    <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="mb-4" height="160">
-                    <figcaption class="text-white fs-5 fw-bold">
+              <button class="btn card rounded-3 <?php the_field('header_color_class'); ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>" style="border: 4px dashed rgba(255, 255, 255, 0.5);">
+                
+                  <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="card-img" height="160">
+                  <div class="card-img-overlay">
+                    <div class="text-white fs-5 fw-bold mt-auto">
                       <?php echo str_replace('For', '', get_the_title()); ?>
-                    </figcaption>
-                  </figure>
-                </div>
+                    </div>
+                  </div>
               </button>
             </div>
         <?php
@@ -206,11 +205,11 @@ wp_reset_query();
           ?>
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-<?php the_ID();?>" aria-expanded="false" aria-controls="flush-collapseOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-<?php the_ID(); ?>" aria-expanded="false" aria-controls="flush-collapseOne">
                     <?php the_title(); ?>
                   </button>
                 </h2>
-                <div id="faq-<?php the_ID();?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div id="faq-<?php the_ID(); ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                   <div class="accordion-body"><?php the_content(); ?></div>
                 </div>
               </div>
@@ -223,7 +222,7 @@ wp_reset_query();
 
       </div>
       <div class="col-lg-6">
-      <img src='<?php echo get_template_directory_uri() . "/dist/images/questioner.png" ?>' class="img-fluid">
+        <img src='<?php echo get_template_directory_uri() . "/dist/images/questioner.png" ?>' class="img-fluid">
       </div>
     </div>
   </section>
