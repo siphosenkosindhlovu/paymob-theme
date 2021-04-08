@@ -115,6 +115,26 @@
 					</div>
 					<?php
 				endif;
+				if (get_row_layout() == "text_block"):
+					$content = get_sub_field("rich_text");
+					?>
+						<div class="page-section bg-light two-cols">
+							<div class="container">
+								<?php echo $content; ?>
+							</div>
+						</div>
+					<?php
+				endif;
+				if (get_row_layout() == "image_block"):
+					$content = get_sub_field("image");
+					?>
+						<div class="page-section bg-light">
+							<div class="container points">
+								<?php echo $content; ?>
+							</div>
+						</div>
+					<?php
+				endif;
 			endwhile;
 		endif;
 

@@ -73,15 +73,23 @@
           <!-- mid-nav-menu and search bar here -->
         </div>
       </div>
-      <div class="bg-white">
+      <div class="bg-white navbar-expand-lg">
         <div class="container">
+          <button class="navbar-toggler w-100" type="button" data-bs-toggle="collapse" data-bs-target="#sub-nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon ms-auto me-0">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
           <?php
           wp_nav_menu(array(
             'theme_location' => 'sub-menu',
             'menu' => 'Sub Menu',
             'container' => 'div',
             'container_id' => 'sub-nav',
-            'menu_class' => 'nav',
+            'container_class' => 'collapse navbar-collapse',
+            'menu_class' => 'navbar-nav',
             'add_link_class' => 'nav-link',
             'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
             'walker' => new WP_Bootstrap_Navwalker(),

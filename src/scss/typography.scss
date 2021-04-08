@@ -58,3 +58,9 @@ dt {
 .ff-base {
   font-family: $font-family-base;
 }
+
+@include media-breakpoint-up(lg){
+  .two-cols {
+    column-count: 2
+  }
+}

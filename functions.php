@@ -255,7 +255,8 @@ function payment_steps_register_post_type()
 		'show_in_menu' => 'edit.php?post_type=page',
 		'show_in_rest' => true,
 		'rewrite' => array(
-			'slug' => 'business'
+			'slug' => 'business',
+			'with_front' => 'true'
 		)
 	));
 	// register_post_type('case_studies', array(
