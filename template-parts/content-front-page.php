@@ -162,7 +162,7 @@ wp_reset_query();
         </p>
       </div>
       <div class="col-lg-9 offset-lg-3">
-        <img src="<?php echo get_theme_mod('paymob_transaction_flow') ?>" alt="" class="img-fluid">
+        <img src="<?php echo get_template_directory_uri() . "/dist/images/How does transaction work flow.svg" ?>'" alt="" class="img-fluid">
       </div>
   </section>
   <section class="container-fluid bg-blue-light-1 page-section">
@@ -221,7 +221,7 @@ wp_reset_query();
 
       </div>
       <div class="col-lg-6">
-        <img src='<?php echo get_template_directory_uri() . "/dist/images/questioner.png" ?>' class="img-fluid">
+        <img src='<?php echo get_template_directory_uri() . "/dist/images/Contact your acquirer with more questions.svg" ?>' class="img-fluid">
       </div>
     </div>
   </section>
