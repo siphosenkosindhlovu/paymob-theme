@@ -243,7 +243,7 @@ wp_reset_query();
             <div class="modal-content">
               <div class="modal-header text-center text-md-left d-flex flex-column flex-md-row justify-content-between <?php the_field('header_color_class'); ?>">
                 <h1 class="modal-title"><?php the_title(); ?></h1>
-                <img src="<?php get_the_post_thumbnail_url(); ?>" alt="" height="160">
+                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" height="160">
                 <button type="button" class="close modal-close" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
