@@ -119,7 +119,7 @@
 					$content = get_sub_field("rich_text");
 					?>
 						<div class="page-section bg-light two-cols">
-							<div class="container">
+							<div class="container w-lg-75">
 								<?php echo $content; ?>
 							</div>
 						</div>

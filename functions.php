@@ -482,10 +482,10 @@ if (!function_exists('fa_custom_setup_cdn_webfont')) {
 	}
 }
 
-// fa_custom_setup_cdn_webfont(
-// 	'https://use.fontawesome.com/releases/v5.15.3/css/all.css',
-// 	'sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk'
-// );
+fa_custom_setup_cdn_webfont(
+	'https://use.fontawesome.com/releases/v5.15.3/css/all.css',
+	'sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk'
+);
 
 add_action('acf/init', 'paymob_acf_blocks_init');
 function paymob_acf_blocks_init()

@@ -76,10 +76,8 @@
       <div class="bg-white navbar-expand-lg">
         <div class="container">
           <button class="navbar-toggler w-100" type="button" data-bs-toggle="collapse" data-bs-target="#sub-nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon ms-auto me-0">
-              <span></span>
-              <span></span>
-              <span></span>
+            <span class="navbar-toggler-icon ms-auto me-0 text-primary">
+              <i class="fas fa-bars"></i>
             </span>
           </button>
           <?php
