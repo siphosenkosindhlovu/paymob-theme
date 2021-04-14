@@ -49,7 +49,16 @@
       color: white;
     }
   }
+
+  
 }
+
+.modal-close{
+    font-size: 2.5rem;
+    color: white;
+    line-height: 1;
+}
+
 .points {
   h3 {
     color: $orange;
@@ -93,6 +102,11 @@
 }
 
 .page-banner{
+  &-front-page {
+    .post-thumbnail {
+      text-align: right;
+    }
+  }
   .post-thumbnail {
     width: 100%;
     text-align: center;

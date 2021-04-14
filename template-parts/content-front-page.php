@@ -15,7 +15,7 @@ if (have_posts()) :
   while (have_posts()) :
     the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-      <section class="page-banner">
+      <section class="page-banner page-banner-front-page">
         <div class="d-flex flex-column flex-lg-row-reverse justify-content-between">
           <div class="col-lg-6 d-flex justify-content-end z-index-negative">
             <?php paymob_post_thumbnail(); ?>
@@ -186,7 +186,7 @@ wp_reset_query();
   </section>
   <section class="container page-section">
     <h2 class="w-lg-50 fs-xl">
-      <?php echo __('Contact your acquirer with more questions', 'paymob'); ?>
+      <?php echo __('Frequently Asked Questions', 'paymob'); ?>
     </h2>
     <div class="row">
       <div class="col-lg-6">

@@ -213,7 +213,7 @@ get_header();
           The only comprehensive solution including all the required components for the launch on turnkey basis of any scale and complexity.
       </div>
       <div class="col-md-5 col-lg-6 ms-0 row p-0 bg-blue-light-1">
-        <img src='<?php echo get_template_directory_uri() . "/dist/images/Why-Choose-Paymob.svg" ?>' class="p-0" style="object-fit: cover">
+        <img src='<?php echo get_template_directory_uri() . "/dist/images/Why-choose-Paymob.svg" ?>' class="p-0" style="object-fit: cover">
       </div>
     </div>
   </section>
