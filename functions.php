@@ -233,32 +233,32 @@ function payment_steps_register_post_type()
 		'show_in_menu' => 'edit.php?post_type=page'
 	));
 
-	register_post_type('industry_sectors', array(
-		'labels' => array(
-			'name'               => _x('Industry Sectors', 'post type general name'),
-			'singular_name'      => _x('Industry Sector', 'post type singular name'),
-			'add_new'            => _x('Add New', 'book'),
-			'add_new_item'       => __('Add New Industry Sector'),
-			'edit_item'          => __('Edit Industry Sector'),
-			'new_item'           => __('New Industry Sector'),
-			'all_items'          => __('All Industry Sectors'),
-			'view_item'          => __('View Industry Sector'),
-			'search_items'       => __('Search Industry Sectors'),
-			'not_found'          => __('No Industry Sectors found'),
-			'not_found_in_trash' => __('No Industry Sectors found in the Trash'),
-			'menu_name'          => 'Industry Sectors'
-		),
-		'public' => true,
-		'supports'      => array('title', 'editor', 'thumbnail'),
-		'has_archive'   => false,
-		'publicly_queryable'  => true,
-		'show_in_menu' => 'edit.php?post_type=page',
-		'show_in_rest' => true,
-		'rewrite' => array(
-			'slug' => 'business',
-			'with_front' => 'true'
-		)
-	));
+	// register_post_type('industry_sectors', array(
+	// 	'labels' => array(
+	// 		'name'               => _x('Industry Sectors', 'post type general name'),
+	// 		'singular_name'      => _x('Industry Sector', 'post type singular name'),
+	// 		'add_new'            => _x('Add New', 'book'),
+	// 		'add_new_item'       => __('Add New Industry Sector'),
+	// 		'edit_item'          => __('Edit Industry Sector'),
+	// 		'new_item'           => __('New Industry Sector'),
+	// 		'all_items'          => __('All Industry Sectors'),
+	// 		'view_item'          => __('View Industry Sector'),
+	// 		'search_items'       => __('Search Industry Sectors'),
+	// 		'not_found'          => __('No Industry Sectors found'),
+	// 		'not_found_in_trash' => __('No Industry Sectors found in the Trash'),
+	// 		'menu_name'          => 'Industry Sectors'
+	// 	),
+	// 	'public' => true,
+	// 	'supports'      => array('title', 'editor', 'thumbnail'),
+	// 	'has_archive'   => false,
+	// 	'publicly_queryable'  => true,
+	// 	'show_in_menu' => 'edit.php?post_type=page',
+	// 	'show_in_rest' => true,
+	// 	'rewrite' => array(
+	// 		'slug' => 'business/sectors',
+	// 		'with_front' => 'true'
+	// 	)
+	// ));
 	// register_post_type('case_studies', array(
 	// 	'labels' => array(
 	// 		'name'               => _x('Paymob Case Studies', 'post type general name'),

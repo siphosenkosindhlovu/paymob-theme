@@ -48,6 +48,18 @@ wp_reset_query();
 
   ?>
   <section class="container page-section">
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
+    <script>
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "9315354",
+        formId: "6f697898-d7d9-470f-a8f1-d90238845b54"
+      });
+    </script>
+
+<iframe class="airtable-embed" src="https://airtable.com/embed/shrnsjYQ1MpLPzE6U?backgroundColor=cyan" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent;"></iframe>
+  </section>
+  <section class="container page-section">
     <div class="row">
       <h2 class="col-lg-5 mb-lg-29 fs-xl">
         <?php
@@ -70,7 +82,9 @@ wp_reset_query();
           <div class="col-lg-3 step text-center text-lg-left">
             <h3 class="h4"><span class="badge bg-accent step-number">&nbsp;</span></h3>
             <figure>
-              <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="img-fluid mb-6 mb-lg-8">
+              <div class="ratio ratio-1x1">
+                <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="img-fluid mb-6 mb-lg-8" style="object-fit: contain">
+              </div>
               <figcaption>
                 <?php the_content(); ?>
               </figcaption>
@@ -134,13 +148,13 @@ wp_reset_query();
         ?>
             <div class="col">
               <button class="btn card rounded-3 p-0 <?php the_field('header_color_class'); ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>" style="border: 4px dashed rgba(255, 255, 255, 0.5);">
-                
-                  <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="card-img rounded-3" height="160">
-                  <div class="card-img-overlay d-flex justify-content-center">
-                    <div class="text-white fs-5 fw-bold mt-auto">
-                      <?php echo str_replace('For', '', get_the_title()); ?>
-                    </div>
+
+                <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="card-img rounded-3" height="160">
+                <div class="card-img-overlay d-flex justify-content-center">
+                  <div class="text-white fs-5 fw-bold mt-auto">
+                    <?php echo str_replace('For', '', get_the_title()); ?>
                   </div>
+                </div>
               </button>
             </div>
         <?php

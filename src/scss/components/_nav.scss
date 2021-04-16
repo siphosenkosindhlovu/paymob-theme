@@ -1,6 +1,6 @@
 .nav {
-  &-minor {
-    .current-menu-item {
+  &-top {
+    .current-menu-item, .current-menu-parent, .current-menu-ancestor, .current-page-ancestor {
       background-color: $blue;
     }
     .nav-link {
@@ -16,7 +16,7 @@
     }
   }
   &-top {
-    .current-menu-item {
+    .current-menu-item, .current-menu-parent, .current-menu-ancestor, .current-page-ancestor  {
       a {
         border-right-color: transparent;
       }
