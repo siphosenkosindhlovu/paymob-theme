@@ -435,7 +435,21 @@ function paymob_navlink_add_classnames($atts, $item, $args)
 	}
 	return $atts;
 }
+/**
+ * Add classnames to link items
+ */
+add_filter('nav_menu_link_attributes', 'paymob_navlink_add_html_attrubutes', 10, 3);
 
+function paymob_navlink_add_html_attrubutes($atts, $item, $args)
+{
+	$attributes = get_field('nav_attributes', $item);
+	if($attributes):
+		foreach($attributes as $attribute):
+			$atts[$attribute['attribute']] = $attribute['value'];
+		endforeach;
+	endif;
+	return $atts;
+}
 
 /**
  * Font Awesome CDN Setup Webfont

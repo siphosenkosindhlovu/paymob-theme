@@ -12,6 +12,45 @@
 
 ?>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="hbspt" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+	<div class="modal-dialog modal-xl" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true"></span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
+				<script>
+					hbspt.forms.create({
+						region: "na1",
+						portalId: "9315354",
+						formId: "6f697898-d7d9-470f-a8f1-d90238845b54"
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="airtable" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+	<div class="modal-dialog modal-xl" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<iframe class="airtable-embed" src="https://airtable.com/embed/shrnsjYQ1MpLPzE6U?backgroundColor=cyan" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent;"></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+
 <footer class="bg-primary py-8 py-lg-11">
 	<div class="container">
 		<div class="d-flex flex-wrap flex-lg-nowrap">
@@ -24,7 +63,7 @@
 				</div>
 			</div>
 			<div class="footer-widgets ms-auto flex-wrap flex-lg-nowrap">
-				<?php get_sidebar( 'footer' ); ?>
+				<?php get_sidebar('footer'); ?>
 			</div>
 		</div>
 	</div>

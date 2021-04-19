@@ -48,17 +48,9 @@ wp_reset_query();
 
   ?>
   <section class="container page-section">
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
-    <script>
-      hbspt.forms.create({
-        region: "na1",
-        portalId: "9315354",
-        formId: "6f697898-d7d9-470f-a8f1-d90238845b54"
-      });
-    </script>
 
-<iframe class="airtable-embed" src="https://airtable.com/embed/shrnsjYQ1MpLPzE6U?backgroundColor=cyan" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent;"></iframe>
-  </section>
+
+   </section>
   <section class="container page-section">
     <div class="row">
       <h2 class="col-lg-5 mb-lg-29 fs-xl">
