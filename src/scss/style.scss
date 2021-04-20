@@ -75,11 +75,19 @@
   border: none;
   background: transparent;
 }
-
+.site-main{
+  counter-reset: case;
+}
 .case_studies {
   @extend .page-section;
   &:nth-child(even) {
     @extend .bg-light;
+  }
+  &-subtitle {
+    counter-increment: case;
+    &::after {
+      content: " #" counter(case);
+    }
   }
   .entry-content {
     @include media-breakpoint-up(lg) {
@@ -105,6 +113,7 @@
   &-front-page {
     .post-thumbnail {
       text-align: right;
+      margin-top: 0;
     }
   }
   .post-thumbnail {

@@ -14,7 +14,7 @@
   <header class="page-banner">
       <div class="container d-flex align-items-center">
         <div>
-          <p class="h2"><?php echo __('Case Study', 'paymob'); ?></p>
+          <p class="h2 case_studies-subtitle"><?php echo __('Case Study', 'paymob'); ?></p>
           <?php the_title('<h2 class="h3 text-accent">', '</h2>'); ?>
         </div>
       </div>
