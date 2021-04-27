@@ -26,7 +26,7 @@ $text_colour = $colours['text_colour'];
 
     <div class="container">
         <div class="row">
-            <?php foreach ($column as $col) : ?>
+            <?php foreach ($columns as $column) : ?>
                 <div class="col-md">
                     <?php echo $col; ?>
                 </div>
