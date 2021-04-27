@@ -10,8 +10,6 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-
-<h1>Im an page</h1>
   <?php
   while (have_posts()) :
     the_post();
@@ -43,7 +41,6 @@ get_header();
       </div>
     </header>
     <?php
-    echo "hi";
     if (have_rows('flexible_content')) :
       while (have_rows('flexible_content')) : the_row();
       echo get_row_layout();
