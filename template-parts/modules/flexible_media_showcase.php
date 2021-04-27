@@ -25,7 +25,11 @@ $direction_class = $alignment == "left" ? "" : "flex-md-row-reverse";
 $layout_classes = array(
   "first" => $layout == "2x1" ? "col-12 col-md-4 col-lg-3" : "col-12 col-md-6",
   "second" => $layout == "2x1" ? "col-12 col-md-8 col-lg-9" : "col-12 col-md-6"
-)
+);
+var_dump($heading);
+var_dump($image);
+var_dump($content);
+var_dump($colours);
 ?>
 <div class="page-section bg-<?php echo esc_attr($bg_colour) ?>">
   <div class="container">
