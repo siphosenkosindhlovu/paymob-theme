@@ -58,7 +58,7 @@
 				<div class="mb-5 mb-lg-17">
 					<img src="<?php echo get_theme_mod('paymob_company-logo') ?>" alt="" class="img-fluid">
 				</div>
-				<div class="fs-tiny text-white lh-lg w-77ch">
+				<div class="fs-tiny text-white lh-lg w-md-77ch">
 					<?php echo get_theme_mod('paymob_company-desc') ?>
 				</div>
 			</div>

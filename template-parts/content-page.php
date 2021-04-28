@@ -44,6 +44,11 @@
 	<div class="entry-content">
 		<?php
 		the_content();
+		if (have_rows('flexible_content')) :
+			while (have_rows('flexible_content')) : the_row();
+				get_template_part('template-parts/modules/' . get_row_layout());
+			endwhile;
+		endif;
 
 		if (have_rows('feature_block')) :
 			while (have_rows('feature_block')) : the_row();
@@ -64,76 +69,76 @@
 							</div>
 						</div>
 					</div>
-					<?php
-				endif;
-				if ((get_row_layout() == "spec_list") || (get_row_layout() == "specifications_list")) :?>
-					<div class="page-section spec_list container"><?php
-					$specs = ((get_row_layout() == "spec_list")) ? get_sub_field("spec_items") : get_sub_field("specification_list_items");
-					
-					?>
-					
-					<h2 class="w-lg-75">
-						<?php 
-						echo ($specs['spec_header']) ? $specs['spec_header'] : __("Tech Specs", "paymob"); 
-						?>
-					</h2>
-					<?php
-					$specs = $specs['spec_items'] ? $specs['spec_items'] : $specs;
-					if ($specs) :?>
-						<ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 list-description"> <?php
-									foreach ($specs as $spec => $spec_item):
-									?>
-									<?php $spec = $spec_item['spec_item']; ?>
-								<li>
-									<dl>
-										<dt>
-											<?php echo $spec["spec_label"]; ?>
-										</dt>
-										<dd>
-											<?php 
-												if ($spec["spec_list"]):
-													echo "<ul class='list-unstyled'>";
-													foreach ($spec["spec_list"] as $spec_item):
-														?>
-															<li>
-																<?php echo $spec_item['spec_list_item'] ;?>
-															</li>
-														<?php
-													endforeach;
-													echo "</ul>";
-												endif;
-											?>
-										</dd>
-									</dl>
-								</li>
-							<?php
-									endforeach;
-							?>
-						</ul>
 				<?php
-					endif;?>
+				endif;
+				if ((get_row_layout() == "spec_list") || (get_row_layout() == "specifications_list")) : ?>
+					<div class="page-section spec_list container"><?php
+																												$specs = ((get_row_layout() == "spec_list")) ? get_sub_field("spec_items") : get_sub_field("specification_list_items");
+
+																												?>
+
+						<h2 class="w-lg-75">
+							<?php
+							echo ($specs['spec_header']) ? $specs['spec_header'] : __("Tech Specs", "paymob");
+							?>
+						</h2>
+						<?php
+						$specs = $specs['spec_items'] ? $specs['spec_items'] : $specs;
+						if ($specs) : ?>
+							<ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 list-description"> <?php
+																																												foreach ($specs as $spec => $spec_item) :
+																																												?>
+									<?php $spec = $spec_item['spec_item']; ?>
+									<li>
+										<dl>
+											<dt>
+												<?php echo $spec["spec_label"]; ?>
+											</dt>
+											<dd>
+												<?php
+																																													if ($spec["spec_list"]) :
+																																														echo "<ul class='list-unstyled'>";
+																																														foreach ($spec["spec_list"] as $spec_item) :
+												?>
+									<li>
+										<?php echo $spec_item['spec_list_item']; ?>
+									</li>
+							<?php
+																																														endforeach;
+																																														echo "</ul>";
+																																													endif;
+							?>
+							</dd>
+							</dl>
+							</li>
+						<?php
+																																												endforeach;
+						?>
+							</ul>
+						<?php
+						endif; ?>
 					</div>
-					<?php
+				<?php
 				endif;
-				if (get_row_layout() == "text_block"):
+				if (get_row_layout() == "text_block") :
 					$content = get_sub_field("rich_text");
-					?>
-						<div class="page-section bg-light two-cols">
-							<div class="container w-lg-75">
-								<?php echo $content; ?>
-							</div>
+				?>
+					<div class="page-section bg-light two-cols">
+						<div class="container w-lg-75">
+							<?php echo $content; ?>
 						</div>
-					<?php
+					</div>
+				<?php
 				endif;
-				if (get_row_layout() == "image_block"):
+				if (get_row_layout() == "image_block") :
 					$content = get_sub_field("image");
-					?>
-						<div class="page-section bg-light">
-							<div class="container points">
-								<?php echo $content; ?>
-							</div>
+				?>
+					<div class="page-section bg-light">
+						<div class="container points">
+							<?php echo $content; ?>
 						</div>
-					<?php
+					</div>
+				<?php
 				endif;
 			endwhile;
 		endif;
