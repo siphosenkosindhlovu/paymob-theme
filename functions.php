@@ -105,6 +105,53 @@ if (!function_exists('paymob_setup')) :
 			)
 		);
 
+		add_theme_support( 'editor-color-palette', array(
+			array(
+					'name' => esc_attr__( 'lighter blue', 'paymob' ),
+					'slug' => 'lighter-blue',
+					'color' => '#abc5ff',
+			),
+			array(
+					'name' => esc_attr__( 'light blue', 'paymob' ),
+					'slug' => 'light-blue',
+					'color' => '#5786ed',
+			),
+			array(
+					'name' => esc_attr__( 'blue', 'paymob' ),
+					'slug' => 'blue',
+					'color' => '#2950af',
+			),
+			array(
+					'name' => esc_attr__( 'dark blue', 'paymob' ),
+					'slug' => 'dark-blue',
+					'color' => '#11358b',
+			),
+			array(
+					'name' => esc_attr__( 'navy', 'paymob' ),
+					'slug' => 'navy',
+					'color' => '#08243b',
+			),
+			array(
+					'name' => esc_attr__( 'orange', 'paymob' ),
+					'slug' => 'orange',
+					'color' => '#ff5833',
+			),
+			array(
+					'name' => esc_attr__( 'light', 'paymob' ),
+					'slug' => 'light',
+					'color' => '#f8f8fa',
+			),
+			array(
+					'name' => esc_attr__( 'dark', 'paymob' ),
+					'slug' => 'dark',
+					'color' => '#606060',
+			),
+	) );
+
+		add_theme_support('editor-styles');
+
+		add_editor_style( '/dist/css/editor-styles.css' );
+
 		/**
 		 * Register Custom Navigation Walker
 		 */
@@ -412,10 +459,12 @@ if (class_exists('WooCommerce')) {
 // add_filter( 'pre_wp_nav_menu', 'smyles_dump_nav_menu_args', 9999, 2 );
 
 // function smyles_dump_nav_menu_args( $null, $args ){
+
+
 //     ob_start();
 
 //     echo '<pre>';
-//     var_dump($args);
+//     var_dump($null);
 //     echo '</pre>';
 
 //     $content = ob_get_contents();
@@ -438,17 +487,51 @@ function paymob_navlink_add_classnames($atts, $item, $args)
 /**
  * Add classnames to link items
  */
-add_filter('nav_menu_link_attributes', 'paymob_navlink_add_html_attrubutes', 10, 3);
+add_filter('nav_menu_link_attributes', 'paymob_navlink_add_html_attributes', 10, 3);
 
-function paymob_navlink_add_html_attrubutes($atts, $item, $args)
+function paymob_navlink_add_html_attributes($atts, $item, $args)
 {
 	$attributes = get_field('nav_attributes', $item);
-	if($attributes):
-		foreach($attributes as $attribute):
+	if ($attributes) :
+		foreach ($attributes as $attribute) :
 			$atts[$attribute['attribute']] = $attribute['value'];
 		endforeach;
 	endif;
 	return $atts;
+}
+
+add_filter('wp_nav_menu', 'paymob_wp_nav_menu', 10, 2);
+
+function paymob_wp_nav_menu($nav_menu, $args)
+{
+
+	// get menu
+	$name = wp_get_nav_menu_name($args->theme_location);
+	$menu = wp_get_nav_menu_object($name);
+	// modify primary only
+	if ($args->theme_location == 'mid-menu') {
+
+		// vars
+		$logo = get_field('site_logo', $menu);
+		$hide = get_field('hide_menu_items', $menu);
+		$logo_html = $logo ? '<a href="' . home_url() . '" class="custom-logo-link" rel="home"><img class="custom-logo" width="133" height="44" src="' . $logo['url'] . '" alt="' . $logo['alt'] . '" /></a>' : get_custom_logo();
+		// prepend logo
+		$html_logo = '<div class="navbar-brand">' . $logo_html . '</div>';
+		ob_start();
+		echo $html_logo;
+		if (!true == $hide) :
+			echo '<nav class="nav nav-minor align-items-center">';
+			echo $nav_menu;
+			echo '</nav>';
+		endif;
+		// append html
+		$nav_menu = ob_get_contents();
+		ob_end_clean();
+	}
+
+
+	// return
+	return $nav_menu;
 }
 
 /**
@@ -510,70 +593,125 @@ function paymob_acf_blocks_init()
 
 		// Register a testimonial block.
 		acf_register_block_type(array(
+			'name'              => 'features',
+			'title'             => __('Features'),
+			'description'       => __('Features Section'),
+			'render_template'   => 'template-parts/blocks/features/features.php',
+			'category'          => 'layout',
+			'supports'					=> array(
+				'jsx' => true
+			),
+		));
+
+		acf_register_block_type(array(
 			'name'              => 'page_section',
 			'title'             => __('Page Section'),
-			'description'       => __('A custom page section block.'),
+			'description'       => __('Page Section'),
 			'render_template'   => 'template-parts/blocks/page_section/page_section.php',
 			'category'          => 'layout',
 			'supports'					=> array(
 				'jsx' => true
-			)
-		));
-		acf_register_block_type(array(
-			'name'              => 'media',
-			'title'             => __('Media Component'),
-			'description'       => __('A flexbox media element with text and an image'),
-			'render_template'   => 'template-parts/blocks/media/media.php',
-			'category'          => 'layout',
-			'supports'					=> array(
-				'jsx' => true
-			)
+			),
 		));
 	}
 }
 
 
-function add_current_nav_class($classes, $item) {
+function add_current_nav_class($classes, $item)
+{
 
 	// Getting the current post details
 	global $post;
 
 	// Get post ID, if nothing found set to NULL
-	$id = ( isset( $post->ID ) ? get_the_ID() : NULL );
+	$id = (isset($post->ID) ? get_the_ID() : NULL);
 
 	// Checking if post ID exist...
-	if (isset( $id )){
+	if (isset($id)) {
 
-			// Getting the post type of the current post
-			$current_post_type = get_post_type_object(get_post_type($post->ID));
+		// Getting the post type of the current post
+		$current_post_type = get_post_type_object(get_post_type($post->ID));
 
-			// Getting the rewrite slug containing the post type's ancestors
-			$ancestor_slug = $current_post_type->rewrite ? $current_post_type->rewrite['slug'] : '';
+		// Getting the rewrite slug containing the post type's ancestors
+		$ancestor_slug = $current_post_type->rewrite ? $current_post_type->rewrite['slug'] : '';
 
-			// Split the slug into an array of ancestors and then slice off the direct parent.
-			$ancestors = explode('/',$ancestor_slug);
-			$parent = array_pop($ancestors);
+		// Split the slug into an array of ancestors and then slice off the direct parent.
+		$ancestors = explode('/', $ancestor_slug);
+		$parent = array_pop($ancestors);
 
-			// Getting the URL of the menu item
-			$menu_slug = strtolower(trim($item->url));
+		// Getting the URL of the menu item
+		$menu_slug = strtolower(trim($item->url));
 
-			// Remove domain from menu slug
-			$menu_slug = str_replace($_SERVER['SERVER_NAME'], "", $menu_slug);
+		// Remove domain from menu slug
+		$menu_slug = str_replace($_SERVER['SERVER_NAME'], "", $menu_slug);
 
-			// If the menu item URL contains the post type's parent
-			if (!empty($menu_slug) && !empty($parent) && strpos($menu_slug,$parent) !== false) {
-					$classes[] = 'current-menu-item';
+		// If the menu item URL contains the post type's parent
+		if (!empty($menu_slug) && !empty($parent) && strpos($menu_slug, $parent) !== false) {
+			$classes[] = 'current-menu-item';
+		}
+
+		// If the menu item URL contains any of the post type's ancestors
+		foreach ($ancestors as $ancestor) {
+			if (!empty($menu_slug) && !empty($ancestor) && strpos($menu_slug, $ancestor) !== false) {
+				$classes[] = 'current-page-ancestor';
 			}
-
-			// If the menu item URL contains any of the post type's ancestors
-			foreach ( $ancestors as $ancestor ) {
-					if (!empty($menu_slug) && !empty($ancestor) && strpos($menu_slug,$ancestor) !== false) {
-							$classes[] = 'current-page-ancestor';
-					}
-			}
+		}
 	}
 	// Return the corrected set of classes to be added to the menu item
 	return $classes;
+}
+add_action('nav_menu_css_class', 'add_current_nav_class', 10, 2);
+
+/**
+ * Get the colors formatted for use with Iris, Automattic's color picker
+ */
+function output_the_colors() {
+	
+	// get the colors
+    $color_palette = current( (array) get_theme_support( 'editor-color-palette' ) );
+
+	// bail if there aren't any colors found
+	if ( !$color_palette )
+		return;
+
+	// output begins
+	ob_start();
+
+	// output the names in a string
+	echo '[';
+		foreach ( $color_palette as $color ) {
+			echo "'" . $color['color'] . "', ";
+		}
+	echo ']';
+    
+    return ob_get_clean();
 
 }
-add_action('nav_menu_css_class', 'add_current_nav_class', 10, 2 );
+
+/**
+ * Add the colors into Iris
+ */
+add_action( 'acf/input/admin_footer', 'gutenberg_sections_register_acf_color_palette' );
+function gutenberg_sections_register_acf_color_palette() {
+
+    $color_palette = output_the_colors();
+    if ( !$color_palette )
+        return;
+    
+    ?>
+    <script type="text/javascript">
+        (function( $ ) {
+            acf.add_filter( 'color_picker_args', function( args, $field ){
+
+                // add the hexadecimal codes here for the colors you want to appear as swatches
+                args.palettes = <?php echo $color_palette; ?>
+
+                // return colors
+                return args;
+
+            });
+        })(jQuery);
+    </script>
+    <?php
+
+}

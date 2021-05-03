@@ -22,26 +22,30 @@ get_header();
   while (have_posts()) :
     the_post();
   ?>
-    <header class="page-section" style="background: linear-gradient(0deg, rgba(8, 36, 59, 0.8), rgba(8, 36, 59, 0.8)), url(<?php echo get_the_post_thumbnail_url() ?>); background-size: cover">
+    <header class="page-section">
       <div class="container">
-        <div class="col-lg-8 d-flex align-items-center">
-          <div>
-
-            <?php the_title('<h1 class="text-white">', '</h1>'); ?>
-            <?php
-            if (get_field('page_subtitle')) :
-            ?>
-              <p class="text-accent fs-md fw-bold">
-                <?php the_field('page_subtitle'); ?>
-              </p>
-            <?php
-            endif;
-            ?>
-            <?php
-            if (get_field('leading_paragraph')) :
-              the_field('leading_paragraph');
-            endif;
-            ?>
+        <div class="row flex-lg-row-reverse">
+          <div class="col-lg-6 d-flex justify-content-end z-index-negative">
+            <?php paymob_post_thumbnail(); ?>
+          </div>
+          <div class="col-lg-6 d-flex align-items-center">
+            <div>
+              <?php the_title('<h1>', '</h1>'); ?>
+              <?php
+              if (get_field('page_subtitle')) :
+              ?>
+                <p>
+                  <?php the_field('page_subtitle'); ?>
+                </p>
+              <?php
+              endif;
+              ?>
+              <?php
+              if (get_field('leading_paragraph')) :
+                the_field('leading_paragraph');
+              endif;
+              ?>
+            </div>
           </div>
         </div>
 
@@ -51,99 +55,41 @@ get_header();
 
   endwhile; // End of the loop.
   ?>
-  <section class="container page-section">
-    <div class="row">
-      <div class="col-md-8">
-        <h2><?php echo __('Paymob Solutions'); ?> </h2>
-        <p class="text-accent fs-md fw-bold"> <?php echo __('On-land Payment Infrastructure Solutions') ?></p>
+  <section class="page-section bg-light">
+    <div class="container text-center">
+      <h2 class="mb-3"><?php echo __('Paymob Solutions'); ?> </h2>
+      <p class="fs-2md mb-10 mb-xl-22"> <?php echo __('On-land Payment Infrastructure Solutions') ?></p>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
-          <?php
-          $args = array(
-            'post_type' => 'solutions'
-          );
-          $solutions = new WP_Query($args);
-          if ($solutions->have_posts()) :
-            while ($solutions->have_posts()) :
-              $solutions->the_post();
-          ?>
-              <div class="col">
-                <a href="<?php the_permalink(); ?>" class="d-block rounded-0 mb-4 <?php the_field('header_color_class'); ?> ratio ratio-16x9" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>">
-                  <div class="p-5" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.4)), url(<?php echo get_the_post_thumbnail_url() ?>); background-size: cover; background-position: 84% 50%; background-repeat: no-repeat;">
-                    <!-- <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="mb-4 img-fluid"> -->
-                    <div class="text-white fw-bold">
-                      <?php echo str_replace('for', '', get_the_title()); ?>
-                    </div>
-                    </figure>
+        <?php
+        $args = array(
+          'post_type' => 'solutions'
+        );
+        $solutions = new WP_Query($args);
+        if ($solutions->have_posts()) :
+          while ($solutions->have_posts()) :
+            $solutions->the_post();
+        ?>
+            <div class="col">
+              <a href="<?php the_permalink(); ?>" class="btn card d-block rounded-3 mb-4 <?php the_field('header_color_class'); ?> ratio ratio-1x1">
+
+                <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="p-4 rounded-3 img-fluid card-img" style="object-fit: contain">
+                <div class="card-img-overlay rounded-3 d-flex justify-content-center" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.4)); background-size: cover; background-position: 84% 50%; background-repeat: no-repeat;">
+                  <div class="text-white fs-5 fw-bold mt-auto mb-6">
+                    <?php echo str_replace('for', '', get_the_title()); ?>
                   </div>
-                </a>
-              </div>
-          <?php
-            endwhile;
-          endif;
-          wp_reset_query();
-          ?>
-        </div>
+                  </figure>
+                </div>
+              </a>
+            </div>
+        <?php
+          endwhile;
+        endif;
+        wp_reset_query();
+        ?>
       </div>
-      <div class="col-md-4">
-        <h2 class="mb-lg-14">
-          Latest News
-        </h2>
-        <div class="row row-cols-1">
-          <?php
-          $args = array(
-            'post_type' => 'post',
-            'category' => 5,
-            'orderby' => 'ID',
-            'order' => 'ASC',
-            'posts_per_page' => 3,
-          );
-          $news = new WP_Query($args);
-          if ($news->have_posts()) :
-            while ($news->have_posts()) :
-              $news->the_post();
-          ?>
-              <div>
-                <article class="position-relative mb-4">
-                  <div class="">
-                    <h3 class="article-title fs-4">
-                      <a href="<?php echo get_permalink(); ?>" class="stretched-link">
-                        <?php the_title(); ?>
-                      </a>
-                    </h3>
-                    <div class="">
-                      <div class="d-flex align-items-center">
-                        <?php
-                        $author_ID = get_the_author_meta('ID');
-                        if (get_avatar_url($author_ID)) :
-                        ?>
-                          <img src="<?php echo get_avatar_url($author_ID); ?>" class="article-author-thumb-md rounded-circle">
-                        <?php
-                        endif;
-                        ?>
-                        <div class="fs-sm ms-4">
-                          <div class="fw-bold"><?php the_author(); ?></div>
-                          <div class="text-accent">
-                            <?php the_date('F j, Y'); ?>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <hr>
-              </div>
 
-          <?php
-            endwhile;
-          else :
-            echo 'No posts';
-          endif;
-          ?>
-
-        </div>
-      </div>
     </div>
 
   </section>

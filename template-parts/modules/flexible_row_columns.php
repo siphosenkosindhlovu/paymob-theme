@@ -15,11 +15,11 @@
 $heading = get_sub_field('heading');
 $columns = get_sub_field('columns');
 $colours = get_sub_field('colours');
-$bg_colour = $colours['bg-colour'];
+$bg_colour = $colours['bg_colour'];
 $heading_colour = $colours['heading_colour'];
 $text_colour = $colours['text_colour'];
 ?>
-<div class="page-section bg-<?php echo esc_attr($bg_colour) ?>">
+<div class="page-section bg-<?php echo $bg_colour ?>">
     <?php if ($heading) : ?>
         <h2 class="text-<?php echo esc_attr($heading_colour); ?>"><?php echo $heading; ?></h2>
     <?php endif; ?>

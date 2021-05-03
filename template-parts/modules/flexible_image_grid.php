@@ -22,7 +22,7 @@ $images = get_sub_field('images');
     <?php if ($heading) : ?>
         <h2 class="text-<?php echo esc_attr($heading_colour); ?>"><?php echo $heading; ?></h2>
     <?php endif; ?>
-        <div class="row row-col-2 row-cols-md-4 row-cols-lg-5">
+        <div class="row row-col-2 row-cols-md-4 row-cols-lg-5 justify-content-center">
             <?php foreach ($images as $image) : ?>
                 <div>
                     <img class="img-fluid" src="<?php echo $image['image']['image']; ?>" alt="<?php echo $image['image']['alt']; ?>"/>

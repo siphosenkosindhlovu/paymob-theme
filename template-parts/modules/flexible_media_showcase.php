@@ -13,7 +13,7 @@
  */
 
 $heading = get_sub_field('heading');
-$image = get_sub_field('image');
+$image = get_sub_field('media');
 $content = get_sub_field('content');
 $colours = get_sub_field('colours');
 $layout = get_sub_field('layout');

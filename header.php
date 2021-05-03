@@ -47,30 +47,20 @@
           </nav>
         </div>
       </div>
-      <div class="navbar navbar-expand-md bg-primary">
+      <div class="navbar bg-primary">
         <div class="container d-flex justify-content-between`">
-          <div class="navbar-brand">
-            <?php the_custom_logo(); ?>
-          </div>
-          <nav class="nav nav-minor align-items-center">
-            <?php
-            wp_nav_menu(
-              array(
-                'theme_location' => 'mid-menu',
-                'menu' => 'Mid Menu',
-                'container' => false,
-                'echo' => true,
-                'add_link_class' => 'nav-link',
-                "menu_class" => 'nav'
-              )
+          <?php
+          wp_nav_menu(
+            array(
+              'theme_location' => 'mid-menu',
+              'menu' => 'Mid Menu',
+              'container' => false,
+              'echo' => true,
+              'add_link_class' => 'nav-link',
+              "menu_class" => 'nav'
             )
-            ?>
-            <!-- <?php
-                  get_search_form();
-                  ?> -->
-
-          </nav>
-          <!-- mid-nav-menu and search bar here -->
+          )
+          ?>
         </div>
       </div>
       <div class="bg-white navbar-expand-lg">

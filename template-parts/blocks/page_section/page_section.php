@@ -23,7 +23,23 @@ if( !empty($block['className']) ) {
 if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
+
+$bg_colour = get_field('background_colour');
+var_dump($bg_colour);
+ $style = '';
+if (!empty($bg_colour)) {
+    $style.= 'background-color: ' . $bg_colour . ';';
+}
+
+$width = get_field('width');
+$innerClassNames = '';
+if(!empty($width) && $width === '75') {
+    $innerClassNames .= ' w-lg-75';
+}
+
 ?>
-<section  id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-  <InnerBlocks/>
+<section  id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>" <?php echo 'style="' . $style . '"';?>>
+    <div class="container<?php echo ' ' . esc_attr($innerClassNames);?>">
+        <InnerBlocks/>
+    </div>
 </section>

@@ -11,40 +11,47 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="site-main container	">
+
   <?php if (have_posts()) : ?>
-    <section class="page-banner mb-10 mb-lg-14">
-      <div class="container container-lg-5 my-5 my-lg-14 me-lg-0 d-flex align-items-center">
+
+    <header class="page-banner mb-10 mb-lg-14">
+      <div class="my-5 my-lg-14">
         <div>
           <h1 class="page-title">
-            <?php the_title() ?>
+            Paymob News
           </h1>
         </div>
       </div>
-    </section>
-  <?php
-    /* Start the Loop */
-    while (have_posts()) :
-      the_post();
+    </header>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+      <?php
+      /* Start the Loop */
+      while (have_posts()) :
+        the_post();
 
-      /*
+        /*
 				 * Include the Post-Type-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
-      get_template_part('template-parts/content', 'news');
+      ?>
 
-    endwhile;
+        <?php
+        get_template_part('template-parts/content', get_post_type());
+        ?>
+    <?php
+      endwhile;
 
-    the_posts_navigation();
+      the_posts_navigation();
 
-  else :
+    else :
 
-    get_template_part('template-parts/content', 'none');
+      get_template_part('template-parts/content', 'none');
 
-  endif;
-  ?>
-
+    endif;
+    ?>
+    </div>
 </main><!-- #main -->
 
 <?php

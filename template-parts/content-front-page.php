@@ -203,10 +203,10 @@ wp_reset_query();
             'post_type' => 'faqs',
             'suppress_filters' => 'true'
           );
-          $payment_points = new WP_Query($args);
-          if ($payment_points->have_posts()) :
-            while ($payment_points->have_posts()) :
-              $payment_points->the_post();
+          $faqs = new WP_Query($args);
+          if ($faqs->have_posts()) :
+            while ($faqs->have_posts()) :
+              $faqs->the_post();
           ?>
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne">
