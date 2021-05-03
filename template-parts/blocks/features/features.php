@@ -20,8 +20,8 @@ if( !empty($block['align']) ) {
         foreach($features as $feature):
           ?>
           <div class="text-center">
-            <img src="<?php echo $feature['image']['url'];?>" alt="<?php echo $feature['image']['alt'];?>" class="img-fluid">
-            <h3 class=""><?php echo ($feature['label']);?></h3>
+            <img src="<?php echo $feature['image']['url'];?>" alt="<?php echo $feature['image']['alt'];?>" class="img-fluid mb-4">
+            <h3 class="mb-1"><?php echo ($feature['label']);?></h3>
             <p>
               <?php echo $feature['description']; ?>
             </p>
