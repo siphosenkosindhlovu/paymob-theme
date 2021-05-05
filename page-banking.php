@@ -163,11 +163,10 @@ get_header();
         <div class="col-md-4 col-lg-6">
           <img class="img-fluid" src="<?php echo get_template_directory_uri() . '/dist/images/iluminator.svg'; ?>" aria-hidden="true">
         </div>
-        <div class="col-md-6 col-lg-6 text-white">
+        <div class="col-md-8 col-lg-6 text-white">
           <ul class="list-description blue-light-markers fs-2md fw-bold medium">
             <li>
               <p>
-
                 Reliable Secure Technology
               </p>
             </li>
@@ -215,7 +214,7 @@ get_header();
             foreach ($downloads as $download) :
           ?>
               <p>
-                <a href="<?php echo $download['url'];?>" class="text-accent fs-2md fw-bold text-decoration-none"><?php echo $download['label'];?></a>
+                <a href="<?php echo $download['url'];?>" class="text-accent fs-2md fw-bold text-decoration-none" download><?php echo $download['label'];?></a>
               </p>
           <?php
             endforeach;

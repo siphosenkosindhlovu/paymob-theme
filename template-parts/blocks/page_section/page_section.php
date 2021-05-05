@@ -25,7 +25,6 @@ if( !empty($block['align']) ) {
 }
 
 $bg_colour = get_field('background_colour');
-var_dump($bg_colour);
  $style = '';
 if (!empty($bg_colour)) {
     $style.= 'background-color: ' . $bg_colour . ';';

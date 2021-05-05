@@ -171,3 +171,9 @@ form {
 
 	margin-bottom: 1.5em;
 }
+
+@each $slug, $value in $theme-colors{
+  .has-#{$slug}-color {
+    color: $value;
+  }
+}
