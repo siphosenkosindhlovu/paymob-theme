@@ -58,7 +58,7 @@ export const reload = ( done ) => {
 };
 
 export const styles = () => {
-	return src( 'src/scss/style.scss' )
+	return src( ['src/scss/style.scss','src/scss/editor-styles.scss'] )
 		.pipe( gulpif( ! PRODUCTION, sourcemaps.init() ) )
 		.pipe( sass().on( 'error', sass.logError ) )
 		.pipe( gulpif( PRODUCTION, postcss( [ autoprefixer ] ) ) )
