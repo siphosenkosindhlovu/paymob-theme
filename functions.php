@@ -613,6 +613,16 @@ function paymob_acf_blocks_init()
 				'jsx' => true
 			),
 		));
+		acf_register_block_type(array(
+			'name'              => 'posts_showcase',
+			'title'             => __('Posts Showcase'),
+			'description'       => __('Showcase a collection of posts'),
+			'render_template'   => 'template-parts/blocks/posts_showcase/posts_showcase.php',
+			'category'          => 'layout',
+			'supports'					=> array(
+				'jsx' => true
+			),
+		));
 	}
 }
 
