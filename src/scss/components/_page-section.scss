@@ -10,6 +10,7 @@ $color-schemes: (
   (
     name: blue-light-1,
     bg: $blue-light-1,
+    heading: $blue,
     text: $white,
     list-marker: $blue,
   ),
@@ -17,32 +18,37 @@ $color-schemes: (
     name: navy,
     bg: $navy,
     text: white,
-    heading: $orange,
+    heading: $blue-light-1,
   ),
   (
-    name: orange,
-    bg: $orange,
+    name: blue,
+    bg: $blue,
     text: white,
-    heading: white,
-  )
+    heading: $blue-light-1,
+  ),(
+    name: blue-light-1,
+    bg: $blue-light-1,
+    heading: $blue,
+    text: $white,
+    list-marker: $blue,
+  ),
 );
 
 .key-features {
   @for $i from 1 to 5 {
     $random: random(3);
-    @if ($i % 2 != 0) {
-      &:nth-child(#{$i}) {
-        background-color: map-get(nth($color-schemes, $random), bg);
-        color: map-get(nth($color-schemes, $random), text);
-        @if (map-has-key($map: nth($color-schemes, $random), $key: heading)) {
-          h2 {
-            color: map-get($map: nth($color-schemes, $random), $key: heading);
-          }
+    &:nth-child(#{$i}){
+      background-color: map-get(nth($color-schemes, $random), bg);
+      color: map-get(nth($color-schemes, $random), text);
+      @if (map-has-key($map: nth($color-schemes, $random), $key: heading)) {
+        h2,
+        h3 {
+          color: map-get($map: nth($color-schemes, $random), $key: heading);
         }
-        @if (map-has-key($map: nth($color-schemes, $random), $key: list-marker)) {
-          li:before {
-            background: map-get($map: nth($color-schemes, $random), $key: list-marker);
-          }
+      }
+      @if (map-has-key($map: nth($color-schemes, $random), $key: list-marker)) {
+        li:before {
+          background: map-get($map: nth($color-schemes, $random), $key: list-marker);
         }
       }
     }
@@ -55,12 +61,35 @@ $color-schemes: (
     }
   }
 }
+
+.colored-showcase {
+  @for $i from 1 to 5 {
+    & > div:nth-child(#{$i}n) > .item {
+      background-color: map-get(nth($color-schemes, $i), bg);
+      color: map-get(nth($color-schemes, $i), text);
+      @if (map-has-key($map: nth($color-schemes, $i), $key: heading)) {
+        h2,
+        h3,
+        .highlighted {
+          color: map-get($map: nth($color-schemes, $i), $key: heading);
+        }
+      }
+      @if (map-has-key($map: nth($color-schemes, $i), $key: list-marker)) {
+        li:before {
+          background: map-get($map: nth($color-schemes, $i), $key: list-marker);
+        }
+      }
+    }
+  }
+}
+
 @for $i from 1 to length($color-schemes) {
   .key-feature-#{map-get(nth($color-schemes, $i), name)} {
     background-color: map-get(nth($color-schemes, $i), bg);
     color: map-get(nth($color-schemes, $i), text);
     @if (map-has-key($map: nth($color-schemes, $i), $key: heading)) {
-      h2 {
+      h2,
+      h3 {
         color: map-get($map: nth($color-schemes, $i), $key: heading);
       }
     }

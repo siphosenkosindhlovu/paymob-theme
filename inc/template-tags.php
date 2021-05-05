@@ -181,3 +181,15 @@ if ( !function_exists('paymob_nav_menu_links')){
 		);
 	}
 }
+
+if ( !function_exists('paymob_theme_image_src')){
+	/**
+	 * Renders a simple list of anchor tags without wrapping markup
+	 *
+	 * @param [array] $wp_nav_menu_args
+	 * @return void
+	 */
+	function paymob_theme_image_src($src){
+		echo get_template_directory_uri() . $src;
+	}
+}
