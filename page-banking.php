@@ -56,7 +56,6 @@ get_header();
   <?php
 
   endwhile; // End of the loop.
-  echo $post_ID;
   ?>
   <section class="page-section bg-light">
     <div class="container text-center">
@@ -96,26 +95,29 @@ get_header();
     </div>
 
   </section>
-  <div class="page-section">
-    <div class="container">
-      <div class="row justify-content-between row-cols-md-4">
-        <?php
-        $features = get_field('features', $post_ID);
-        foreach ($features as $feature) :
-        ?>
-          <div class="text-center">
-            <img src="<?php echo $feature['image']['url']; ?>" alt="<?php echo $feature['image']['alt']; ?>" class="img-fluid mb-4">
-            <h3 class="mb-1"><?php echo ($feature['title']); ?></h3>
-            <p>
-              <?php echo $feature['description']; ?>
-            </p>
-          </div>
-        <?php
-        endforeach;
-        ?>
+  <?php
+  $features = get_field('features', $post_ID);
+  if ($features) : ?>
+    <div class="page-section">
+      <div class="container">
+        <div class="row justify-content-between row-cols-md-4">
+          <?php
+          foreach ($features as $feature) :
+          ?>
+            <div class="text-center">
+              <img src="<?php echo $feature['image']['url']; ?>" alt="<?php echo $feature['image']['alt']; ?>" class="img-fluid mb-4">
+              <h3 class="mb-1"><?php echo ($feature['title']); ?></h3>
+              <p>
+                <?php echo $feature['description']; ?>
+              </p>
+            </div>
+          <?php
+          endforeach;
+          ?>
+        </div>
       </div>
     </div>
-  </div>
+  <?php endif; ?>
   <div class="page-section bg-navy">
     <div class="container">
       <div class="row">
@@ -157,10 +159,28 @@ get_header();
 
     </div>
   </div>
-  <div class="page-section bg-blue-light-1">
-        <div class="row flex-row-reverse">
-          <div class="col-md-4 col-lg-6"></div>
+  <div class="page-section bg-navy">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4 col-lg-6">
+          <img class="img-fluid" src="<?php echo get_template_directory_uri() . '/dist/images/iluminator.svg'; ?>" aria-hidden="true">
         </div>
+        <div class="col-md-6 col-lg-6 text-white">
+          <ul class="list-description blue-light-markers fs-2md fw-bold medium">
+            <li>
+              <p>
+
+                Reliable Secure Technology
+              </p>
+            </li>
+            <li>No Hassle In-House Set Up</li>
+            <li>24/7 Online Support</li>
+            <li>Free Reporting Software</li>
+            <li>Fully PCI DSS Compliant</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </main><!-- #main -->
 

@@ -21,4 +21,23 @@
       left: $container-padding-x;
     }
   }
+  &.blue-markers {
+    &::before {
+      background: $primary;
+    }
+  }
+  &.blue-light-markers {
+    li::before {
+      background: $blue-light-1;
+    }
+  }
+  &.medium {
+    & > li {
+      padding-inline-start: 3.5rem;
+      &:before {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
 }
