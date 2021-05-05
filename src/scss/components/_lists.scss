@@ -31,6 +31,13 @@
       background: $blue-light-1;
     }
   }
+  @each $slug, $value in $theme-colors {
+    &.#{$slug}-markers {
+      li::before {
+        background: $value;
+      }
+    }
+  }
   &.medium {
     & > li {
       padding-inline-start: 3.5rem;
