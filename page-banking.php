@@ -56,14 +56,13 @@ get_header();
   <?php
 
   endwhile; // End of the loop.
-  echo $post_ID;
   ?>
   <section class="page-section bg-light">
     <div class="container text-center">
       <h2 class="mb-3"><?php echo __('Paymob Solutions'); ?> </h2>
       <p class="fs-2md mb-10 mb-xl-22"> <?php echo __('On-land Payment Infrastructure Solutions') ?></p>
 
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 colored-showcase">
 
         <?php
         $args = array(
@@ -75,11 +74,9 @@ get_header();
             $solutions->the_post();
         ?>
             <div class="">
-              <a href="<?php the_permalink(); ?>" class="btn card d-block rounded-3 mb-4 <?php the_field('header_color_class'); ?> ratio ratio-1x1">
-
-                <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="p-4 rounded-3 img-fluid card-img" style="object-fit: contain">
-                <div class="card-img-overlay rounded-3 d-flex justify-content-center" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.43), rgba(0, 0, 0, 0.4)); background-size: cover; background-position: 84% 50%; background-repeat: no-repeat;">
-                  <div class="text-white fs-5 fw-bold mt-auto mb-6">
+              <a href="<?php the_permalink(); ?>" class="btn card d-block item rounded-3 mb-4 <?php the_field('header_color_class'); ?> ratio ratio-16x9">
+                <div class="rounded-3 d-flex justify-content-center align-items-center">
+                  <div class="highlighted fs-5 fw-bold mb-6">
                     <?php echo str_replace('for', '', get_the_title()); ?>
                   </div>
                   </figure>
@@ -96,26 +93,29 @@ get_header();
     </div>
 
   </section>
-  <div class="page-section">
-    <div class="container">
-      <div class="row justify-content-between row-cols-md-4">
-        <?php
-        $features = get_field('features', $post_ID);
-        foreach ($features as $feature) :
-        ?>
-          <div class="text-center">
-            <img src="<?php echo $feature['image']['url']; ?>" alt="<?php echo $feature['image']['alt']; ?>" class="img-fluid mb-4">
-            <h3 class="mb-1"><?php echo ($feature['title']); ?></h3>
-            <p>
-              <?php echo $feature['description']; ?>
-            </p>
-          </div>
-        <?php
-        endforeach;
-        ?>
+  <?php
+  $features = get_field('features', $post_ID);
+  if ($features) : ?>
+    <div class="page-section">
+      <div class="container">
+        <div class="row justify-content-between row-cols-md-4">
+          <?php
+          foreach ($features as $feature) :
+          ?>
+            <div class="text-center px-10 px-lg-6 mb-8">
+              <img src="<?php echo $feature['image']['url']; ?>" alt="<?php echo $feature['image']['alt']; ?>" class="img-fluid mb-4">
+              <h3 class="mb-2 text-accent fs-2md"><?php echo ($feature['title']); ?></h3>
+              <p>
+                <?php echo $feature['description']; ?>
+              </p>
+            </div>
+          <?php
+          endforeach;
+          ?>
+        </div>
       </div>
     </div>
-  </div>
+  <?php endif; ?>
   <div class="page-section bg-navy">
     <div class="container">
       <div class="row">
@@ -157,10 +157,71 @@ get_header();
 
     </div>
   </div>
-  <div class="page-section bg-blue-light-1">
-        <div class="row flex-row-reverse">
-          <div class="col-md-4 col-lg-6"></div>
+  <div class="page-section bg-navy">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4 col-lg-6">
+          <img class="img-fluid" src="<?php echo get_template_directory_uri() . '/dist/images/iluminator.svg'; ?>" aria-hidden="true">
         </div>
+        <div class="col-md-8 col-lg-6 text-white">
+          <ul class="list-description blue-light-markers fs-2md fw-bold medium">
+            <li>
+              <p>
+                Reliable Secure Technology
+              </p>
+            </li>
+            <li>No Hassle In-House Set Up</li>
+            <li>24/7 Online Support</li>
+            <li>Free Reporting Software</li>
+            <li>Fully PCI DSS Compliant</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 p-0">
+        <img class="img-fluid" src="<?php paymob_theme_image_src('/dist/images/Yes-we-do-White-Label.jpg'); ?>">
+      </div>
+      <div class="container-lg-6 page-section ms-lg-0">
+        <div class="offset-lg-1 page-section">
+          <h2>
+            Yes, we do White Label
+          </h2>
+          <p>
+            Paymob offers the most affordable, massively scalable ready-to-use solution to start making money right away with your own logo on it. Backed up with the innovative software and hardware.
+          </p>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#hbspt" class="text-accent fs-2md fw-bold text-decoration-none">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row flex-row-reverse">
+      <div class="col-lg-6 p-0">
+        <img class="img-fluid w-100" src="<?php paymob_theme_image_src('/dist/images/Printed-materials.png'); ?>">
+      </div>
+      <div class="container-lg-6 page-section ms-lg-0">
+        <div class="offset-lg-1 page-section">
+          <h2>
+            Paymob materials
+          </h2>
+          <?php
+          $downloads = get_field('downloads', $post_ID);
+
+          if ($downloads) :
+            foreach ($downloads as $download) :
+          ?>
+              <p>
+                <a href="<?php echo $download['url'];?>" class="text-accent fs-2md fw-bold text-decoration-none" download><?php echo $download['label'];?></a>
+              </p>
+          <?php
+            endforeach;
+          endif; ?>
+        </div>
+      </div>
+    </div>
   </div>
 </main><!-- #main -->
 

@@ -21,6 +21,10 @@ $custom-colors: (
   "accent": $orange,
   "primary": $blue,
   "navy": $navy,
+  "orange": $orange,
+  "lighter-blue": $blue-light-1,
+  "light-blue": $blue-light-2,
+  "dark-blue": $blue-dark,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);

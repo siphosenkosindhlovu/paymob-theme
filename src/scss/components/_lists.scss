@@ -1,24 +1,52 @@
 .list-description {
   padding-left: 0;
   list-style: none;
-  & > li{
+  & > li {
     margin-bottom: map-get($map: $spacers, $key: 5);
     position: relative;
-    padding-inline-start: $container-padding-x + 1.75rem;
-    @include media-breakpoint-up(lg){
+    padding-inline-start: 2em;
+    @include media-breakpoint-up(lg) {
       //margin-bottom: map-get($map: $spacers, $key: 14);
     }
     &::before {
       content: " ";
       display: block;
-      width: 20px;
-      height: 20px;
+      width: 1em;
+      height: 1em;
       background: $orange;
-      margin-top: 3px;
       margin-right: 1rem;
       border-radius: $border-radius-sm;
       position: absolute;
       left: $container-padding-x;
+      bottom: 0;
+      transform: translateY(-50%);
+      margin-bottom: -0.15em;
+    }
+  }
+  &.blue-markers {
+    &::before {
+      background: $primary;
+    }
+  }
+  &.blue-light-markers {
+    li::before {
+      background: $blue-light-1;
+    }
+  }
+  @each $slug, $value in $theme-colors {
+    &.#{$slug}-markers {
+      li::before {
+        background: $value;
+      }
+    }
+  }
+  &.medium {
+    & > li {
+      padding-inline-start: 3.5rem;
+      &:before {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 }
