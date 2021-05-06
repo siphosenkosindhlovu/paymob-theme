@@ -78,9 +78,9 @@
             'container_id' => 'sub-nav',
             'container_class' => 'collapse navbar-collapse',
             'menu_class' => 'navbar-nav',
-            'add_link_class' => 'nav-link',
-            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-            'walker' => new WP_Bootstrap_Navwalker(),
+            'add_link_class' => 'nav-link'
+            //'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+            //'walker' => new WP_Bootstrap_Navwalker(),
           ))
           ?>
         </div>

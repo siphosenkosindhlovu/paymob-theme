@@ -27,7 +27,7 @@ get_header();
     <header class="page-section">
       <div class="container">
         <div class="row flex-lg-row-reverse">
-          <div class="col-lg-6 d-flex justify-content-end z-index-negative">
+          <div class="col-lg-6 z-index-negative">
             <?php paymob_post_thumbnail(); ?>
           </div>
           <div class="col-lg-6 d-flex align-items-center">

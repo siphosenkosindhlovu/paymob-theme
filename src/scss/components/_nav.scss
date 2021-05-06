@@ -96,3 +96,18 @@
     }
   }
 }
+
+.menu-item {
+  &-has-children {
+    @extend .dropdown;
+    &:hover .sub-menu{
+      display: block
+    }
+    & > .nav-link {
+      @extend .dropdown-toggle;
+    }
+    & > .sub-menu {
+      @extend .dropdown-menu;
+    }
+  }
+}
