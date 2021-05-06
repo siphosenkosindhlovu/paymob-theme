@@ -54,8 +54,8 @@
 <footer class="bg-primary py-8 py-lg-11">
 	<div class="container">
 		<div class="d-flex flex-wrap flex-lg-nowrap">
-			<div class="mb-6">
-				<div class="mb-5 mb-lg-17">
+			<div class="mb-6 pe-lg-4">
+				<div class="mb-5">
 					<img src="<?php echo get_theme_mod('paymob_company-logo') ?>" alt="" class="img-fluid">
 				</div>
 				<div class="fs-tiny text-white lh-lg w-md-77ch">
