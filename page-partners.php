@@ -110,12 +110,12 @@ get_header();
               Customisation
             </h3>
             <p>
-            Ability to customise your SoftPOS mobile application within our ready-to-go framework. 
+              Ability to customise your SoftPOS mobile application within our ready-to-go framework.
             </p>
           </div>
           <div class="col-md-4">
             <h3 class="h3 text-black">
-            Certified, Safe & Secure
+              Certified, Safe & Secure
             </h3>
             <p>
               Ability to customise your SoftPOS mobile application within our ready-to-go framework.
@@ -123,7 +123,7 @@ get_header();
           </div>
           <div class="col-md-4">
             <h3 class="h3 text-black">
-            End-to-end support
+              End-to-end support
             </h3>
             <p>
               Paymob is a Level 1 PCI-DSS certified payment solution, which means partners can feel confident that we ensure the highest level of security, in line with industry standards.
@@ -131,7 +131,19 @@ get_header();
           </div>
         </div>
       </div>
-
+      <div class="page-section container">
+        <div class="w-lg-50">
+          <h2 class="text-navy">
+            Explore Paymob's availability
+          </h2>
+          <p>
+            Paymob currently services our network of partners across Europe, North America and Asia. We are working hard to expand our reach to elevate fintech partners and vendors globally.
+          </p>
+        </div>
+        <div>
+              <img src="<?php  echo get_template_directory_uri() .'/dist/images/map-full.svg' ?>" alt="Partners Regions" id="map" class="img-fluid">
+        </div>
+      </div>
     <?php
 
     the_content();
