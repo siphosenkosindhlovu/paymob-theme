@@ -17,6 +17,7 @@ function magnify(imgID, zoom = 1) {
     img.parentElement.insertBefore(glass, img);
   
     /* Set background properties for the magnifier glass: */
+    glass.style.backgroundColor = "fff";
     glass.style.backgroundImage = "url('" + img.src + "')";
     glass.style.backgroundRepeat = "no-repeat";
     glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";

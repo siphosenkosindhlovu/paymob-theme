@@ -120,7 +120,7 @@ get_header();
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-lg-6">
-          <img src="">
+          <img src="<?php paymob_theme_image_src('/dist/images/Why-choose-Paymob.svg');?>" aria-hidden>
         </div>
         <div class="col-md-8 col-lg-6 text-white">
           <h2 class="text-accent">

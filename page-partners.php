@@ -140,7 +140,7 @@ get_header();
             Paymob currently services our network of partners across Europe, North America and Asia. We are working hard to expand our reach to elevate fintech partners and vendors globally.
           </p>
         </div>
-        <div>
+        <div class="position-relative">
               <img src="<?php  echo get_template_directory_uri() .'/dist/images/map-full.svg' ?>" alt="Partners Regions" id="map" class="img-fluid">
         </div>
       </div>
