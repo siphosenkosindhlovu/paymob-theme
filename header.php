@@ -27,7 +27,7 @@
   <div id="page" class="site">
     <!-- <a class="skip-link sr-only" href="#primary"><?php esc_html_e('Skip to content', 'paymob'); ?></a>
    -->
-    <header id="masthead" class="shadow">
+    <header id="masthead">
       <div class="navbar">
         <div class="container-fluid d-flex justify-content-between`">
           <?php echo the_custom_logo(); ?>
@@ -48,7 +48,7 @@
               'menu' => 'CTA Menu',
               'container' => false,
               'echo' => true,
-              'add_link_class' => 'nav-link btn btn-primary',
+              'add_link_class' => 'nav-link btn',
               "menu_class" => 'nav'
             )
           )

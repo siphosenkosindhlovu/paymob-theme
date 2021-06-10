@@ -51,12 +51,12 @@
 	</div>
 </div>
 
-<footer class="bg-primary py-8 py-lg-11">
+<footer class="bg-gray-2 py-8 py-lg-11">
 	<div class="container">
 		<div class="d-flex flex-wrap flex-lg-nowrap">
 			<div class="mb-6 pe-lg-4 w-lg-25">
 				<div class="mb-5">
-					<img src="<?php echo get_theme_mod('paymob_company-logo') ?>" alt="" class="img-fluid">
+					<?php echo the_custom_logo() ?>
 				</div>
 				<div class="fs-tiny text-white lh-lg maxw-77ch">
 					<?php echo get_theme_mod('paymob_company-desc') ?>
