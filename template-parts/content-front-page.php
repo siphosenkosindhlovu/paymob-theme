@@ -182,8 +182,8 @@ wp_reset_query();
       <div class="w-md-75 mx-auto">
 
         <div class="embed mb-3">
-          <iframe width="677" height="381" src="https://www.youtube.com/embed/3d5dIpVZwxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        <iframe width="932" height="524" src="https://www.youtube.com/embed/F-kaKEtbRpU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
       </div>
     </div>
     <div class="text-center">
