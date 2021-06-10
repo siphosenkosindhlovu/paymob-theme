@@ -1,10 +1,11 @@
 .btn {
-  font-family: $font-family-heading;
-  text-transform: uppercase;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.03em;
 }
 
 .btn-primary {
-  background-color: $orange !important;
-  color: white;
+  background-color: white !important;
+  line-height: 1.875em;
+  color: $primary;
+  box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.09);
+
 }

@@ -28,60 +28,30 @@
     <!-- <a class="skip-link sr-only" href="#primary"><?php esc_html_e('Skip to content', 'paymob'); ?></a>
    -->
     <header id="masthead" class="shadow">
-      <div class="bg-blue-dark">
-        <div class="container">
-          <!-- top-nav-menu goes here -->
-          <nav class="nav nav-top nav-minor">
-            <?php
-            wp_nav_menu(
-              array(
-                'theme_location' => 'top-menu',
-                'menu' => 'Top Menu',
-                'container' => false,
-                'echo' => true,
-                'add_link_class' => 'nav-link',
-                "menu_class" => 'nav'
-              )
-            )
-            ?>
-          </nav>
-        </div>
-      </div>
-      <div class="navbar bg-primary">
-        <div class="container d-flex justify-content-between`">
+      <div class="navbar">
+        <div class="container-fluid d-flex justify-content-between`">
+          <?php echo the_custom_logo(); ?>
           <?php
           wp_nav_menu(
             array(
-              'theme_location' => 'mid-menu',
-              'menu' => 'Mid Menu',
+              'theme_location' => 'top-middle',
+              'menu' => 'Main Menu',
               'container' => false,
               'echo' => true,
               'add_link_class' => 'nav-link',
               "menu_class" => 'nav'
             )
+            );
+          wp_nav_menu(
+            array(
+              'theme_location' => 'top-right',
+              'menu' => 'CTA Menu',
+              'container' => false,
+              'echo' => true,
+              'add_link_class' => 'nav-link btn btn-primary',
+              "menu_class" => 'nav'
+            )
           )
-          ?>
-        </div>
-      </div>
-      <div class="bg-white navbar-expand-lg">
-        <div class="container">
-          <button class="navbar-toggler w-100" type="button" data-bs-toggle="collapse" data-bs-target="#sub-nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon ms-auto me-0 text-primary">
-              <i class="fas fa-bars"></i>
-            </span>
-          </button>
-          <?php
-          wp_nav_menu(array(
-            'theme_location' => 'sub-menu',
-            'menu' => 'Sub Menu',
-            'container' => 'div',
-            'container_id' => 'sub-nav',
-            'container_class' => 'collapse navbar-collapse',
-            'menu_class' => 'navbar-nav',
-            'add_link_class' => 'nav-link'
-            //'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-            //'walker' => new WP_Bootstrap_Navwalker(),
-          ))
           ?>
         </div>
       </div>

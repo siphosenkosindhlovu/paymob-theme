@@ -47,7 +47,7 @@ const server = browserSync.create();
 
 export const serve = ( done ) => {
 	server.init( {
-		proxy: 'paymobtech.local',
+		proxy: 'paymobmain.local',
 	} );
 	done();
 };

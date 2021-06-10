@@ -4,7 +4,7 @@
 //colours
 $blue-light-1: #abc5ff;
 $blue-light-2: #5786ed;
-$blue: #2950af;
+$blue: rgba(8, 36, 59, 1);
 $blue-dark: #11358b;
 $navy: #08243b;
 $orange: #ff5833;
@@ -12,7 +12,7 @@ $light: #f8f8fa;
 $gray: #606060;
 $body-color: $gray;
 
-$primary: $blue;
+$primary: $blue-dark;
 
 $custom-colors: (
   "blue-light-1": $blue-light-1,

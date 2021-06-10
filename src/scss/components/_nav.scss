@@ -99,6 +99,7 @@
 
 .menu-item {
   white-space: nowrap;
+  font-size: 1rem;
   &-has-children {
     @extend .dropdown;
     &:hover .sub-menu{

@@ -51,9 +51,8 @@ if (!function_exists('paymob_setup')) :
 		add_image_size('post-thumb-small', 380, 246, true);
 		register_nav_menus(
 			array(
-				'top-menu' => esc_html__('Top Menu', 'paymob'),
-				'mid-menu' => esc_html__('Mid Menu', 'paymob'),
-				'sub-menu' => esc_html__('Sub Menu', 'paymob'),
+				'top-middle' => esc_html__('Main Menu', 'paymob'),
+				'top-right' => esc_html__('CTA Menu', 'paymob'),
 				'social' => esc_html__('Social Menu', 'paymob'),
 			)
 		);
@@ -501,39 +500,39 @@ function paymob_navlink_add_html_attributes($atts, $item, $args)
 	return $atts;
 }
 
-add_filter('wp_nav_menu', 'paymob_wp_nav_menu', 10, 2);
+// add_filter('wp_nav_menu', 'paymob_wp_nav_menu', 10, 2);
 
-function paymob_wp_nav_menu($nav_menu, $args)
-{
+// function paymob_wp_nav_menu($nav_menu, $args)
+// {
 
-	// get menu
-	$name = wp_get_nav_menu_name($args->theme_location);
-	$menu = wp_get_nav_menu_object($name);
-	// modify primary only
-	if ($args->theme_location == 'mid-menu') {
+// 	// get menu
+// 	$name = wp_get_nav_menu_name($args->theme_location);
+// 	$menu = wp_get_nav_menu_object($name);
+// 	// modify primary only
+// 	if ($args->theme_location == 'mid-menu') {
 
-		// vars
-		$logo = get_field('site_logo', $menu);
-		$hide = get_field('hide_menu_items', $menu);
-		$logo_html = $logo ? '<a href="' . home_url() . '" class="custom-logo-link" rel="home"><img class="custom-logo" width="133" height="44" src="' . $logo['url'] . '" alt="' . $logo['alt'] . '" /></a>' : get_custom_logo();
-		// prepend logo
-		$html_logo = '<div class="navbar-brand">' . $logo_html . '</div>';
-		ob_start();
-		echo $html_logo;
-		if (!true == $hide) :
-			echo '<nav class="nav nav-minor align-items-center">';
-			echo $nav_menu;
-			echo '</nav>';
-		endif;
-		// append html
-		$nav_menu = ob_get_contents();
-		ob_end_clean();
-	}
+// 		// vars
+// 		$logo = get_field('site_logo', $menu);
+// 		$hide = get_field('hide_menu_items', $menu);
+// 		$logo_html = $logo ? '<a href="' . home_url() . '" class="custom-logo-link" rel="home"><img class="custom-logo" width="133" height="44" src="' . $logo['url'] . '" alt="' . $logo['alt'] . '" /></a>' : get_custom_logo();
+// 		// prepend logo
+// 		$html_logo = '<div class="navbar-brand">' . $logo_html . '</div>';
+// 		ob_start();
+// 		echo $html_logo;
+// 		if (!true == $hide) :
+// 			echo '<nav class="nav nav-minor align-items-center">';
+// 			echo $nav_menu;
+// 			echo '</nav>';
+// 		endif;
+// 		// append html
+// 		$nav_menu = ob_get_contents();
+// 		ob_end_clean();
+// 	}
 
 
-	// return
-	return $nav_menu;
-}
+// 	// return
+// 	return $nav_menu;
+// }
 
 /**
  * Font Awesome CDN Setup Webfont
