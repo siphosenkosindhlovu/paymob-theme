@@ -14,18 +14,19 @@
     @extend .mb-5;
     &-header {
       color: black;
-      @extend .fs-sm;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      margin-bottom: 1.75rem;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 3rem;
     }
     &-menu {
       flex-direction: column;
       a {
         @extend .nav-link;
-        @extend .fs-sm;
+        font-size: 15px;
+        color: $body-color;
+        font-weight: normal;
         padding: 0;
-        margin-bottom: 1.25rem;
+        margin-bottom: 0.875rem;
       }
     }
   }

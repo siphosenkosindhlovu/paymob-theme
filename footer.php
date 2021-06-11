@@ -58,7 +58,7 @@
 				<div class="mb-5">
 					<?php echo the_custom_logo() ?>
 				</div>
-				<div class="fs-tiny text-white lh-lg maxw-77ch">
+				<div class="fs-tiny lh-lg maxw-77ch">
 					<?php echo get_theme_mod('paymob_company-desc') ?>
 				</div>
 			</div>
