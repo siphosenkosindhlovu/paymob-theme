@@ -39,7 +39,8 @@
               'container' => false,
               'echo' => true,
               'add_link_class' => 'nav-link',
-              "menu_class" => 'nav'
+              "menu_class" => 'nav',
+              'walker' => new Paymob_Walker()
             )
             );
           wp_nav_menu(

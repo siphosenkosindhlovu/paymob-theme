@@ -443,6 +443,16 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Custom Walker.
+ */
+require get_template_directory() . '/inc/class-paymob-custom-navwalker.php';
+
+/**
+ * Gutenberg functions.
+ */
+require get_template_directory() . '/inc/gutenberg.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if (defined('JETPACK__VERSION')) {
@@ -487,18 +497,18 @@ function paymob_navlink_add_classnames($atts, $item, $args)
 /**
  * Add classnames to link items
  */
-add_filter('nav_menu_link_attributes', 'paymob_navlink_add_html_attributes', 10, 3);
+// add_filter('nav_menu_link_attributes', 'paymob_navlink_add_html_attributes', 10, 3);
 
-function paymob_navlink_add_html_attributes($atts, $item, $args)
-{
-	$attributes = get_field('nav_attributes', $item);
-	if ($attributes) :
-		foreach ($attributes as $attribute) :
-			$atts[$attribute['attribute']] = $attribute['value'];
-		endforeach;
-	endif;
-	return $atts;
-}
+// function paymob_navlink_add_html_attributes($atts, $item, $args)
+// {
+// 	$attributes = get_field('nav_attributes', $item);
+// 	if ($attributes) :
+// 		foreach ($attributes as $attribute) :
+// 			$atts[$attribute['attribute']] = $attribute['value'];
+// 		endforeach;
+// 	endif;
+// 	return $atts;
+// }
 
 // add_filter('wp_nav_menu', 'paymob_wp_nav_menu', 10, 2);
 

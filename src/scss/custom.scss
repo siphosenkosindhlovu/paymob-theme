@@ -1,26 +1,31 @@
 @import "../../node_modules/bootstrap/scss/functions"; // Required
 @import "../../node_modules/bootstrap/scss/variables"; // Required
 @import "../../node_modules/bootstrap/scss/mixins"; // Required
+
+$enable-negative-margins: true;
+
 //colours
 $blue-light-1: #abc5ff;
 $blue-light-2: #5786ed;
-$blue: rgba(8, 36, 59, 1);
+$blue: #2950AF;
 $blue-dark: #11358b;
 $navy: #08243b;
 $orange: #ff5833;
 $light: #f8f8fa;
 $gray: #606060;
 $gray-2: #e9e9e9;
+$gray-3: #dadada;
 $body-color: $gray;
 
-$primary: $blue-dark;
+$primary: $navy;
 
 $custom-colors: (
   "blue-light-1": $blue-light-1,
   "blue-light-2": $blue-light-2,
   "blue-dark": $blue-dark,
+  "blue": $blue,
   "accent": $orange,
-  "primary": $blue,
+  "primary": $navy,
   "navy": $navy,
   "orange": $orange,
   "lighter-blue": $blue-light-1,
@@ -91,7 +96,7 @@ $font-sizes: (
 
 $headings-font-family: 'Gilroy-Extrabold', sans-serif;
 $headings-font-weight: normal;
-$headings-color: $blue;
+$headings-color: $navy;
 $headings-margin-bottom: 1.75rem;
 
 $line-height-base: 1.6875;
@@ -120,7 +125,7 @@ $btn-padding-x: 1.75rem;
 
 $accordion-border-color: transparent;
 $accordion-button-padding-x: 0;
-$accordion-button-color: $blue;
+$accordion-button-color: $primary;
 $accordion-button-bg: transparent;
 $accordion-button-active-bg: transparent;
 $accordion-button-active-color: $orange;

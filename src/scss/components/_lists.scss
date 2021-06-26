@@ -1,26 +1,37 @@
-.list-description {
+.list-description,
+.wp-block-paymob-description-list {
   padding-left: 0;
   list-style: none;
-  & > li {
-    margin-bottom: map-get($map: $spacers, $key: 5);
-    position: relative;
+  margin: 0;
+  .wp-block-paymob-description-list-item {
     padding-inline-start: calc(1em + 1.5rem);
-    @include media-breakpoint-up(lg) {
-      //margin-bottom: map-get($map: $spacers, $key: 14);
+    dt {
+      //margin-bottom: map-get($map: $spacers, $key: 5);
+      position: relative;
+      @include media-breakpoint-up(lg) {
+        //margin-bottom: map-get($map: $spacers, $key: 14);
+      }
+      &::before {
+        content: " ";
+        display: block;
+        width: 1em;
+        height: 1em;
+        background: $orange;
+        border-radius: $border-radius-sm;
+        position: absolute;
+        left: -1.5em;
+        transform: translateY(50%);
+        margin-top: -0.2em;
+      }
     }
-    &::before {
-      content: " ";
-      display: block;
-      width: 1em;
-      height: 1em;
-      background: $orange;
-      margin-right: 1rem;
-      border-radius: $border-radius-sm;
-      position: absolute;
-      left: $container-padding-x;
-      top: 0;
-    transform: translateY(50%);
-    margin-top: -.2em;
+    @each $color, $value in $theme-colors {
+      &.has-marker-#{$color} {
+        dt {
+          &::before {
+            background: $value;
+          }
+        }
+      }
     }
   }
   &.blue-markers {

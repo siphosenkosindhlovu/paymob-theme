@@ -1,5 +1,10 @@
 .footer {
   &-contact-callout{
+    &-wrapper {
+      @include media-breakpoint-up(lg){
+        margin-top: -4rem;
+      }
+    }
     font-size: 1.81rem;
     letter-spacing: 0.17rem;
     font-weight: 800;
@@ -59,7 +64,7 @@
 }
 
 .newsletter {
-  max-width: 450px;
+  max-width: 500px;
   &-label {
     font-size: 15px;
   }

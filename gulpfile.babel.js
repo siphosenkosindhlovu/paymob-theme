@@ -32,8 +32,8 @@ const webpackConfig = {
 			},
 		],
 	},
-	mode: PRODUCTION ? 'production' : 'development',
-	devtool: ! PRODUCTION ? 'inline-source-map' : false,
+	mode: 'development',
+	devtool: 'inline-source-map',
 	externals: {
 		jquery: 'jQuery',
 		wp: 'wp',
@@ -73,6 +73,7 @@ export const scripts = () => {
 		'src/js/bundle.js',
 		'src/js/navigation.js',
 		'src/js/customizer.js',
+		'src/js/blocks.js'
 	] )
 		.pipe( named() )
 		.pipe( webpack( webpackConfig ) )

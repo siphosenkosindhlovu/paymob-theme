@@ -1,8 +1,12 @@
 {
     "extends": [
+        "plugin:@wordpress/eslint-plugin/react",
         "plugin:@wordpress/eslint-plugin/esnext"
     ],
     "env": {
         "browser": true
+    },
+    "globals": {
+        "wp": "readonly"
     }
 }
