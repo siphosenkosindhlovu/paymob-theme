@@ -75,7 +75,7 @@ Modal
 				<div class="footer-widgets ms-auto flex-wrap flex-lg-nowrap">
 					<?php get_sidebar('footer'); ?>
 				</div>
-				<div class="container d-flex justify-content-end">
+				<div class="container d-flex justify-content-end p-0">
 					<div id="mc_embed_signup" class="newsletter ml-auto">
 						<form action="https://kostadu.us20.list-manage.com/subscribe/post?u=2cf9a83db0cea39edd3e3a07b&amp;id=45549b5fed" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate customize-unpreviewable mt-5" target="_blank" novalidate="novalidate">
 							<div id="mc_embed_signup_scroll">
@@ -86,7 +86,7 @@ Modal
 										</label>
 										<input type="email" value="" name="EMAIL" class="required email form-control-sm border-0 shadow-none bg-transparent" id="mce-EMAIL" aria-required="true">
 									</div>
-									<button id="mc-embedded-subscribe" class="btn m-0 btn-sm newsletter-subscribe">Subscribe</button>
+									<button id="mc-embedded-subscribe" class="btn m-0 btn-sm newsletter-subscribe shadow-none">Subscribe</button>
 								</div>
 								<div id="mce-responses" class="form-text">
 									<div id="mce-error-response" style="display:none"></div>

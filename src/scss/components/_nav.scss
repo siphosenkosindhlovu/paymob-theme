@@ -59,6 +59,10 @@
     }
   }
 }
+.navbar-toggler {
+  width: 100%;
+  text-align: right;
+}
 .navbar-toggler-icon {
   display: flex;
   flex-direction: column;
@@ -117,7 +121,7 @@
       @extend .dropdown-menu;
       white-space: normal;
       border-radius: 20px;
-      max-width: 365px;
+      min-width: 365px;
       &-header {
         padding: 2rem;
         padding-bottom: 1.25rem;
@@ -155,9 +159,42 @@
 
 #menu-main-menu {
   .menu-item {
-    a {
-      margin: 0 1.25rem;
+    a,
+    span {
+      @include media-breakpoint-up(lg){
+        margin: 0 1.25rem;
+      }
     }
+  }
+}
+
+.navbar-container {
+  display: grid !important;
+  grid-template-areas:
+    "logo cta"
+    "menu menu";
+
+  @include media-breakpoint-up(lg) {
+    display: flex !important;
+    justify-content: space-between;
+  }
+
+  .nav{
+    &-main {
+      grid-area: menu;
+      flex-direction: column;
+
+      @include media-breakpoint-up(lg){
+        flex-direction: row;
+      }
+    }
+    &-cta {
+      grid-area: cta;
+      white-space: nowrap;
+    }
+  }
+  .custom-logo-link {
+    grid-area: logo;
   }
 }
 

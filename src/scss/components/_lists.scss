@@ -5,7 +5,7 @@
   margin: 0;
   .wp-block-paymob-description-list-item {
     padding-inline-start: calc(1em + 1.5rem);
-    dt {
+    dt, .wp-block-paymob-description-list-item-header  {
       //margin-bottom: map-get($map: $spacers, $key: 5);
       position: relative;
       @include media-breakpoint-up(lg) {
@@ -23,6 +23,9 @@
         transform: translateY(50%);
         margin-top: -0.2em;
       }
+    }
+    dd, .wp-block-paymob-description-list-item-body {
+      font-size: 1em;
     }
     @each $color, $value in $theme-colors {
       &.has-marker-#{$color} {

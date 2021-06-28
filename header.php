@@ -28,21 +28,29 @@
     <!-- <a class="skip-link sr-only" href="#primary"><?php esc_html_e('Skip to content', 'paymob'); ?></a>
    -->
     <header id="masthead">
-      <div class="navbar">
-        <div class="container-fluid d-flex justify-content-between`">
+      <div class="navbar navbar-expand-lg">
+        <div class="container-fluid navbar-container">
           <?php echo the_custom_logo(); ?>
+          <div class="nav-main">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#top-menu" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="top-menu">
+              <?php
+              wp_nav_menu(
+                array(
+                  'theme_location' => 'top-middle',
+                  'menu' => 'Main Menu',
+                  'container' => false,
+                  'echo' => true,
+                  'add_link_class' => 'nav-link',
+                  "menu_class" => 'nav flex-column flex-lg-row',
+                  'walker' => new Paymob_Walker()
+                )
+              ); ?>
+            </div>
+          </div>
           <?php
-          wp_nav_menu(
-            array(
-              'theme_location' => 'top-middle',
-              'menu' => 'Main Menu',
-              'container' => false,
-              'echo' => true,
-              'add_link_class' => 'nav-link',
-              "menu_class" => 'nav',
-              'walker' => new Paymob_Walker()
-            )
-            );
           wp_nav_menu(
             array(
               'theme_location' => 'top-right',
@@ -50,7 +58,7 @@
               'container' => false,
               'echo' => true,
               'add_link_class' => 'nav-link btn',
-              "menu_class" => 'nav'
+              "menu_class" => 'nav nav-cta'
             )
           )
           ?>
