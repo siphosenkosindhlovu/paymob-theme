@@ -1,14 +1,14 @@
 //eslint
 // eslint-disable-next-line no-unused-vars
 import { Dropdown, Accordion, Modal } from 'bootstrap';
-import './blocks/paymob-cta';
 window.addEventListener( 'load', function( ) {
-	magnify( 'map', 3 );
+	const images = document.getElementsByClassName( 'has-magnifier' );
+	Array.prototype.forEach.call( images,( image ) => {
+		magnify( image, 3 );
+	} )
 } );
 
-function magnify( imgID, zoom = 1 ) {
-	const img = document.getElementById( imgID );
-
+function magnify( img, zoom = 1 ) {
 	/* Create magnifier glass: */
 	const glass = document.createElement( 'DIV' );
 	glass.setAttribute( 'class', 'img-magnifier-glass' );

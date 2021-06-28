@@ -4,9 +4,14 @@
         "plugin:@wordpress/eslint-plugin/esnext"
     ],
     "env": {
-        "browser": true
+        "browser": true,
+        "es6": true
     },
     "globals": {
         "wp": "readonly"
-    }
+    },
+    "parserOptions": {
+        "ecmaVersion": 9,
+        "sourceType": "module"
+      }
 }

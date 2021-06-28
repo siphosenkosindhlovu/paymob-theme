@@ -141,7 +141,7 @@ get_header();
           </p>
         </div>
         <div class="position-relative">
-              <img src="<?php  echo get_template_directory_uri() .'/dist/images/map-full.svg' ?>" alt="Partners Regions" id="map" class="img-fluid">
+              <img src="<?php  echo get_template_directory_uri() .'/dist/images/map-full.svg' ?>" alt="Partners Regions" id="map" class="img-fluid has-magnifier">
         </div>
       </div>
     <?php

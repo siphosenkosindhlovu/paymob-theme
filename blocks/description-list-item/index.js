@@ -25,11 +25,26 @@ registerBlockType( 'paymob/description-list-item', {
 		markerColor: {
 			type: 'string',
 		},
+		headingFontSize: {
+			type: 'string',
+			default: '21',
+		},
+		descriptionFontSize: {
+			type: 'string',
+			default: '16',
+		},
 	},
 	//Custom functions
 
 	//Bult-in functions
 	edit: function Edit( { context, attributes, setAttributes } ) {
+		const {
+			itemHeading,
+			itemText,
+			headingFontSize,
+			descriptionFontSize,
+		} = attributes;
+
 		function updateTitle( e ) {
 			setAttributes( { itemHeading: e } );
 		}
@@ -51,21 +66,28 @@ registerBlockType( 'paymob/description-list-item', {
 			<Fragment>
 				<li { ...blockProps }>
 					<dl>
-						<RichText placeholder="Description List Heading" tagName="dt" value={ attributes.itemHeading } onChange={ updateTitle } />
-						<RichText placeholder="Description List Body" tagName="dd" value={ attributes.itemText } onChange={ updateText } />
+						<RichText placeholder="Description List Heading" style={ { fontSize: headingFontSize } } tagName="dt" value={ itemHeading } onChange={ updateTitle } />
+						<RichText placeholder="Description List Body" style={ { fontSize: descriptionFontSize } } tagName="dd" value={ itemText } onChange={ updateText } />
 					</dl>
 				</li>
 			</Fragment>
 		);
 	},
 	save( { attributes } ) {
+		const {
+			itemHeading,
+			itemText,
+			markerColor,
+			headingFontSize,
+			descriptionFontSize,
+		} = attributes;
 		return (
 			<li { ...useBlockProps.save( {
-				className: `has-marker-${ attributes.markerColor }`,
+				className: `has-marker-${ markerColor }`,
 			} ) } >
 				<dl>
-					<RichText.Content tagName="dt" value={ attributes.itemHeading } />
-					<RichText.Content tagName="dd" value={ attributes.itemText } />
+					<RichText.Content style={ { fontSize: headingFontSize } } tagName="dt" value={ itemHeading } />
+					<RichText.Content style={ { fontSize: descriptionFontSize } } tagName="dd" value={ itemText } />
 				</dl>
 			</li>
 		);

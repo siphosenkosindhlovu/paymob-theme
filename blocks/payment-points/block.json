@@ -1,0 +1,24 @@
+{
+  "apiVersion": 2,
+  "name": "paymob/payment-points",
+  "title": "Payment Points",
+  "description": "Payment Points for the small business section",
+  "icon": "heading",
+  "category": "widgets",
+  "attributes": {
+    "showBackgroundColor": {
+      "type": "boolean",
+      "default": false
+    },
+    "showBorders": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "color": {
+      "text": true
+    }
+  },
+  "editorScript": "paymob-blocks-js"
+}

@@ -1,0 +1,26 @@
+{
+  "apiVersion": 2,
+  "name": "paymob/page-header",
+  "title": "Page Header",
+  "description": "Contains the title block and featured image for pages",
+  "icon": "heading",
+  "category": "layout",
+  "attributes": {
+    "displayFeaturedImage": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "align": {
+      "type": "string",
+      "default": "left"
+    }
+  },
+  "supports": {
+    "align": [
+      "left",
+      "right",
+      "center"
+    ]
+  },
+  "editorScript": "paymob-blocks-js"
+}

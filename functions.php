@@ -253,7 +253,8 @@ function payment_steps_register_post_type()
 		'publicly_queryable'  => false,
 		'exclude_from_search' => true,
 		'supports'      => array('title', 'editor', 'thumbnail'),
-		'show_in_menu' => 'edit.php?post_type=page'
+		'show_in_menu' => 'edit.php?post_type=page',
+		'show_in_rest' => true,
 	));
 
 	register_post_type('faqs', array(
@@ -276,7 +277,8 @@ function payment_steps_register_post_type()
 		'has_archive'   => false,
 		'publicly_queryable'  => false,
 		'exclude_from_search' => true,
-		'show_in_menu' => 'edit.php?post_type=page'
+		'show_in_menu' => 'edit.php?post_type=page',
+		'show_in_rest' => true,
 	));
 
 	// register_post_type('industry_sectors', array(
@@ -613,16 +615,16 @@ function paymob_acf_blocks_init()
 			),
 		));
 
-		acf_register_block_type(array(
-			'name'              => 'page_section',
-			'title'             => __('Page Section'),
-			'description'       => __('Page Section'),
-			'render_template'   => 'template-parts/blocks/page_section/page_section.php',
-			'category'          => 'layout',
-			'supports'					=> array(
-				'jsx' => true
-			),
-		));
+		// acf_register_block_type(array(
+		// 	'name'              => 'page_section',
+		// 	'title'             => __('Page Section'),
+		// 	'description'       => __('Page Section'),
+		// 	'render_template'   => 'template-parts/blocks/page_section/page_section.php',
+		// 	'category'          => 'layout',
+		// 	'supports'					=> array(
+		// 		'jsx' => true
+		// 	),
+		// ));
 		acf_register_block_type(array(
 			'name'              => 'posts_showcase',
 			'title'             => __('Posts Showcase'),

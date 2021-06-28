@@ -7,10 +7,6 @@ registerBlockType( 'paymob/trust', {
 	descrption: 'Accreditations and memberships to get your users\'s trust',
 	icon: 'heading',
 	category: 'layout',
-	//Custom attributes
-	//Custom functions
-
-	//Bult-in functions
 	edit: function Edit() {
 		const blockProps = useBlockProps( {
 			className: 'row row-cols-1 row-cols-md-2 row-cols-lg-4',
@@ -19,11 +15,6 @@ registerBlockType( 'paymob/trust', {
 		const TEMPLATE = [
 			[ 'paymob/trust-item', {} ],
 		];
-		// const posts = useSelect(	( select ) => {
-		// 	const post = select( 'core' ).getEntityRecords( 'postType', 'post' );
-		// 	return post;
-		// }
-		// );
 		const innerBlocksProps = useInnerBlocksProps( blockProps, {
 			allowedBlocks: ALLOWED_BLOCKS,
 			orientation: 'horizontal',
@@ -36,7 +27,8 @@ registerBlockType( 'paymob/trust', {
 		);
 	},
 	save() {
-		const blockProps = useBlockProps.save();
+		const blockProps = useBlockProps.save(
+			{ className: 'row row-cols-1 row-cols-md-2 row-cols-lg-4 g-5' } );
 		return (
 			<div { ...blockProps }>
 				<InnerBlocks.Content />

@@ -1,7 +1,7 @@
 import classnames from 'classnames';
+import metadata from './block.json';
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks, useBlockProps, InspectorControls, RichText } = wp.blockEditor;
-const { ServerSideRender } = wp.serverSideRender;
 const { useSelect, useDispatch } = wp.data;
 const { Fragment } = wp.element;
 const { PanelBody, PanelRow, ToggleControl, Placeholder } = wp.components;
@@ -10,30 +10,9 @@ const TEMPLATE = [
 	[ 'core/paragraph', { textColor: 'orange', fontSize: 18, placeholder: 'Write the page subheader' } ],
 	[ 'core/paragraph', {} ],
 ];
-
-registerBlockType( 'paymob/page-heading', {
-	//Built in attributes
-	title: 'Page Header',
-	description: 'Contains the title block and featured image for pages',
-	icon: 'heading',
-	category: 'layout',
-	//Custom attributes
-	attributes: {
-		displayFeaturedImage: {
-			type: 'boolean',
-			default: 'true',
-		},
-		align: {
-			type: 'string',
-			default: 'left',
-		},
-	},
-	supports: {
-		align: [ 'left', 'right', 'center' ],
-	},
-	//Custom functions
-
-	//Bult-in functions
+const { name, ...rest } = metadata;
+registerBlockType( name, {
+	...rest,
 	edit: function Edit( { attributes, setAttributes } ) {
 		const { currentPost, featuredImage } = useSelect( ( select ) => {
 			// // eslint-disable-next-line no-shadow
@@ -55,13 +34,13 @@ registerBlockType( 'paymob/page-heading', {
 		const classNames = classnames(
 			'page-banner', 'container', 'row', 'flex-column', 'flex-lg-row',
 			{ 'justify-content-between': displayFeaturedImage },
-			{ [ `text-${ align }` ]: ! displayFeaturedImage }
+			{ [ `text-${ align }` ]: ! displayFeaturedImage },
 		);
 		const headingClassNames = classnames(
 			{
 				'col-lg-6': displayFeaturedImage,
 				'col-12': ! displayFeaturedImage,
-			}
+			},
 		);
 
 		function onTitleChange( value ) {
@@ -76,26 +55,27 @@ registerBlockType( 'paymob/page-heading', {
 		} );
 		return (
 			<Fragment>
-				<InspectorControls>
-					<PanelBody title="Featured Image">
-						<PanelRow>
-							<ToggleControl checked={ displayFeaturedImage } label="Show Featured Image" onChange={ ( ( val ) => {
-								setAttributes( { displayFeaturedImage: val } );
-							} ) } />
-						</PanelRow>
-					</PanelBody>
-				</InspectorControls>
 				<section { ...blockProps } >
+					<InspectorControls>
+						<PanelBody title="Featured Image">
+							<PanelRow>
+								<ToggleControl checked={ displayFeaturedImage } label="Show Featured Image" onChange={ ( ( val ) => {
+									setAttributes( { displayFeaturedImage: val } );
+								} ) } />
+							</PanelRow>
+						</PanelBody>
+					</InspectorControls>
 					<div className={ headingClassNames }>
-						<RichText tagName="h1" value={ currentPost.title } onChange={ onTitleChange } />
+						<RichText tagName="h1" style={ { fontSize: 36 } } value={ currentPost.title } onChange={ onTitleChange } placeholder="Add title" />
 						<InnerBlocks template={ TEMPLATE } />
 					</div>
 					{
-						featuredImage &&
+						displayFeaturedImage &&
 						<div className='col-lg-6'>
-							{ displayFeaturedImage
-								? <img src={ featuredImage.source_url } alt={ featuredImage.title.rendered } />
-								: <Placeholder label="This page does not have a featured image" instructions="To display a featured image, set it from the page meta." />
+							{
+								featuredImage
+									? <img src={ featuredImage.source_url } alt={ featuredImage.title.rendered } />
+									: <Placeholder label="This page does not have a featured image" instructions="To display a featured image, set it from the page meta." />
 							}
 						</div>
 					}

@@ -14,6 +14,10 @@ registerBlockType( 'paymob/description-list', {
 			type: 'string',
 			default: 'orange',
 		},
+		headingFontSize: {
+			type: 'string',
+			default: '21',
+		},
 	},
 	providesContext: {
 		'paymob/markerColor': 'markerColor',
@@ -23,7 +27,9 @@ registerBlockType( 'paymob/description-list', {
 	//Bult-in functions
 	edit: Edit,
 	save( { } ) {
-		const blockProps = useBlockProps.save();
+		const blockProps = useBlockProps.save( {
+			className: 'list-description row row-cols-1 row-cols-md-2 row-cols-lg-3',
+		} );
 		return (
 			<ul { ...blockProps }>
 				<InnerBlocks.Content />

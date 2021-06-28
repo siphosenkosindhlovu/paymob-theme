@@ -33,7 +33,7 @@ const webpackConfig = {
 		],
 	},
 	mode: 'development',
-	devtool: 'inline-source-map',
+	devtool: 'source-map',
 	externals: {
 		jquery: 'jQuery',
 		wp: 'wp',
@@ -58,7 +58,7 @@ export const reload = ( done ) => {
 };
 
 export const styles = () => {
-	return src( ['src/scss/style.scss','src/scss/editor-styles.scss'] )
+	return src( [ 'src/scss/style.scss', 'src/scss/editor-styles.scss' ] )
 		.pipe( gulpif( ! PRODUCTION, sourcemaps.init() ) )
 		.pipe( sass().on( 'error', sass.logError ) )
 		.pipe( gulpif( PRODUCTION, postcss( [ autoprefixer ] ) ) )
@@ -70,10 +70,10 @@ export const styles = () => {
 
 export const scripts = () => {
 	return src( [
+		'blocks/blocks.js',
 		'src/js/bundle.js',
 		'src/js/navigation.js',
 		'src/js/customizer.js',
-		'src/js/blocks.js'
 	] )
 		.pipe( named() )
 		.pipe( webpack( webpackConfig ) )
@@ -102,7 +102,7 @@ export const pot = () => {
 			wpPot( {
 				domain: 'paymob',
 				package: info.name,
-			} )
+			} ),
 		)
 		.pipe( dest( `languages/${ info.name }.pot` ) );
 };
@@ -133,8 +133,8 @@ export const compress = () => {
 		.pipe(
 			gulpif(
 				( file ) => file.relative.split( '.' ).pop() !== 'zip',
-				replace( '_themename', info.name )
-			)
+				replace( '_themename', info.name ),
+			),
 		)
 		.pipe( zip( `${ info.name }.zip` ) )
 		.pipe( dest( 'bundled' ) );
@@ -145,9 +145,9 @@ export const watchForChanges = () => {
 	watch( 'src/images/**/*.{jpg,jpeg,png,svg,gif}', series( images, reload ) );
 	watch(
 		[ 'src/**/*', '!src/{images,js,scss}', '!src/{images,js,scss}/**/*' ],
-		copy
+		copy,
 	);
-	watch( 'src/js/**/*.js', series( scripts, reload ) );
+	watch( [ 'src/js/**/*.js', 'blocks/**/*.js' ], series( scripts, reload ) );
 	watch( '**/*.php', reload );
 };
 
@@ -155,13 +155,13 @@ export const dev = series(
 	clean,
 	parallel( styles, images, copy, scripts ),
 	serve,
-	watchForChanges
+	watchForChanges,
 );
 
 export const pack = series(
 	clean,
 	parallel( styles, images, copy, scripts ),
-	compress
+	compress,
 );
 export const build = series(
 	clean,

@@ -35,3 +35,4 @@ function paymob_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'paymob_pingback_header' );
+

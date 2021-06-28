@@ -1,4 +1,5 @@
 {
   "prettier.useTabs": true,
-  "prettier.packageManager": "yarn"
+  "prettier.packageManager": "yarn",
+  "files.eol": "\n"
 }
