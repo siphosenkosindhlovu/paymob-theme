@@ -29,5 +29,18 @@
       font-weight: 900;
       content: "\00a0 \f054";
     }
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+.is-style-primary-button {
+  .wp-block-button__link {
+    @extend .btn;
+    @extend .btn-primary;
+    &:focus {
+      color: $blue
+    }
   }
 }

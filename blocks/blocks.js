@@ -14,3 +14,9 @@ registerBlockStyle( 'core/button', {
 	label: 'Link Button',
 } );
 
+registerBlockStyle( 'core/button', {
+	name: 'primary-button',
+	label: 'Primary Button',
+	isDefault: true,
+} );
+
