@@ -12,7 +12,7 @@
     },
     "postsToShow": {
       "type": "number",
-      "default": "left"
+      "default": 3
     },
     "showCategory": {
       "type": "boolean",

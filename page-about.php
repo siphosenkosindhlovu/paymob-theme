@@ -36,7 +36,6 @@ get_header();
       <?php
       $args = array(
         'post_type' => 'post',
-        'category' => 5,
         'orderby' => 'ID',
         'order' => 'ASC',
         'posts_per_page' => 3,

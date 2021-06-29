@@ -1,13 +1,12 @@
 import classnames from 'classnames';
 import metadata from './block.json';
 const { registerBlockType } = wp.blocks;
-const { InnerBlocks, useBlockProps, InspectorControls, RichText } = wp.blockEditor;
-const { useSelect, useDispatch } = wp.data;
-const { Fragment } = wp.element;
-const { PanelBody, PanelRow, ToggleControl, Placeholder } = wp.components;
+const { InnerBlocks, useBlockProps, InspectorControls } = wp.blockEditor;
+const { useSelect } = wp.data;
+// const { Fragment } = wp.element;
+const { PanelBody, PanelRow, ToggleControl } = wp.components;
 const { date } = wp.date;
-const { pick, isUndefined, find, get } = lodash;
-console.log( lodash );
+const { get } = lodash;
 const { name, ...rest } = metadata;
 registerBlockType( name, {
 	...rest,
@@ -16,7 +15,7 @@ registerBlockType( name, {
 		const { latestPosts } = useSelect( ( select ) => {
 			const { getEntityRecords, getEntityRecord } = select( 'core' );
 			const postsQuery = {
-				per_page: 3,
+				per_page: postsToShow,
 			};
 			const posts = getEntityRecords( 'postType', 'post', postsQuery );
 
@@ -26,12 +25,12 @@ registerBlockType( name, {
 					: posts.map( ( post ) => {
 						const cats = post.categories.map( ( category ) => {
 							const categoryObj = getEntityRecord( 'taxonomy', 'category', category );
-							const name = get(
+							const catName = get(
 								categoryObj,
 								[ 'name' ],
 								null,
 							);
-							return name;
+							return catName;
 						} );
 						return {
 							...post,
@@ -46,26 +45,21 @@ registerBlockType( name, {
 			{ 'row row-cols-md-2 row-cols-lg-3': ! showAsList },
 			{ 'd-flex flex-column': showAsList },
 		);
-		const headingClassNames = classnames(
-			{
-				'fs-5': showAsList,
-				'fs-4': ! showAsList,
-			},
-		);
-		const metaClassNames = classnames(
-			{
-				'fs-5': showAsList,
-				'fs-4': ! showAsList,
-			},
-		);
 
-		function onTitleChange( value ) {
-			editEntityRecord( 'postType', currentPost.type, currentPost.id, { title: value } );
-			setAttributes( {
-				pageTitle: value,
-			} );
-		}
-		console.log( latestPosts );
+		// When I implement the list layout
+		// const headingClassNames = classnames(
+		// 	{
+		// 		'fs-5': showAsList,
+		// 		'fs-4': ! showAsList,
+		// 	},
+		// );
+		// const metaClassNames = classnames(
+		// 	{
+		// 		'fs-5': showAsList,
+		// 		'fs-4': ! showAsList,
+		// 	},
+		// );
+
 		const blockProps = useBlockProps( {
 		} );
 		return (
