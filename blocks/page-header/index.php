@@ -7,8 +7,10 @@ function paymob_page_header_render_callback($block_attributes, $content)
   $has_featured_image = null !== get_the_post_thumbnail_url($post);
   $align = $block_attributes['align'];
   $classnames = array('page-banner', 'container', "text-{$align}");
-  $heading_classnames = $display_featured_image ? 'col-lg-6' : 'col-lg-12';
-
+  $heading_classnames = [];
+  $heading_classnames[] = $display_featured_image ? 'col-lg-6' : 'col-lg-12';
+  $heading_classnames[] = 'align-self-stretch py-lg-22';
+  $heading_classnames[] = 'py-lg-22';
   if (isset($display_featured_image) && true == $display_featured_image && $has_featured_image) {
     $classnames[] = 'justify-content-between';
   }
@@ -19,8 +21,8 @@ function paymob_page_header_render_callback($block_attributes, $content)
   ob_start();
 ?>
   <div class="<?php echo $classnames ?>">
-    <div class="row flex-column flex-lg-row">
-      <div class="<?php echo $heading_classnames ?>">
+    <div class="row flex-column flex-lg-row align-items-lg-center">
+      <div class="<?php echo implode(' ', $heading_classnames) ?> pt-lg-22">
         <h1>
           <?php echo get_the_title($post) ?>
         </h1>

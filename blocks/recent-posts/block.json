@@ -1,0 +1,30 @@
+{
+  "apiVersion": 2,
+  "name": "paymob/recent-posts",
+  "title": "Recent Posts",
+  "description": "Recent Posts Block",
+  "icon": "heading",
+  "category": "layout",
+  "attributes": {
+    "displayFeaturedImage": {
+      "type": "boolean",
+      "default": "true"
+    },
+    "postsToShow": {
+      "type": "number",
+      "default": "left"
+    },
+    "showCategory": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDate": {
+      "type": "boolean",
+      "default": true
+    },
+    "showAsList": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

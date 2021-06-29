@@ -12,12 +12,11 @@ registerBlockType( name, {
 	...rest,
 	edit: function Edit( { attributes, setAttributes } ) {
 		const { showBackgroundColor, showBorders } = attributes;
-		const { paymentPoints, getMedia } = useSelect( ( select ) => {
+		const { paymentPoints } = useSelect( ( select ) => {
 			const { getMedia } = select( 'core' );
 			let payments = select( 'core' ).getEntityRecords( 'postType', 'payment_points' );
 			if ( payments ) {
 				payments = payments.map( ( p ) => ( { ...p, image: getMedia( p.featured_media ) } ) );
-				console.log( payments );
 			}
 			return {
 				paymentPoints: payments,

@@ -37,6 +37,7 @@ const webpackConfig = {
 	externals: {
 		jquery: 'jQuery',
 		wp: 'wp',
+		lodash: 'lodash',
 	},
 	output: {
 		filename: '[name].js',

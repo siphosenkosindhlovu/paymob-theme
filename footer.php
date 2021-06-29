@@ -53,8 +53,8 @@ Modal
 
 <footer class="bg-gray-2 py-8 py-lg-22">
 	<div class="container">
-		<div class="d-flex flex-wrap flex-lg-nowrap">
-			<div class="d-flex flex-column justify-content-between pb-6">
+		<div class="d-flex flex-wrap flex-xl-nowrap">
+			<div class="d-flex flex-column justify-content-between pb-6 footer-company-info-wrapper">
 				<div class="footer-contact-callout-wrapper mb-6">
 					<div class="footer-contact-callout text-navy">
 						Ready to get started?

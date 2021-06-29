@@ -13,5 +13,21 @@
 }
 
 .is-style-link-button {
-  
+  .wp-block-button__link {
+    color: $orange;
+    font-family: $font-family-heading;
+    font-weight: 800;
+    background-color: transparent;
+    padding-left: 0;
+    &::after {
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\00a0 \f054";
+    }
+  }
 }

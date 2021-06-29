@@ -5,6 +5,7 @@ import './description-list-item';
 import './page-header';
 import './page-section';
 import './payment-points';
+import './recent-posts';
 
 const { registerBlockStyle } = wp.blocks;
 

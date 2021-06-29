@@ -12,6 +12,7 @@
   }
   &-widgets {
     display: flex;
+    white-space: nowrap;
     & > .sidebar {
       display: flex;
       flex-wrap: wrap;
@@ -44,8 +45,16 @@
     }
   }
   &-company-info{
-    @include media-breakpoint-up(lg){
+    @include media-breakpoint-up(xl){
       transform: translateY(50%)
+    }
+    &-wrapper {
+      @include media-breakpoint-up(lg){
+        flex-basis: 64%;
+      }
+      @include media-breakpoint-up(xl){
+        flex-basis: 42%;
+      }
     }
   }
 }

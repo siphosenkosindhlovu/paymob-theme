@@ -41,6 +41,7 @@ registerBlockType( name, {
 				'col-lg-6': displayFeaturedImage,
 				'col-12': ! displayFeaturedImage,
 			},
+			'align-self-stretch'
 		);
 
 		function onTitleChange( value ) {
