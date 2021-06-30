@@ -73,7 +73,7 @@ $h1-font-size: 4rem;
 $h2-font-size: 3rem;
 $h3-font-size: 2rem;
 $h4-font-size: 1.5rem;
-$h5-font-size: 1.3125rem;
+$h5-font-size: 1.3125rem; 
 $h6-font-size: $font-size-base;
 
 $font-sizes: (
@@ -92,6 +92,7 @@ $font-sizes: (
   3md: 2.5rem,
   lg: 2.2625rem,
   xl: 3.5rem,
+  3xl: 4.5rem
 );
 
 $headings-font-family: 'Gilroy-Extrabold', sans-serif;
@@ -149,7 +150,8 @@ $grid-breakpoints: map-merge(
 $container-max-widths: map-merge(
   $container-max-widths,
   (
-    xl: 1248px
+    xl: 1148px,
+    xxl: 1220px
   )
 );
 

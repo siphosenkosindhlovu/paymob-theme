@@ -17,6 +17,5 @@ registerBlockStyle( 'core/button', {
 registerBlockStyle( 'core/button', {
 	name: 'primary-button',
 	label: 'Primary Button',
-	isDefault: true,
 } );
 

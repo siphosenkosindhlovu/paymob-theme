@@ -106,3 +106,9 @@ $color-schemes: (
     column-count: 2;
   }
 }
+
+@each $slug, $value in $theme-colors {
+  .has-#{$slug}-background-color {
+    background-color: $value;
+  }
+}

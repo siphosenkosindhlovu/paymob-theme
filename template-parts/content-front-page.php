@@ -50,16 +50,21 @@ wp_reset_query();
   <section class="container page-section">
 
 
-   </section>
+  </section>
   <section class="container page-section">
     <div class="row">
-      <h2 class="col-lg-5 mb-lg-29 fs-xl">
-        <?php
-        echo __("Accept payments as easy as 1-2-3", "paymob");
-        ?>
-      </h2>
+      <div class="col-lg-5 mb-lg-29 fs-md">
+        <h2 class="text-accent fs-md">
+          How does it work?
+        </h2>
+        <h3 class="h2">
+          <?php
+          echo __("Accept payments as easy as 1-2-3", "paymob");
+          ?>
+        </h3>
+      </div>
     </div>
-    <div class="row payment-steps">
+    <div class="payment-steps">
       <?php
       $args = array(
         'post_type' => 'steps',
@@ -68,21 +73,32 @@ wp_reset_query();
       );
       $steps = new WP_Query($args);
       if ($steps->have_posts()) :
+        $i = 1;
         while ($steps->have_posts()) :
           $steps->the_post();
       ?>
-          <div class="col-lg-3 step text-center text-lg-left">
-            <h3 class="h4"><span class="badge bg-accent step-number">&nbsp;</span></h3>
-            <figure>
-              <div class="ratio ratio-1x1">
-                <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="img-fluid mb-6 mb-lg-8" style="object-fit: contain">
+          <div class="row <?php echo $i % 2 === 0 ? 'flex-lg-row-reverse' : '' ?>">
+            <div class="col-lg-5">
+              <div class="w-lg-75">
+                <div class="h1 fs-3xl">
+                  <?php echo $i ?>
+                </div>
+                <p>
+                  <?php the_content(); ?>
+                </p>
               </div>
-              <figcaption>
-                <?php the_content(); ?>
-              </figcaption>
-            </figure>
+            </div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-5">
+              <figure>
+                <div class="ratio ratio-1x1">
+                  <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="img-fluid mb-6 mb-lg-8" style="object-fit: contain">
+                </div>
+              </figure>
+            </div>
           </div>
       <?php
+          $i += 1;
         endwhile;
       endif;
       wp_reset_query();
@@ -111,11 +127,11 @@ wp_reset_query();
 
 
 
-  <section class="bg-navy page-section">
+  <section class="has-light-background-color page-section">
     <div class="container">
       <div class="mb-4 mb-lg-22 row justify-content-center">
         <div class="col-lg-8">
-          <h2 class="text-accent text-center fs-xl">
+          <h2 class="text-accent text-center fs-3">
             Examples of Common Contacless Payment Points
           </h2>
           <p class="text-light text-center">
@@ -139,7 +155,7 @@ wp_reset_query();
             $payment_points->the_post();
         ?>
             <div class="col">
-              <button class="btn card rounded-3 p-0 <?php the_field('header_color_class'); ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>" style="border: 4px dashed rgba(255, 255, 255, 0.5);">
+              <button class="card rounded-3 p-0 <?php the_field('header_color_class'); ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>" style="border: 4px dashed rgba(255, 255, 255, 0.5);">
 
                 <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="card-img rounded-3" height="160">
                 <div class="card-img-overlay d-flex justify-content-center">
@@ -159,7 +175,7 @@ wp_reset_query();
   <section class="container page-section">
     <div class="mb-4 mb-lg-22 row position-relative">
       <div class="col-lg-6 position-lg-absolute">
-        <h2 class="fs-xl">
+        <h2 class="text-blue fs-3">
           How does transaction flow work?
         </h2>
         <p class="w-md-75">
@@ -171,19 +187,19 @@ wp_reset_query();
         <img src="<?php echo get_template_directory_uri() . "/dist/images/How does transaction work flow.svg" ?>'" alt="" class="img-fluid">
       </div>
   </section>
-  <section class="container-fluid bg-blue-light-1 page-section">
-    <h2 class="fs-lg text-white text-center">
+  <section class="container-fluid has-light-background-color page-section">
+    <h2 class="fs-lg text-center">
       Paymob Mobile App
     </h2>
-    <p class="fs-2md text-white text-center">
+    <p class="fs-2md text-accent text-center">
       Demo video by Paymob
     </p>
     <div class="container">
       <div class="w-md-75 mx-auto">
 
         <div class="embed mb-3">
-        <iframe width="932" height="524" src="https://www.youtube.com/embed/F-kaKEtbRpU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+          <iframe width="932" height="524" src="https://www.youtube.com/embed/F-kaKEtbRpU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
     <div class="text-center">
