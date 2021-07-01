@@ -44,7 +44,7 @@
                   'container' => false,
                   'echo' => true,
                   'add_link_class' => 'nav-link',
-                  "menu_class" => 'nav flex-column flex-lg-row',
+                  "menu_class" => 'menu-top-menu nav flex-column flex-lg-row',
                   'walker' => new Paymob_Walker()
                 )
               ); ?>

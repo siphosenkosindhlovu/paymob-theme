@@ -48,12 +48,8 @@ wp_reset_query();
 
   ?>
   <section class="container page-section">
-
-
-  </section>
-  <section class="container page-section">
     <div class="row">
-      <div class="col-lg-5 mb-lg-29 fs-md">
+      <div class="col-lg-6 mb-lg-29 fs-md offset-lg-6">
         <h2 class="text-accent fs-md">
           How does it work?
         </h2>
@@ -132,9 +128,9 @@ wp_reset_query();
       <div class="mb-4 mb-lg-22 row justify-content-center">
         <div class="col-lg-8">
           <h2 class="text-accent text-center fs-3">
-            Examples of Common Contacless Payment Points
+            Examples of Common</br> Contacless Payment Points
           </h2>
-          <p class="text-light text-center">
+          <p class="text-center">
             As the use of contactless and alternative transaction methods is growing, in the future it will be possible
             for certain groups of merchants to refuse completely from the terminals of individual mobile devices and
             assign functions to read contactless cards to mobile devices. Currently suitable for Visa and Mastercard
@@ -159,7 +155,7 @@ wp_reset_query();
 
                 <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="card-img rounded-3" height="160">
                 <div class="card-img-overlay d-flex justify-content-center">
-                  <div class="text-white fs-5 fw-bold mt-auto">
+                  <div class="text-white fs-5 mt-auto">
                     <?php echo str_replace('For', '', get_the_title()); ?>
                   </div>
                 </div>
@@ -206,7 +202,7 @@ wp_reset_query();
       <a href="#" class="btn btn-accent">Request Demo</a>
     </div>
   </section>
-  <section class="container page-section">
+  <!-- <section class="container page-section">
     <h2 class="w-lg-50 fs-xl">
       <?php echo __('Frequently Asked Questions', 'paymob'); ?>
     </h2>
@@ -246,7 +242,7 @@ wp_reset_query();
         <img src='<?php echo get_template_directory_uri() . "/dist/images/Contact your acquirer with more questions.svg" ?>' class="img-fluid">
       </div>
     </div>
-  </section>
+  </section> -->
     </article><!--  -->
 
     <!-- Button trigger modal -->

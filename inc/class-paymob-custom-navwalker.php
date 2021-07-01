@@ -48,7 +48,7 @@ class Paymob_Walker extends Walker_Nav_Menu
         $indent = str_repeat($t, $depth);
 
         // Default class.
-        $classes = array('nav', 'flex-direction-column', 'sub-menu-body');
+        $classes = array('nav', 'flex-column', 'sub-menu-body');
 
         /**
          * Filters the CSS class(es) applied to a menu list element.

@@ -22,7 +22,9 @@
     }
   }
   &-widget {
-    @extend .me-14;
+    &:not(:last-child()){
+      @extend .me-14;
+    }
     @extend .mb-5;
     &-header {
       color: black;
