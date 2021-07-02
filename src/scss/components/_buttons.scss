@@ -14,7 +14,7 @@
 
 .is-style-link-button {
   .wp-block-button__link {
-    color: $orange;
+    color: $orange !important;
     font-family: $font-family-heading;
     font-weight: 800;
     background-color: transparent;
@@ -39,8 +39,12 @@
   .wp-block-button__link {
     @extend .btn;
     @extend .btn-primary;
+    color: $navy !important;
     &:focus {
-      color: $blue
+      color: $blue !important 
+    }
+    &:hover {
+      color: $orange !important
     }
   }
 }

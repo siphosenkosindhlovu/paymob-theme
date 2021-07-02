@@ -13,6 +13,10 @@
     "align": {
       "type": "string",
       "default": "left"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "navy"
     }
   },
   "supports": {

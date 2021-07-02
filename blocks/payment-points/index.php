@@ -18,7 +18,7 @@ function paymob_payment_points_render_callback($block_attributes, $content)
         $payment_points->the_post();
     ?>
         <div class="col">
-          <button class="card rounded-3 p-0 shadow-none <?php echo $block_attributes['showBackgroundColor'] ? get_field('header_color_class'): '' ; ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>" style="border: 4px dashed rgba(255, 255, 255, 0.5);">
+          <button class="card rounded-3 p-0 shadow-none <?php echo $block_attributes['showBackgroundColor'] ? get_field('header_color_class') : ''; ?> ratio ratio-1x1 mb-5" data-bs-toggle="modal" data-bs-target="#post-<?php the_ID() ?>" style="border: 4px dashed rgba(255, 255, 255, 0.5);">
             <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="card-img rounded-3" height="160">
             <div class="card-img-overlay d-flex justify-content-center pb-0">
               <div class="fs-5 mt-auto" style="white-space: nowrap">
@@ -27,12 +27,32 @@ function paymob_payment_points_render_callback($block_attributes, $content)
             </div>
           </button>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="post-<?php the_ID() ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header text-center text-md-left d-flex flex-column flex-md-row justify-content-between <?php the_field('header_color_class'); ?>">
+                <h1 class="modal-title"><?php the_title(); ?></h1>
+                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" height="160">
+                <button type="button" class="close modal-close" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body points">
+                <?php the_content(); ?>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php
+        ?>
     <?php
       endwhile;
+      wp_reset_query();
     endif;
     ?>
   </div>
-  <?php
+<?php
 
   $out .= ob_get_contents();
   ob_end_clean();
