@@ -42,6 +42,10 @@ function addDescriptionListAttributes( settings, name ) {
 				type: 'string',
 				default: 'orange',
 			},
+			isGrid: {
+				type: 'boolean',
+				default: false,
+			},
 		};
 		return {
 			...settings,
@@ -66,12 +70,17 @@ const listWithDescriptionListControls = createHigherOrderComponent( ( BlockEdit 
 				colorPalette: editorSettings.colors,
 			};
 		} );
-		const { hasDescriptionListMarker } = props.attributes;
+		const { hasDescriptionListMarker, isGrid } = props.attributes;
 		const { setAttributes } = props;
 		return (
 			<>
 				<BlockEdit { ...props } />
 				<InspectorAdvancedControls>
+					<PanelRow>
+						<div>
+							<ToggleControl label="Display as grid" checked={ isGrid } onChange={ ( val ) => setAttributes( { isGrid: val } ) } />
+						</div>
+					</PanelRow>
 					<PanelRow>
 						<div>
 							<ToggleControl label="Use description list markers" checked={ hasDescriptionListMarker } onChange={ ( val ) => setAttributes( { hasDescriptionListMarker: val } ) } />
@@ -98,9 +107,15 @@ addFilter(
 const addListDescriptionListAttributes = createHigherOrderComponent( ( BlockListBlock ) => {
 	return ( props ) => {
 		const { attributes } = props;
-		const { hasDescriptionListMarker, markerColor } = attributes;
-		const listClass = hasDescriptionListMarker ? `description-list ${ markerColor }-markers` : '';
-		return <BlockListBlock { ...props } className={ listClass } />;
+		const { hasDescriptionListMarker, markerColor, isGrid } = attributes;
+
+		const listClasses = classnames( {
+			'description-list': hasDescriptionListMarker,
+			[ `${ markerColor }-markers` ]: hasDescriptionListMarker,
+			'row row-cols-md-3 g-3': isGrid,
+		} );
+
+		return <BlockListBlock { ...props } className={ listClasses } />;
 	};
 } );
 
@@ -112,11 +127,12 @@ addFilter(
 
 function addListClasses( props, blockType, attributes ) {
 	if ( blockType.name === 'core/list' ) {
-		const { hasDescriptionListMarker, markerColor } = attributes;
+		const { hasDescriptionListMarker, markerColor, isGrid } = attributes;
 
 		const listClasses = classnames( {
 			'description-list': hasDescriptionListMarker,
 			[ `${ markerColor }-markers` ]: hasDescriptionListMarker,
+			'row row-cols-md-3': isGrid,
 		} );
 		return Object.assign( {}, props, { className: listClasses } );
 	}
