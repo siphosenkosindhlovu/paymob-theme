@@ -6,8 +6,19 @@ import './page-header';
 import './page-section';
 import './payment-points';
 import './recent-posts';
+import classnames from 'classnames';
 
+const { useSelect } = wp.data;
 const { registerBlockStyle } = wp.blocks;
+const { addFilter } = wp.hooks;
+const { createHigherOrderComponent } = wp.compose;
+const {
+	InspectorAdvancedControls,
+	ColorPalette,
+	getColorObjectByColorValue,
+} = wp.blockEditor;
+const { PanelBody, PanelRow, ToggleControl } = wp.components;
+const lodash = lodash;
 
 registerBlockStyle( 'core/button', {
 	name: 'link-button',
@@ -19,3 +30,101 @@ registerBlockStyle( 'core/button', {
 	label: 'Primary Button',
 } );
 
+function addDescriptionListAttributes( settings, name ) {
+	if ( name === 'core/list' ) {
+		const { attributes } = settings;
+		const descriptionListAttributes = {
+			hasDescriptionListMarker: {
+				type: 'boolean',
+				default: false,
+			},
+			markerColor: {
+				type: 'string',
+				default: 'orange',
+			},
+		};
+		return {
+			...settings,
+			attributes: {
+				...attributes,
+				...descriptionListAttributes,
+			},
+		};
+	}
+	return settings;
+}
+
+addFilter( 'blocks.registerBlockType', 'paymob/add-description-list-atttributes', addDescriptionListAttributes );
+
+const listWithDescriptionListControls = createHigherOrderComponent( ( BlockEdit ) => {
+	return ( props ) => {
+		const {
+			colorPalette,
+		} = useSelect( ( select ) => {
+			const editorSettings = select( 'core/block-editor' ).getSettings();
+			return {
+				colorPalette: editorSettings.colors,
+			};
+		} );
+		const { hasDescriptionListMarker } = props.attributes;
+		const { setAttributes } = props;
+		return (
+			<>
+				<BlockEdit { ...props } />
+				<InspectorAdvancedControls>
+					<PanelRow>
+						<div>
+							<ToggleControl label="Use description list markers" checked={ hasDescriptionListMarker } onChange={ ( val ) => setAttributes( { hasDescriptionListMarker: val } ) } />
+						</div>
+					</PanelRow>
+					<PanelRow>
+						<div>
+							<p>Marker Color</p>
+							<ColorPalette colors={ colorPalette } onChange={ ( val ) => setAttributes( { markerColor: getColorObjectByColorValue( colorPalette, val ).slug } ) } />
+						</div>
+					</PanelRow>
+				</InspectorAdvancedControls>
+			</>
+		);
+	};
+} );
+
+addFilter(
+	'editor.BlockEdit',
+	'paymob/list-with-description-list-controls',
+	listWithDescriptionListControls,
+);
+
+const addListDescriptionListAttributes = createHigherOrderComponent( ( BlockListBlock ) => {
+	return ( props ) => {
+		const { attributes } = props;
+		const { hasDescriptionListMarker, markerColor } = attributes;
+		const listClass = hasDescriptionListMarker ? `description-list ${ markerColor }-markers` : '';
+		return <BlockListBlock { ...props } className={ listClass } />;
+	};
+} );
+
+addFilter(
+	'editor.BlockListBlock',
+	'paymob/add-description-list-attributes',
+	addListDescriptionListAttributes,
+);
+
+function addListClasses( props, blockType, attributes ) {
+	if ( blockType.name === 'core/list' ) {
+		const { hasDescriptionListMarker, markerColor } = attributes;
+
+		const listClasses = classnames( {
+			'description-list': hasDescriptionListMarker,
+			[ `${ markerColor }-markers` ]: hasDescriptionListMarker,
+		} );
+		return Object.assign( {}, props, { className: listClasses } );
+	}
+	return props;
+}
+
+wp.hooks.addFilter(
+	'blocks.getSaveContent.extraProps',
+	'paymob/add-list-classes',
+	addListClasses,
+);

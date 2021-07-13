@@ -43,6 +43,7 @@ function paymob_gutenberg_blocks()
       'wp-components', 
       'wp-element', 
       'wp-hooks', 
+      'wp-compose',
       'wp-server-side-render', 
       'lodash', 
       'wp-date'));

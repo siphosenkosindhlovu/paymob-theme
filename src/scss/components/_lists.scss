@@ -5,12 +5,13 @@
   margin: 0;
   .wp-block-paymob-description-list-item {
     padding-inline-start: calc(1em + 1.5rem);
-    dt, .wp-block-paymob-description-list-item-header  {
-      //margin-bottom: map-get($map: $spacers, $key: 5);
+    dt,
+    .wp-block-paymob-description-list-item-header {
       position: relative;
-      @include media-breakpoint-up(lg) {
-        //margin-bottom: map-get($map: $spacers, $key: 14);
-      }
+      //margin-bottom: map-get($map: $spacers, $key: 5);
+      // @include media-breakpoint-up(lg) {
+      //   //margin-bottom: map-get($map: $spacers, $key: 14);
+      // }
       &::before {
         content: " ";
         display: block;
@@ -24,7 +25,8 @@
         margin-top: -0.2em;
       }
     }
-    dd, .wp-block-paymob-description-list-item-body {
+    dd,
+    .wp-block-paymob-description-list-item-body {
       font-size: 1em;
     }
     @each $color, $value in $theme-colors {
@@ -60,6 +62,35 @@
       &:before {
         width: 30px;
         height: 30px;
+      }
+    }
+  }
+}
+
+.description-list {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+  li {
+    padding-inline-start: 1.5rem;
+    position: relative;
+    &::before {
+      content: " ";
+      display: block;
+      width: 1em;
+      height: 1em;
+      background: $orange;
+      border-radius: $border-radius-sm;
+      position: absolute;
+      left: 0;
+      transform: translateY(50%);
+      margin-top: -0.2em;
+    }
+  }
+  @each $slug, $value in $theme-colors {
+    &.#{$slug}-markers {
+      li::before {
+        background: $value;
       }
     }
   }

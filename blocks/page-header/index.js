@@ -16,13 +16,7 @@ registerBlockType( name, {
 	...rest,
 	edit: function Edit( { attributes, setAttributes } ) {
 		const { currentPost, featuredImage, colors } = useSelect( ( select ) => {
-			// // eslint-disable-next-line no-shadow
 			const settings = select( 'core/block-editor' ).getSettings();
-			console.log( settings );
-			// const featuredImageId = select( 'core/editor' ).getEditedPostAttribute( 'featured_media' );
-			// // eslint-disable-next-line no-shadow
-			// const featuredImageObj = select( 'core' ).getMedia( featuredImageId );
-			// //console.log( { props, currentPost, featuredImageObj } );
 			return {
 				colors: settings.colors,
 				currentPost: select( 'core/editor' ).getCurrentPost(),
@@ -54,7 +48,7 @@ registerBlockType( name, {
 			} );
 		}
 		function onColorChange( val ) {
-			const { slug , value } = getColorObjectByColorValue( colors, val );
+			const { slug, value } = getColorObjectByColorValue( colors, val );
 			console.log( slug );
 			setAttributes( {
 				titleColor: slug,
@@ -76,10 +70,12 @@ registerBlockType( name, {
 						</PanelBody>
 						<PanelBody title="Title Color Settings">
 							<PanelRow>
-								<label>
-									<p>Heading Color</p>
+								<div>
+									<label>
+										<p>Heading Color</p>
+									</label>
 									<ColorPalette disableCustomColors={ true } colors={ colors } onChange={ onColorChange } />
-								</label>
+								</div>
 							</PanelRow>
 						</PanelBody>
 					</InspectorControls>

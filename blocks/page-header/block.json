@@ -19,12 +19,5 @@
       "default": "navy"
     }
   },
-  "supports": {
-    "align": [
-      "left",
-      "right",
-      "center"
-    ]
-  },
   "editorScript": "paymob-blocks-js"
 }

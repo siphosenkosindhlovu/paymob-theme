@@ -4,7 +4,8 @@ const {
 	InspectorControls,
 	ColorPalette,
 	useBlockProps,
-	getColorObjectByColorValue } = wp.blockEditor;
+	getColorObjectByColorValue,
+} = wp.blockEditor;
 const { Fragment } = wp.element;
 const {
 	useDispatch,
@@ -32,15 +33,17 @@ export default function Edit( { setAttributes, clientId } ) {
 	const {
 		fontSizes, colorPalette, ...settings
 	} = useSelect( ( select ) => {
-		const settings = select( 'core/block-editor' ).getSettings();
+		const editorSettings = select( 'core/block-editor' ).getSettings();
 		return {
-			fontSizes: settings.fontSizes,
-			colorPalette: settings.colors,
-			...settings,
+			fontSizes: editorSettings.fontSizes,
+			colorPalette: editorSettings.colors,
+			...editorSettings,
 		};
 	} );
+	const blockChildren = useSelect( ( select ) => select( 'core/block-editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks );
+
 	const { updateBlockAttributes } = useDispatch( 'core/editor' );
-	const children = useSelect( ( select ) => select( 'core/block-editor' ).getBlocksByClientId( clientId )[ 0 ].innerBlocks );
+
 	function setChildrenAttributes( children, attributes ) {
 		children.forEach( function( child ) {
 			updateBlockAttributes( child.clientId, { ...attributes } );
@@ -48,24 +51,23 @@ export default function Edit( { setAttributes, clientId } ) {
 	}
 
 	function onChangeColor( color ) {
-		console.log( color );
 		if ( color ) {
 			const colorObject = getColorObjectByColorValue( settings.colors, color );
 			setAttributes( {
 				markerColor: colorObject.slug,
 			} );
-			setChildrenAttributes( children, {
+			setChildrenAttributes( blockChildren, {
 				markerColor: colorObject.slug,
 			} );
 		}
 	}
 	function onChangeHeadingFontSize( fontSize ) {
-		setChildrenAttributes( children, {
+		setChildrenAttributes( blockChildren, {
 			headingFontSize: fontSize,
 		} );
 	}
 	function onChangeDescriptionFontSize( fontSize ) {
-		setChildrenAttributes( children, {
+		setChildrenAttributes( blockChildren, {
 			descriptionFontSize: fontSize,
 		} );
 	}

@@ -23,7 +23,7 @@ function paymob_page_header_render_callback($block_attributes, $content)
   <div class="<?php echo $classnames ?>">
     <div class="row flex-column flex-lg-row align-items-lg-center">
       <div class="<?php echo implode(' ', $heading_classnames) ?> pt-lg-22">
-        <h1>
+        <h1 class="has-<?php echo $block_attributes['titleColor'] ?>-color" >
           <?php echo get_the_title($post) ?>
         </h1>
         <?php echo $content; ?>
