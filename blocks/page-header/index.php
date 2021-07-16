@@ -6,11 +6,16 @@ function paymob_page_header_render_callback($block_attributes, $content)
   $display_featured_image = $block_attributes['displayFeaturedImage'];
   $has_featured_image = null !== get_the_post_thumbnail_url($post);
   $align = $block_attributes['align'];
-  $classnames = array('page-banner', 'container', "text-{$align}");
+  $text_align = $align ? ( $align === 'right' ? 'end' : $align ) : 'start';
+  $image_align_full = $block_attributes['imageAlignFull'];
+  $classnames = array('page-banner', "text-{$align}");
+  $classnames[] = $image_align_full ? 'container-fluid' : 'container';
   $heading_classnames = [];
   $heading_classnames[] = $display_featured_image ? 'col-lg-6' : 'col-lg-12';
   $heading_classnames[] = 'align-self-stretch py-lg-22';
   $heading_classnames[] = 'py-lg-22';
+  $heading_classnames[] = $text_align;
+  $heading_classnames[] = $image_align_full ? 'container-lg-6' : 'col-lg-6';
   if (isset($display_featured_image) && true == $display_featured_image && $has_featured_image) {
     $classnames[] = 'justify-content-between';
   }

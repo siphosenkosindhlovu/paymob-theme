@@ -17,6 +17,10 @@
     "titleColor": {
       "type": "string",
       "default": "navy"
+    },
+    "imageAlign": {
+      "type": "string",
+      "default": "full"
     }
   },
   "editorScript": "paymob-blocks-js"

@@ -86,12 +86,15 @@ const listWithDescriptionListControls = createHigherOrderComponent( ( BlockEdit 
 							<ToggleControl label="Use description list markers" checked={ hasDescriptionListMarker } onChange={ ( val ) => setAttributes( { hasDescriptionListMarker: val } ) } />
 						</div>
 					</PanelRow>
-					<PanelRow>
-						<div>
-							<p>Marker Color</p>
-							<ColorPalette colors={ colorPalette } onChange={ ( val ) => setAttributes( { markerColor: getColorObjectByColorValue( colorPalette, val ).slug } ) } />
-						</div>
-					</PanelRow>
+					{
+						hasDescriptionListMarker &&
+						<PanelRow>
+							<div>
+								<p>Marker Color</p>
+								<ColorPalette disableCustomColors={ true } colors={ colorPalette } onChange={ ( val ) => setAttributes( { markerColor: getColorObjectByColorValue( colorPalette, val ).slug } ) } />
+							</div>
+						</PanelRow>
+					}
 				</InspectorAdvancedControls>
 			</>
 		);
