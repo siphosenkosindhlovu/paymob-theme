@@ -17,7 +17,7 @@ const {
 	ColorPalette,
 	getColorObjectByColorValue,
 } = wp.blockEditor;
-const { PanelBody, PanelRow, ToggleControl } = wp.components;
+const { PanelRow, ToggleControl } = wp.components;
 const lodash = lodash;
 
 registerBlockStyle( 'core/button', {

@@ -50,8 +50,7 @@ registerBlockType( name, {
 			} );
 		}
 		function onColorChange( val ) {
-			const { slug, value } = getColorObjectByColorValue( colors, val );
-			console.log( slug );
+			const { slug } = getColorObjectByColorValue( colors, val );
 			setAttributes( {
 				titleColor: slug,
 			} );
@@ -59,6 +58,7 @@ registerBlockType( name, {
 
 		function onHeadingAlignChange( val ) {
 			setAttributes( {
+				// eslint-disable-next-line no-nested-ternary
 				align: val ? val === 'right' ? 'end' : val : 'start',
 			} );
 		}
