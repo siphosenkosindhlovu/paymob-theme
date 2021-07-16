@@ -48,7 +48,7 @@ if (!function_exists('paymob_setup')) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support('post-thumbnails');
-		add_image_size('post-thumb-small', 380, 246, true);
+		add_image_size('small', 380, 246);
 		register_nav_menus(
 			array(
 				'top-middle' => esc_html__('Main Menu', 'paymob'),
