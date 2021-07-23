@@ -1,3 +1,4 @@
 .card {
   box-shadow: $box-shadow;
+  @extend mb-6;
 }

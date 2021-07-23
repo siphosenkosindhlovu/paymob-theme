@@ -18,6 +18,10 @@
       "type": "string",
       "default": "navy"
     },
+    "titleFontSize": {
+      "type": "number",
+      "default": 64
+    },
     "imageAlign": {
       "type": "string",
       "default": "full"

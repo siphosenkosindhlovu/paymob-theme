@@ -1,3 +1,10 @@
+.container-narrow {
+    @extend .container
+}
+.container-narrower {
+    @extend .container
+}
+
 $fractions-of-12: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
 @each $breakpoint, $container-max-width in $container-max-widths {
     @include media-breakpoint-up($breakpoint) {
@@ -23,6 +30,14 @@ $fractions-of-12: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
                                     #{((($fraction - 6) / 12) * 100)}#{"%"}
                             );
                         }
+                    }
+                }
+                @if ($breakpoint == 'lg') {
+                    .container-narrow {
+                        max-width: calc(#{$container-max-width} * 0.8)
+                    }
+                    .container-narrower {
+                        max-width: calc(#{$container-max-width} * 0.6)
                     }
                 }
                 @if ($breakpoint == $name) {

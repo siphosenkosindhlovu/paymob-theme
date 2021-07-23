@@ -5,7 +5,7 @@ const { InnerBlocks, useBlockProps, InspectorControls, RichText, ColorPalette,
 	getColorObjectByColorValue, BlockControls, AlignmentToolbar } = wp.blockEditor;
 const { useSelect, useDispatch } = wp.data;
 const { Fragment } = wp.element;
-const { PanelBody, PanelRow, ToggleControl, Placeholder } = wp.components;
+const { PanelBody, PanelRow, ToggleControl, Placeholder, FontSizePicker } = wp.components;
 
 const TEMPLATE = [
 	[ 'core/paragraph', { textColor: 'orange', fontSize: 18, placeholder: 'Write the page subheader' } ],
@@ -15,17 +15,18 @@ const { name, ...rest } = metadata;
 registerBlockType( name, {
 	...rest,
 	edit: function Edit( { attributes, setAttributes } ) {
-		const { currentPost, featuredImage, colors } = useSelect( ( select ) => {
+		const { currentPost, featuredImage, colors, fontSizes } = useSelect( ( select ) => {
 			const settings = select( 'core/block-editor' ).getSettings();
 			return {
 				colors: settings.colors,
+				fontSizes: settings.fontSizes,
 				currentPost: select( 'core/editor' ).getCurrentPost(),
 				featuredImage: select( 'core' ).getMedia( select( 'core/editor' ).getEditedPostAttribute( 'featured_media' ) ),
 			};
 			// return { pageTitle: currentPost.title, currentPost, featuredImageTitle: featuredImageObj.title.rendered, featuredImageUrl: featuredImageObj };
 		} );
 
-		const { displayFeaturedImage, align, titleColor, imageAlignFull } = attributes;
+		const { displayFeaturedImage, align, titleColor, imageAlignFull, titleFontSize } = attributes;
 		const { editEntityRecord } = useDispatch( 'core', [ currentPost.title ] );
 
 		const classNames = classnames(
@@ -93,6 +94,13 @@ registerBlockType( name, {
 									<ColorPalette disableCustomColors={ true } colors={ colors } onChange={ onColorChange } />
 								</div>
 							</PanelRow>
+							<PanelRow>
+								<div>
+									<FontSizePicker value={ titleFontSize } fontSizes={ fontSizes } onChange={ ( val ) => {
+										setAttributes( { titleFontSize: val } );
+									} } />
+								</div>
+							</PanelRow>
 						</PanelBody>
 					</InspectorControls>
 					<BlockControls>
@@ -103,7 +111,7 @@ registerBlockType( name, {
 					</BlockControls>
 					<div className="row flex-column flex-lg-row">
 						<div className={ headingClassNames }>
-							<RichText tagName="h1" className={ `has-${ titleColor }-color` } style={ { fontSize: 36 } } value={ currentPost.title } onChange={ onTitleChange } placeholder="Add title" />
+							<RichText tagName="h1" className={ `has-${ titleColor }-color` } style={ { fontSize: titleFontSize } } value={ currentPost.title } onChange={ onTitleChange } placeholder="Add title" />
 							<InnerBlocks template={ TEMPLATE } />
 						</div>
 						{

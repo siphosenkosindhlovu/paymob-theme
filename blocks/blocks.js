@@ -6,6 +6,7 @@ import './page-header';
 import './page-section';
 import './payment-points';
 import './recent-posts';
+import './card';
 import classnames from 'classnames';
 
 const { useSelect } = wp.data;
@@ -75,27 +76,29 @@ const listWithDescriptionListControls = createHigherOrderComponent( ( BlockEdit 
 		return (
 			<>
 				<BlockEdit { ...props } />
-				<InspectorAdvancedControls>
-					<PanelRow>
-						<div>
-							<ToggleControl label="Display as grid" checked={ isGrid } onChange={ ( val ) => setAttributes( { isGrid: val } ) } />
-						</div>
-					</PanelRow>
-					<PanelRow>
-						<div>
-							<ToggleControl label="Use description list markers" checked={ hasDescriptionListMarker } onChange={ ( val ) => setAttributes( { hasDescriptionListMarker: val } ) } />
-						</div>
-					</PanelRow>
-					{
-						hasDescriptionListMarker &&
+				{ props.name === 'core/list' &&
+					<InspectorAdvancedControls>
 						<PanelRow>
 							<div>
-								<p>Marker Color</p>
-								<ColorPalette disableCustomColors={ true } colors={ colorPalette } onChange={ ( val ) => setAttributes( { markerColor: getColorObjectByColorValue( colorPalette, val ).slug } ) } />
+								<ToggleControl label="Display as grid" checked={ isGrid } onChange={ ( val ) => setAttributes( { isGrid: val } ) } />
 							</div>
 						</PanelRow>
-					}
-				</InspectorAdvancedControls>
+						<PanelRow>
+							<div>
+								<ToggleControl label="Use description list markers" checked={ hasDescriptionListMarker } onChange={ ( val ) => setAttributes( { hasDescriptionListMarker: val } ) } />
+							</div>
+						</PanelRow>
+						{
+							hasDescriptionListMarker &&
+							<PanelRow>
+								<div>
+									<p>Marker Color</p>
+									<ColorPalette disableCustomColors={ true } colors={ colorPalette } onChange={ ( val ) => setAttributes( { markerColor: getColorObjectByColorValue( colorPalette, val ).slug } ) } />
+								</div>
+							</PanelRow>
+						}
+					</InspectorAdvancedControls>
+				}
 			</>
 		);
 	};
