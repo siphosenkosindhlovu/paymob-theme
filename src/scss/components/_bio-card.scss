@@ -1,0 +1,11 @@
+.wp-block-profile-box {
+  &__image-wrapper {
+    flex: 1 0 auto;
+    .wp-block-image {
+      margin-bottom: .5rem;
+    }
+    @include media-breakpoint-up(md) {
+      flex: 1 0 auto
+    }
+  }
+}

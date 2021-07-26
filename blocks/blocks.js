@@ -7,6 +7,7 @@ import './page-section';
 import './payment-points';
 import './recent-posts';
 import './card';
+import './bio-card';
 import classnames from 'classnames';
 
 const { useSelect } = wp.data;

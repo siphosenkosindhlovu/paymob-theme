@@ -36,6 +36,8 @@ registerBlockType( 'paymob/card', {
 					<PanelBody title="Card Settings">
 						<PanelRow>
 							<RangeControl label="Border Radius" min={ 0 } max={ 99 } onChange={ ( val ) => setAttributes( { borderRadius: val } ) } />
+						</PanelRow>
+						<PanelRow>
 							<UnitControl value={ borderRadius } onChange={ ( val ) => console.log( val ) } />
 						</PanelRow>
 					</PanelBody>

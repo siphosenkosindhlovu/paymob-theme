@@ -25,6 +25,7 @@
 		"browser-sync": "^2.26.7",
 		"del": "^5.1.0",
 		"dir-archiver": "^1.1.1",
+		"gifsicle": "^5.2.0",
 		"gulp": "^4.0.2",
 		"gulp-clean-css": "^4.3.0",
 		"gulp-if": "^3.0.0",
@@ -55,7 +56,7 @@
 		"map": false
 	},
 	"scripts": {
-		"start": "gulp",
+		"start": "gulp --max_old_space_size=1500",
 		"build": "gulp build --prod",
 		"watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
 		"compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
