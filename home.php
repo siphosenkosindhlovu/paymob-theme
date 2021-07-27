@@ -42,9 +42,7 @@ get_header();
         ?>
     <?php
       endwhile;
-
-      the_posts_navigation();
-
+      paymob_numeric_posts_nav();
     else :
 
       get_template_part('template-parts/content', 'none');

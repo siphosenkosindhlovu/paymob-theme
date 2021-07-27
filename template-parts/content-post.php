@@ -18,23 +18,15 @@ if (!is_single()) :
         <?php endif; ?>
         <?php the_post_thumbnail(array(380, 246), array('class' => 'card-img-top ratio-16x9')); ?>
         <div class="card-body d-flex flex-column">
-          <h3 class="article-title fs-4">
-            <a href="<?php echo get_permalink(); ?>" class="stretched-link">
+          <h3 class="article-title fs-4 mb-0">
+            <a href="<?php echo get_permalink(); ?>" class="stretched-link fw-normal text-blue">
               <?php the_title(); ?>
             </a>
           </h3>
           <div class="card-text mt-auto">
             <div class="d-flex align-items-center">
-              <?php
-              $author_ID = get_the_author_meta('ID');
-              if (get_avatar_url($author_ID)) :
-              ?>
-                <img src="<?php echo get_avatar_url($author_ID); ?>" class="article-author-thumb-md rounded-circle">
-              <?php
-              endif;
-              ?>
-              <div class="fs-sm ms-4">
-                <div class="fw-bold"><?php the_author(); ?></div>
+              <div class="fs-sm">
+                <div><?php echo implode(', ', wp_get_post_categories(get_the_ID(), array('fields' => 'names'))); ?></div>
                 <div class="text-accent">
                   <?php the_date('F j, Y'); ?>
                 </div>

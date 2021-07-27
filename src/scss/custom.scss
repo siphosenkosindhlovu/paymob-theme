@@ -199,6 +199,10 @@ $utilities: map-merge(
   )
 );
 
+.btn {
+  color: $primary
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
 /* @import "../../node_modules/bootstrap/scss/reboot";  */ // Required
 /* @import "../../node_modules/bootstrap/scss/type";

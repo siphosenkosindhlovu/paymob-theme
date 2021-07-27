@@ -202,3 +202,17 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.screen-reader-text {
+  @extend .visually-hidden;
+}
+
+.navigation {
+  &__button {
+    a {
+      @extend .btn;
+      @extend .btn-accent;
+      @extend .mx-2
+    }
+  }
+}

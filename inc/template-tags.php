@@ -193,3 +193,47 @@ if ( !function_exists('paymob_theme_image_src')){
 		echo get_template_directory_uri() . $src;
 	}
 }
+
+function paymob_numeric_posts_nav() {
+ 
+	if( is_singular() )
+			return;
+
+	global $wp_query;
+
+	/** Stop execution if there's only 1 page */
+	if( $wp_query->max_num_pages <= 1 )
+			return;
+
+	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+	$max   = intval( $wp_query->max_num_pages );
+
+	/** Add current page to the array */
+	if ( $paged >= 1 )
+			$links[] = $paged;
+
+	/** Add the pages around the current page to the array */
+	if ( $paged >= 3 ) {
+			$links[] = $paged - 1;
+			$links[] = $paged - 2;
+	}
+
+	if ( ( $paged + 2 ) <= $max ) {
+			$links[] = $paged + 2;
+			$links[] = $paged + 1;
+	}
+
+	echo '<div class="navigation d-flex justify-content-center align-items-center my-4 w-100">' . "\n";
+
+	/** Previous Post Link */
+	if ( get_previous_posts_link() )
+			printf( '<div class="navigation__button">%s</div>' . "\n", get_previous_posts_link("Previous") );
+
+
+			printf( '<div>Page %s of %s </div>', $paged, $max );
+	/** Next Post Link */
+	if ( get_next_posts_link() )
+			printf( '<div class="navigation__button">%s</div>' . "\n", get_next_posts_link("Next") );
+
+	echo '</div>' . "\n";
+}
