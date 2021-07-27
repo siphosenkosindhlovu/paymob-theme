@@ -17,10 +17,13 @@ get_header();
 
     <header class="page-banner mb-10 mb-lg-14">
       <div class="my-5 my-lg-14">
-        <div>
+        <div class="text-center">
           <h1 class="page-title">
-            Paymob News
+            Paymob Blog
           </h1>
+          <p class="text-accent fs-2md">
+            Recent updates, trending news, business tips and advice from the Paymob team.
+          </p>
         </div>
       </div>
     </header>
