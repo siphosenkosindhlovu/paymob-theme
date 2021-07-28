@@ -9,6 +9,10 @@
     border-color: transparent
   }
 }
+.btn-primary {
+  color: $primary;
+  background-color: white;
+}
 
 .is-style-link-button {
   .wp-block-button__link {
@@ -36,8 +40,8 @@
 .is-style-primary-button {
   .wp-block-button__link {
     @extend .btn;
-    @extend .btn-primary;
-    color: $navy !important;
+    color: $primary;
+    background-color: white;
     &:focus {
       color: $blue !important 
     }

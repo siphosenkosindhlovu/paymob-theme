@@ -24,22 +24,8 @@ get_header();
 						<?php the_title(); ?>
 					</h1>
 					<div class="d-flex justify-content-center align-items-center">
-						<div class="d-flex align-items-center me-4">
-							<?php
-							$author_ID = get_the_author_meta('ID');
-							if (get_avatar_url($author_ID)) :
-							?>
-								<img src="<?php echo get_avatar_url($author_ID); ?>" class="article-author-thumb-sm rounded-circle me-2">
-							<?php
-							endif;
-							?>
-							<?php the_author(); ?>
-						</div>
-
-						<div class="bg-accent rounded-circle" style="width: 6px; height: 6px;"></div>
-
 						<div class="ms-4">
-							<div class="text-accent">
+							<div>
 								<?php the_date('F j, Y'); ?>
 							</div>
 						</div>
