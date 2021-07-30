@@ -34,20 +34,24 @@ add_action('init', 'paymob_gutenberg_block_patterns');
 function paymob_gutenberg_blocks()
 {
   wp_register_script(
-    'paymob-blocks-js', 
-    get_template_directory_uri() . '/dist/js/blocks.js', 
+    'paymob-blocks-js',
+    get_template_directory_uri() . '/dist/js/blocks.js',
     array(
-      'wp-blocks', 
-      'wp-block-library', 
-      'wp-editor', 
-      'wp-components', 
-      'wp-element', 
-      'wp-hooks', 
+      'wp-blocks',
+      'wp-block-library',
+      'wp-editor',
+      'wp-components',
+      'wp-element',
+      'wp-hooks',
       'wp-compose',
-      'wp-server-side-render', 
-      'lodash', 
-      'wp-date'));
-  wp_register_style('paymob-blocks-css', array(), array('paymob-main','wp-components'));
+      'wp-server-side-render',
+      'lodash',
+      'wp-date'
+    )
+  );
+  wp_register_style('paymob-blocks-css', array(), array(
+    'paymob-main', 'wp-components'
+  ));
   wp_enqueue_style('paymob-blocks-css');
   wp_enqueue_script('paymob-blocks-js');
 
@@ -86,16 +90,17 @@ function paymob_register_template()
 }
 add_action('init', 'paymob_register_template');
 
-function add_paymob_block_category( $block_categories, $editor_context ) {
-      array_push(
-          $block_categories,
-          array(
-              'slug'  => 'paymob',
-              'title' => __( 'Paymob Blocks', 'paymob' ),
-              'icon'  => null,
-          )
-      );
+function add_paymob_block_category($block_categories, $editor_context)
+{
+  array_push(
+    $block_categories,
+    array(
+      'slug'  => 'paymob',
+      'title' => __('Paymob Blocks', 'paymob'),
+      'icon'  => null,
+    )
+  );
   return $block_categories;
 }
 
-add_filter( 'block_categories_all', 'add_paymob_block_category', 10, 2 );
+add_filter('block_categories_all', 'add_paymob_block_category', 10, 2);

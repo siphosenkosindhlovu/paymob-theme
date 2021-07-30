@@ -51,9 +51,9 @@ registerBlockType( name, {
 									return (
 										<div className="col" key={ point.id }>
 											<div className="card rounded-3 p-0 mb-5 shadow-none" data-bs-toggle="modal" data-bs-target={ `#post-${ point.id }` } style={ { border: showBorders ? '4px dashed rgba(255, 255, 255, 0.5)' : 'none' } }>
-												{ point.image &&
-												<img src={ point.image.source_url } alt="" className="card-img rounded-3" height="160" />
-												}
+									
+												<img src={ point?.image?.source_url } alt="" className="card-img rounded-3" height="160" />
+												
 												<div className="d-flex justify-content-center">
 													<div className="fs-5">
 														{ point.title.rendered }

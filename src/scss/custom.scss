@@ -140,6 +140,7 @@ $card-border-color: transparent;
 $card-border-width: 0;
 $card-spacer-y: 1.5rem;
 $card-spacer-x: 1.875rem;
+$card-inner-border-radius:          subtract($card-border-radius, $card-border-width);
 
 $grid-breakpoints: map-merge(
   $grid-breakpoints,

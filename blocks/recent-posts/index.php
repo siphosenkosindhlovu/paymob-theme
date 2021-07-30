@@ -1,7 +1,7 @@
 <?php
 function paymob_latest_posts_render_callback($block_attributes, $content)
 {
-
+  $display_featured_image = $block_attributes["displayFeaturedImage"];
   $out = '';
   ob_start();
 ?>
@@ -18,10 +18,11 @@ function paymob_latest_posts_render_callback($block_attributes, $content)
     ?>
         <div class="mb-4">
           <article class="card h-100">
-            <?php if (get_the_post_thumbnail_url(null, 'full')) : ?>
-              <img src="<?php get_the_post_thumbnail_url(); ?>" alt="" class="card-img-top">
+            <?php if ($display_featured_image === true) : ?>
+              <div class="ratio ratio-16x9">
+                <?php the_post_thumbnail(array(380, 246), array('class' => 'card-img-top ratio ratio-16x9')); ?>
+              </div>
             <?php endif; ?>
-            <?php the_post_thumbnail(array(380, 246), array('class' => 'card-img-top ratio-16x9')); ?>
             <div class="card-body d-flex flex-column">
               <h3 class="article-title fs-4">
                 <a href="<?php echo get_permalink(); ?>" class="stretched-link fw-normal text-blue">
@@ -31,7 +32,7 @@ function paymob_latest_posts_render_callback($block_attributes, $content)
               <div class="card-text mt-auto">
                 <div class="d-flex align-items-center">
                   <div class="fs-sm">
-                    <div><?php echo implode(', ', wp_get_post_categories( get_the_ID(), array('fields' => 'names'))); ?></div>
+                    <div><?php echo implode(', ', wp_get_post_categories(get_the_ID(), array('fields' => 'names'))); ?></div>
                     <div class="text-accent">
                       <?php the_date('F j, Y'); ?>
                     </div>
