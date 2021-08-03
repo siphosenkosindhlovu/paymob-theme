@@ -2,7 +2,7 @@
 
 /**
  * Template Name: Blank Page
- *
+ * Template Post Type: post, page, solutions, industry_sectors
  * @package WordPress
  */
 
