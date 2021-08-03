@@ -170,7 +170,7 @@ form {
 
 @each $slug, $value in $theme-colors{
   .has-#{$slug}-color {
-    color: $value;
+    color: $value !important;
   }
 }
 

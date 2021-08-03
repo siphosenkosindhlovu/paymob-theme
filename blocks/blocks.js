@@ -32,6 +32,14 @@ registerBlockStyle( 'core/button', {
 	label: 'Primary Button',
 } );
 
+registerBlockStyle( 'core/button', {
+	name: 'fat-button',
+	label: 'Card Button',
+	attributes: {
+		textColor: '#222222',
+	},
+} );
+
 function addDescriptionListAttributes( settings, name ) {
 	if ( name === 'core/list' ) {
 		const { attributes } = settings;

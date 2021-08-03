@@ -50,3 +50,19 @@
     }
   }
 }
+
+.is-style-fat-button {
+  .wp-block-button__link {
+    @extend .card;
+    @extend .px-4;
+    @extend .py-8;
+    color: $primary;
+    transition: all 0.3s ease;
+    &:hover {
+      color: $orange;
+    }
+    &:active {
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    }
+  }
+}

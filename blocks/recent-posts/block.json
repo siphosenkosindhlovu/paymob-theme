@@ -25,6 +25,10 @@
     "showAsList": {
       "type": "boolean",
       "default": false
+    },
+    "postTypeToShow": {
+      "type": "string",
+      "default": "post"
     }
   }
 }

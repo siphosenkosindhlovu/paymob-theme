@@ -11,71 +11,18 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="page-banner">
-		<div class="d-flex flex-column-reverse flex-lg-row-reverse justify-content-between">
-			<div class="col-lg-6 d-flex justify-content-start justify-content-lg-end z-index-negative">
-				<?php paymob_post_thumbnail(); ?>
-			</div>
-			<div class="container-lg-1 m-0 p-0"></div>
-			<div class="container container-lg-5 my-5 my-lg-14 me-lg-0 d-flex align-items-center">
-				<div>
-
-					<?php the_title('<h1>', '</h1>'); ?>
-					<?php
-					if (get_field('page_subtitle')) :
-					?>
-						<p class="text-accent fs-md fw-bold">
-							<?php the_field('page_subtitle'); ?>
-						</p>
-					<?php
-					endif;
-					?>
-					<?php
-					if (get_field('leading_paragraph')) :
-						the_field('leading_paragraph');
-					endif;
-					?>
-
-				</div>
-			</div>
-		</div>
-	</header>
 
 	<div class="entry-content">
 		<?php
 		the_content();
-		if (have_rows('flexible_content')) :
-			while (have_rows('flexible_content')) : the_row();
-				get_template_part('template-parts/modules/' . get_row_layout());
-			endwhile;
-		endif;
 
 		if (have_rows('feature_block')) :
 			while (have_rows('feature_block')) : the_row();
-				if (get_row_layout() === "key_feature") :
-					$features =  get_sub_field("key_feature_inner");
-					//var_dump($features);
-		?>
-					<div class="page-section key-features">
-						<div class="container w-lg-75">
-							<div class="row align-items-center">
-								<div class="col-md-6">
-									<h2><?php echo $features['key_feature_heading']; ?></h2>
-									<p><?php echo $features['key_feature_desc']; ?></p>
-								</div>
-								<div class="col-md-6 text-center">
-									<img class="img-fluid" src="<?php echo wp_get_attachment_image_url($features['key_feature_img']['ID'], 'medium') ?>" alt="<?php $features['key_feature_img']['alt'] ?>" />
-								</div>
-							</div>
-						</div>
-					</div>
-				<?php
-				endif;
 				if ((get_row_layout() == "spec_list") || (get_row_layout() == "specifications_list")) : ?>
-					<div class="page-section spec_list container"><?php
-																												$specs = ((get_row_layout() == "spec_list")) ? get_sub_field("spec_items") : get_sub_field("specification_list_items");
-
-																												?>
+					<div class="page-section spec_list container">
+						<?php
+						$specs = ((get_row_layout() == "spec_list")) ? get_sub_field("spec_items") : get_sub_field("specification_list_items");
+						?>
 
 						<h2 class="w-lg-75">
 							<?php
@@ -85,7 +32,7 @@
 						<?php
 						$specs = $specs['spec_items'] ? $specs['spec_items'] : $specs;
 						if ($specs) : ?>
-							<ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 list-description"> <?php
+							<ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 description-list"> <?php
 																																												foreach ($specs as $spec => $spec_item) :
 																																												?>
 									<?php $spec = $spec_item['spec_item']; ?>
@@ -96,17 +43,15 @@
 											</dt>
 											<dd>
 												<?php
-																																													if ($spec["spec_list"]) :
-																																														echo "<ul class='list-unstyled'>";
-																																														foreach ($spec["spec_list"] as $spec_item) :
+														if ($spec["spec_list"]) :
+														echo "<div>";
+														foreach ($spec["spec_list"] as $spec_item) :
 												?>
-									<li>
-										<?php echo $spec_item['spec_list_item']; ?>
-									</li>
-							<?php
-																																														endforeach;
-																																														echo "</ul>";
-																																													endif;
+																<?php echo $spec_item['spec_list_item']; ?>
+														</br>
+												<?php	endforeach;
+														echo "</div>";
+														endif;
 							?>
 							</dd>
 							</dl>
@@ -117,26 +62,6 @@
 							</ul>
 						<?php
 						endif; ?>
-					</div>
-				<?php
-				endif;
-				if (get_row_layout() == "text_block") :
-					$content = get_sub_field("rich_text");
-				?>
-					<div class="page-section bg-light two-cols">
-						<div class="container w-lg-75">
-							<?php echo $content; ?>
-						</div>
-					</div>
-				<?php
-				endif;
-				if (get_row_layout() == "image_block") :
-					$content = get_sub_field("image");
-				?>
-					<div class="page-section bg-light">
-						<div class="container points">
-							<?php echo $content; ?>
-						</div>
 					</div>
 				<?php
 				endif;
