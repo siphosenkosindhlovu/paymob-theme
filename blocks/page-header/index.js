@@ -9,7 +9,7 @@ const { PanelBody, PanelRow, ToggleControl, Placeholder, FontSizePicker } = wp.c
 
 const TEMPLATE = [
 	[ 'core/paragraph', { textColor: 'orange', fontSize: 18, placeholder: 'Write the page subheader' } ],
-	[ 'core/paragraph', {} ],
+	[ 'core/paragraph', { fontSize: 18 } ],
 ];
 const { name, ...rest } = metadata;
 registerBlockType( name, {
