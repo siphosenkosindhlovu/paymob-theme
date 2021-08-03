@@ -32,9 +32,10 @@
 						<?php
 						$specs = $specs['spec_items'] ? $specs['spec_items'] : $specs;
 						if ($specs) : ?>
-							<ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 description-list"> <?php
-																																												foreach ($specs as $spec => $spec_item) :
-																																												?>
+							<ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 description-list"> 
+								<?php
+									foreach ($specs as $spec => $spec_item) :
+								?>
 									<?php $spec = $spec_item['spec_item']; ?>
 									<li>
 										<dl>
@@ -53,9 +54,9 @@
 														echo "</div>";
 														endif;
 							?>
-							</dd>
-							</dl>
-							</li>
+										</dd>
+									</dl>
+								</li>
 						<?php
 																																												endforeach;
 						?>
