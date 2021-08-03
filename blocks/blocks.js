@@ -143,12 +143,13 @@ addFilter(
 function addListClasses( props, blockType, attributes ) {
 	if ( blockType.name === 'core/list' ) {
 		const { hasDescriptionListMarker, markerColor, isGrid } = attributes;
-
+		const { className } = props;
 		const listClasses = classnames( {
 			'description-list': hasDescriptionListMarker,
 			[ `${ markerColor }-markers` ]: hasDescriptionListMarker,
 			'row row-cols-md-3': isGrid,
-		} );
+		}, className );
+
 		return Object.assign( {}, props, { className: listClasses } );
 	}
 	return props;
