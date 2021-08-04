@@ -5,6 +5,7 @@
   margin: 0;
   .wp-block-paymob-description-list-item {
     padding-inline-start: calc(1em + 1.5rem);
+    margin-bottom: 1.25rem;
     dt,
     .wp-block-paymob-description-list-item-header {
       position: relative;
@@ -74,6 +75,7 @@
   li {
     padding-inline-start: 1.5rem;
     position: relative;
+    margin-bottom: 1.25rem;
     &::before {
       content: " ";
       display: block;

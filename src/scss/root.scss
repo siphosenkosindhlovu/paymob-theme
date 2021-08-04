@@ -180,6 +180,9 @@ form {
   }
 }
 
+.has-magnifier {
+  position: relative
+}
 .img-magnifier-container {
   position: relative;
 }
@@ -213,6 +216,17 @@ img {
       @extend .btn;
       @extend .btn-accent;
       @extend .mx-2
+    }
+  }
+}
+
+.wp-block {
+  &-media-text {
+    &__content {
+      padding: {
+        left: 0;
+        right: 0;
+      }
     }
   }
 }

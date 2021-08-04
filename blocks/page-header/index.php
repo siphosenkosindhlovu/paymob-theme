@@ -7,7 +7,7 @@ function paymob_page_header_render_callback($block_attributes, $content)
   $has_featured_image = null !== get_the_post_thumbnail_url($post);
   $align = $block_attributes['align'];
   $text_align = $align ? ( $align === 'right' ? 'end' : $align ) : 'start';
-  $image_align_full = $block_attributes['imageAlignFull'];
+  $image_align_full = $block_attributes['imageAlign'];
   $classnames = array('page-banner', "text-{$align}");
   $classnames[] = $image_align_full ? 'container-fluid' : 'container';
   $heading_classnames = [];

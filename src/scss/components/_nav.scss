@@ -116,6 +116,9 @@
     }
     & > .nav-link {
       @extend .dropdown-toggle;
+      &:after {
+        display: none !important;
+      }
     }
     & .sub-menu {
       @extend .dropdown-menu;
