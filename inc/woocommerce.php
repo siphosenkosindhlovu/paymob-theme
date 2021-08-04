@@ -25,15 +25,15 @@ function paymob_woocommerce_setup() {
 			'product_grid'          => array(
 				'default_rows'    => 3,
 				'min_rows'        => 1,
-				'default_columns' => 4,
+				'default_columns' => 1,
 				'min_columns'     => 1,
-				'max_columns'     => 6,
+				'max_columns'     => 2,
 			),
 		)
 	);
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
-	add_theme_support( 'wc-product-gallery-slider' );
+	// add_theme_support( 'wc-product-gallery-zoom' );
+	// add_theme_support( 'wc-product-gallery-lightbox' );
+	// add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'paymob_woocommerce_setup' );
 
