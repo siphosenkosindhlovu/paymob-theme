@@ -402,6 +402,17 @@ function paymob_widgets_init()
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Company description', 'paymob'),
+			'id'            => 'company-desc',
+			'description'   => esc_html__('Add widgets here.', 'paymob'),
+			'before_widget' => '<section id="%1$s" class="footer-widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="footer-widget-header">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action('widgets_init', 'paymob_widgets_init');
 

@@ -62,12 +62,7 @@ Modal
 					<a href="/contact" class="fw-bold text-accent fs-md text-decoration-none">Contact Sales <i class="fas fa-chevron-right"></i></a>
 				</div>
 				<div class="footer-company-info">
-					<div class="mb-5 mt-auto">
-						<?php echo the_custom_logo() ?>
-					</div>
-					<div class="fs-tiny lh-lg">
-						<?php echo get_theme_mod('paymob_company-desc') ?>
-					</div>
+					<?php dynamic_sidebar('company-desc') ?>
 				</div>
 
 			</div>
