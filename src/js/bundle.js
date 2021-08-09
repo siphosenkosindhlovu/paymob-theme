@@ -2,9 +2,11 @@
 // eslint-disable-next-line no-unused-vars
 import { Dropdown, Accordion, Modal } from 'bootstrap';
 window.addEventListener( 'load', function( ) {
+	feather.replace();
+
 	const images = document.querySelectorAll( '.has-magnifier img' );
 	Array.prototype.forEach.call( images, ( image ) => {
-		console.log(image);
+		console.log( image );
 		magnify( image, 3 );
 	} );
 } );

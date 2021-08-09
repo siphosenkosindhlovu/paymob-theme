@@ -411,14 +411,14 @@ add_action('widgets_init', 'paymob_widgets_init');
 function paymob_scripts()
 {
 	wp_enqueue_style('mailchimp', '//cdn-images.mailchimp.com/embedcode/classic-10_7.css', array(), PAYMOB_VERSION);
+	wp_enqueue_script('feather-icons', "https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js");
 	wp_enqueue_style('paymob-style', get_stylesheet_uri(), array(), PAYMOB_VERSION);
 	wp_register_style('paymob-main', get_template_directory_uri() . '/dist/css/style.css', array(), PAYMOB_VERSION);
 	wp_enqueue_style('paymob-main');
 	wp_style_add_data('paymob-style', 'rtl', 'replace');
 
 	wp_enqueue_script('paymob-navigation', get_template_directory_uri() . '/js/navigation.js', array(), PAYMOB_VERSION, true);
-	wp_enqueue_script('paymob-main', get_template_directory_uri() . '/dist/js/bundle.js', array(), PAYMOB_VERSION, true);
-
+	wp_enqueue_script('paymob-main', get_template_directory_uri() . '/dist/js/bundle.js', array('feather-icons'), PAYMOB_VERSION, true);
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
