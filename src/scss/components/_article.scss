@@ -26,3 +26,18 @@
     }
   }
 }
+
+.sticky-article {
+  .wp-post-image {
+    border-top-left-radius: 1.25rem;
+    border-top-right-radius: 1.25rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @include media-breakpoint-up(md) {
+      border-top-left-radius: 1.25rem;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 1.25rem;
+    }
+  }
+}
